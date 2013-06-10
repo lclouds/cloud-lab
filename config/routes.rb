@@ -1,4 +1,9 @@
 CloudLab::Application.routes.draw do
+  resources :teachers
+
+
+  get "myctr01/fn01"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
