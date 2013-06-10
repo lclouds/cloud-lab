@@ -3,3 +3,30 @@
 
 en:
   hello: "Hello world"
+
+  teachers:
+    new:
+      title:  "Creating Teacher"
+      back: "Back"
+    edit:
+      title:  "Editing Teacher"
+      back: "Back"
+    form:
+      last_name: "Last Name"
+      first_name: "First Name"
+      alias_name: "Alias Name"
+      valid_certificate: "Valid Certificate"
+      valid_certificate_no: "Valid Certificate No"
+      regist_name: "Regist Name"
+      pwd: "PWD"
+      image_url: "Image URL"
+      telephone: "Telephone"
+      mobile: "Mobile"
+      address: "Address"
+      postcode: "Postcode"
+      title: "Title"
+      position: "Position"
+      resume: "Resume"
+      comment: "Comment"
+      commit: "Commit"
+      back: "Back"

@@ -1,5 +1,6 @@
-<h1>New teacher</h1>
-
+<table width="800px" align="center"><tr><td>
+<h1><%= t('.title')%>
 <%= render 'form' %>
 
-<%= link_to 'Back', teachers_path %>
+<%= link_to t('.back'), teachers_path %>
+</td></tr></table>

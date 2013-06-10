@@ -1,6 +1,11 @@
-<h1>Editing teacher</h1>
+<table width="800px" align="center"><tr><td>
+	
+<h1><%= t('.title')%></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @teacher %> |
-<%= link_to 'Back', teachers_path %>
+
+<%= link_to  t('.back'), teachers_path %>
+
+
+</td></tr></table>

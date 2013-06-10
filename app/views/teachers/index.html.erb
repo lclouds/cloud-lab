@@ -2,14 +2,19 @@
 
 <table>
   <tr>
-    <th>Regist name</th>
-    <th>Last name</th>
+    <th><%= t('.last_name')%></th>
     <th>First name</th>
+    <th>Alias name</th>
+    <th>Valid certificate</th>
+    <th>Valid certificate no</th>
     <th>Email</th>
     <th>Telephone</th>
     <th>Mobile</th>
     <th>Address</th>
-    <th>String</th>
+    <th>Postcode</th>
+    <th>Title</th>
+    <th>Position</th>
+    <th>Regist name</th>
     <th>Pwd</th>
     <th></th>
     <th></th>
@@ -18,14 +23,19 @@
 
 <% @teachers.each do |teacher| %>
   <tr>
-    <td><%= teacher.regist_name %></td>
-    <td><%= teacher.last_name %></td>
+    <td><% if(teacher.deleted==1) %>  * <% end  %><%= teacher.last_name %></td>
     <td><%= teacher.first_name %></td>
+    <td><%= teacher.alias_name %></td>
+    <td><%= teacher.valid_certificate %></td>
+    <td><%= teacher.valid_certificate_no %></td>
     <td><%= teacher.email %></td>
     <td><%= teacher.telephone %></td>
     <td><%= teacher.mobile %></td>
     <td><%= teacher.address %></td>
-    <td><%= teacher.string %></td>
+    <td><%= teacher.postcode %></td>
+    <td><%= teacher.title %></td>
+    <td><%= teacher.position %></td>
+    <td><%= teacher.regist_name %></td>
     <td><%= teacher.pwd %></td>
     <td><%= link_to 'Show', teacher %></td>
     <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>

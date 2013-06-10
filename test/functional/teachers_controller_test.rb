@@ -18,7 +18,7 @@ class TeachersControllerTest < ActionController::TestCase
 
   test "should create teacher" do
     assert_difference('Teacher.count') do
-      post :create, teacher: { address: @teacher.address, email: @teacher.email, first_name: @teacher.first_name, last_name: @teacher.last_name, mobile: @teacher.mobile, pwd: @teacher.pwd, regist_name: @teacher.regist_name, string: @teacher.string, telephone: @teacher.telephone }
+      post :create, teacher: { address: @teacher.address, alias_name: @teacher.alias_name, comment: @teacher.comment, deleted: @teacher.deleted, email: @teacher.email, first_name: @teacher.first_name, image_url: @teacher.image_url, last_name: @teacher.last_name, mobile: @teacher.mobile, position: @teacher.position, postcode: @teacher.postcode, pwd: @teacher.pwd, regist_name: @teacher.regist_name, resume: @teacher.resume, telephone: @teacher.telephone, title: @teacher.title, valid_certificate: @teacher.valid_certificate, valid_certificate_no: @teacher.valid_certificate_no }
     end
 
     assert_redirected_to teacher_path(assigns(:teacher))
@@ -35,7 +35,7 @@ class TeachersControllerTest < ActionController::TestCase
   end
 
   test "should update teacher" do
-    put :update, id: @teacher, teacher: { address: @teacher.address, email: @teacher.email, first_name: @teacher.first_name, last_name: @teacher.last_name, mobile: @teacher.mobile, pwd: @teacher.pwd, regist_name: @teacher.regist_name, string: @teacher.string, telephone: @teacher.telephone }
+    put :update, id: @teacher, teacher: { address: @teacher.address, alias_name: @teacher.alias_name, comment: @teacher.comment, deleted: @teacher.deleted, email: @teacher.email, first_name: @teacher.first_name, image_url: @teacher.image_url, last_name: @teacher.last_name, mobile: @teacher.mobile, position: @teacher.position, postcode: @teacher.postcode, pwd: @teacher.pwd, regist_name: @teacher.regist_name, resume: @teacher.resume, telephone: @teacher.telephone, title: @teacher.title, valid_certificate: @teacher.valid_certificate, valid_certificate_no: @teacher.valid_certificate_no }
     assert_redirected_to teacher_path(assigns(:teacher))
   end
 

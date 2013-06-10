@@ -1,23 +1,41 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  regist_name: MyString
   last_name: MyString
   first_name: MyString
+  alias_name: MyString
+  valid_certificate: MyString
+  valid_certificate_no: MyString
   email: MyString
   telephone: MyString
   mobile: MyString
   address: MyString
-  string: MyString
+  postcode: MyString
+  title: MyString
+  position: MyString
+  resume: MyString
+  image_url: MyString
+  regist_name: MyString
   pwd: MyString
+  comment: MyString
+  deleted: 
 
 two:
-  regist_name: MyString
   last_name: MyString
   first_name: MyString
+  alias_name: MyString
+  valid_certificate: MyString
+  valid_certificate_no: MyString
   email: MyString
   telephone: MyString
   mobile: MyString
   address: MyString
-  string: MyString
+  postcode: MyString
+  title: MyString
+  position: MyString
+  resume: MyString
+  image_url: MyString
+  regist_name: MyString
   pwd: MyString
+  comment: MyString
+  deleted: 
