@@ -1,4 +1,7 @@
 CloudLab::Application.routes.draw do
+  resources :courses
+
+
   scope '(:locale)' do
     resources :teachers
    
