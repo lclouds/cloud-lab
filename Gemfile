@@ -48,3 +48,7 @@ end
 
 # To use debugger
 # gem 'debugger'
+
+gem 'execjs'
+gem 'devise'
+gem 'therubyracer'
