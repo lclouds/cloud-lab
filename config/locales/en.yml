@@ -30,3 +30,8 @@ en:
       comment: "Comment"
       commit: "Commit"
       back: "Back"
+      
+  activerecord:
+    attributes:
+      user:
+        password digest: "Password"
