@@ -19,19 +19,24 @@ test:
   timeout: 5000
 
 production:
-  adapter: postgresql
-  encoding: utf8
-  database: cloud_lab_production
-  host: localhost
-  username: cloud_lab
-  password: password
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
   timeout: 5000
-  queue:
-    adapter: postgresql
-    encoding: utf8
-    database: cloud_lab_queue_production
-    host: localhost
-    username: cloud_lab
-    password: your_password
-    timeout: 5000
+  
+  # adapter: postgresql
+  # encoding: utf8
+  # database: cloud_lab_production
+  # host: localhost
+  # username: cloud_lab
+  # password: password
+  # timeout: 5000
+  # queue:
+    # adapter: postgresql
+    # encoding: utf8
+    # database: cloud_lab_queue_production
+    # host: localhost
+    # username: cloud_lab
+    # password: your_password
+    # timeout: 5000
 

@@ -1,8 +1,9 @@
 #encoding: utf-8
-I18n.default_locale = 'cn'
+I18n.default_locale = 'zh_CN'
+#LOCALES_DIRECTORY = "#{RAILS_ROOT}/config/locales/"
 
 
 LANGUAGES=[
   ['English','en'],
-  ['Chinese','cn']
+  ['Chinese','zh_CN']
 ]

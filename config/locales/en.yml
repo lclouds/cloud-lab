@@ -35,3 +35,15 @@ en:
     attributes:
       user:
         password digest: "Password"
+        
+
+  about: "About"
+  terms: "Terms"
+  contact: "Contact"
+  help: "Help"
+  blog: "Blog"
+  cloudlab: "Cloud Lab"
+  home: "Home"
+  news: "News"
+  sing_in: "Sign in"
+

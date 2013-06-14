@@ -1,13 +1,14 @@
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "diandiyun", root_path, id: "logo" %>
+      <%= link_to t('cloudlab'), root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "News", "#" %></li>
+          <li><%= link_to t('home'), root_path %></li>
+          <li><%= link_to t('news'), "#" %></li>
           <% if signed_in? %>
-            <li><%= link_to "Users", '#' %></li>
+            <li><%= link_to "Users", users_path %></li>
+            <li><%= link_to "Teachers", teachers_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
@@ -24,7 +25,7 @@
               </ul>
             </li>
           <% else %>
-            <li><%= link_to "Sign in", signin_path %></li>
+            <li><%= link_to t('sign_in'), signin_path %></li>
           <% end %>
         </ul>
       </nav>

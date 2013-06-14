@@ -1,7 +1,8 @@
-cn:
+zh_CN:
   layouts:
     application:
       title: "点滴云"
+      notice: ""
   teachers:
     new:
       title:  "新增教师资料"
@@ -32,3 +33,12 @@ cn:
       commit: "提交修改"
       
   
+  about: "关于我们"
+  terms: "条约"
+  contact: "联系我们"
+  help: "帮助"
+  blog: "博客"
+  cloudlab: "点滴云"
+  home: "首页"
+  news: "新闻"
+  sing_in: "登陆"
