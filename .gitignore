@@ -16,3 +16,6 @@ tmp
 .yardoc
 _yardoc
 doc/
+Gemfile.lock
+db/development.sqlite3
+log/development.log
