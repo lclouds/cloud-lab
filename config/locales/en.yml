@@ -5,6 +5,7 @@ en:
   hello: "Hello world"
 
   teachers:
+    teachers: "Teachers"
     new:
       title:  "Creating Teacher"
       back: "Back"
@@ -49,3 +50,9 @@ en:
   sign_up: "Sign up now!"
   welcome: "Welcome to Cloud Lab"
 
+  account: "Account"
+  profile: "Profile"
+  my_classes: "My Classes"
+  conversations: "Conversations"
+  setting: "Setting"
+  sign_out: "Sign out"

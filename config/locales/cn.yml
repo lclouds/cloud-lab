@@ -8,6 +8,7 @@ zh_CN:
     first_name: "名"
     
   teachers:
+    teachers: "教师"
     new:
       title:  "新增教师资料"
       back: "返回"
@@ -48,3 +49,10 @@ zh_CN:
   sign_in: "登陆"
   sign_up: "学生注册"
   welcome: "欢迎来到点滴云教育网站"
+
+  account: "帐号"
+  profile: "我的信息"
+  my_classes: "我的班级"
+  conversations: "站内消息"
+  setting: "设置"
+  sign_out: "退出"
