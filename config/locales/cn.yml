@@ -3,6 +3,10 @@ zh_CN:
     application:
       title: "点滴云"
       notice: ""
+  users:
+    first_name: "名"
+    first_name: "名"
+    
   teachers:
     new:
       title:  "新增教师资料"
@@ -41,4 +45,6 @@ zh_CN:
   cloudlab: "点滴云"
   home: "首页"
   news: "新闻"
-  sing_in: "登陆"
+  sign_in: "登陆"
+  sign_up: "学生注册"
+  welcome: "欢迎来到点滴云教育网站"

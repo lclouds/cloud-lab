@@ -45,5 +45,7 @@ en:
   cloudlab: "Cloud Lab"
   home: "Home"
   news: "News"
-  sing_in: "Sign in"
+  sign_in: "Sign in"
+  sign_up: "Sign up now!"
+  welcome: "Welcome to Cloud Lab"
 
