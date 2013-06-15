@@ -17,7 +17,7 @@
                 <li><%= link_to t('profile'), current_user %></li>
                 <li><%= link_to t('my_classes'), '#' %></li>
                 <li><%= link_to t('conversations'), '#' %></li>
-                <li><%= link_to t('setting'), '#' %></li>
+                <li><%= link_to t('setting'), edit_user_path(current_user) %></li>
                 <li class="divider"></li>
                 <li>
                   <%= link_to t('sign_out'), signout_path, method: "delete" %>
