@@ -1,5 +1,6 @@
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
+<hr>
 <table>
 <tr>
    <td>头像</td>
@@ -14,6 +15,7 @@
   <% end %>
 
 </table>
+<hr>
 <%=will_paginate(@users, :previous_label=>'上一页', :next_label=>'下一页', :separator=>" | ") %>
 
 
