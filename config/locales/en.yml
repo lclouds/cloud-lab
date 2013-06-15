@@ -5,6 +5,7 @@ en:
   hello: "Hello world"
 
   teachers:
+    teachers: "Teachers"
     new:
       title:  "Creating Teacher"
       back: "Back"
@@ -35,3 +36,23 @@ en:
     attributes:
       user:
         password digest: "Password"
+        
+
+  about: "About"
+  terms: "Terms"
+  contact: "Contact"
+  help: "Help"
+  blog: "Blog"
+  cloudlab: "Cloud Lab"
+  home: "Home"
+  news: "News"
+  sign_in: "Sign in"
+  sign_up: "Sign up now!"
+  welcome: "Welcome to Cloud Lab"
+
+  account: "Account"
+  profile: "Profile"
+  my_classes: "My Classes"
+  conversations: "Conversations"
+  setting: "Setting"
+  sign_out: "Sign out"

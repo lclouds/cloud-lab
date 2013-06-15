@@ -1,31 +1,31 @@
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "diandiyun", root_path, id: "logo" %>
+      <%= link_to t('cloudlab'), root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "News", "#" %></li>
+          <li><%= link_to t('home'), root_path %></li>
+          <li><%= link_to t('news'), "#" %></li>
           <% if signed_in? %>
             <li><%= link_to "Users", users_path %></li>
-            <li><%= link_to "Teachers", teachers_path %></li>
+            <li><%= link_to t('teachers.teachers'), teachers_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
+                <%= t 'account' %> <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">  
-                <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "My Classes", '#' %></li>
-                <li><%= link_to "Conversations", '#' %></li>
-                <li><%= link_to "Settings", '#' %></li>
+                <li><%= link_to t('profile'), current_user %></li>
+                <li><%= link_to t('my_classes'), '#' %></li>
+                <li><%= link_to t('conversations'), '#' %></li>
+                <li><%= link_to t('setting'), '#' %></li>
                 <li class="divider"></li>
                 <li>
-                  <%= link_to "Sign out", signout_path, method: "delete" %>
+                  <%= link_to t('sign_out'), signout_path, method: "delete" %>
                 </li>
               </ul>
             </li>
           <% else %>
-            <li><%= link_to "Sign in", signin_path %></li>
+            <li><%= link_to t('sign_in'), signin_path %></li>
           <% end %>
         </ul>
       </nav>

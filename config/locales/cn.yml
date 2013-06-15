@@ -1,8 +1,14 @@
-cn:
+zh_CN:
   layouts:
     application:
       title: "点滴云"
+      notice: ""
+  users:
+    first_name: "名"
+    first_name: "名"
+    
   teachers:
+    teachers: "教师"
     new:
       title:  "新增教师资料"
       back: "返回"
@@ -32,3 +38,21 @@ cn:
       commit: "提交修改"
       
   
+  about: "关于我们"
+  terms: "条约"
+  contact: "联系我们"
+  help: "帮助"
+  blog: "博客"
+  cloudlab: "点滴云"
+  home: "首页"
+  news: "新闻"
+  sign_in: "登陆"
+  sign_up: "学生注册"
+  welcome: "欢迎来到点滴云教育网站"
+
+  account: "帐号"
+  profile: "我的信息"
+  my_classes: "我的班级"
+  conversations: "站内消息"
+  setting: "设置"
+  sign_out: "退出"
