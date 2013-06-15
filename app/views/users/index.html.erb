@@ -1,25 +1,20 @@
-<h1>Listing users</h1>
-
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
 <table>
-  <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-<% @users.each do |user| %>
 <tr>
-    <td><%= user.first_name %></td>
-    <td><%= user.last_name %></td>
-    <td><%= user.email %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+   <td>头像</td>
+   <td>姓名</td>
+</tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= gravatar_for user, size: 52 %></td>
+      <td><%= link_to (user.first_name+user.last_name), user %></td>
+    </tr>
+  <% end %>
+
 </table>
+<%=will_paginate(@users, :previous_label=>'上一页', :next_label=>'下一页', :separator=>" | ") %>
 
 
 
