@@ -1,4 +1,4 @@
-<h1><%= t('.win_title')%></h1>
+<h1><%= t('.page_title')%></h1>
 
 <table cellPading='10px'>
   <tr>

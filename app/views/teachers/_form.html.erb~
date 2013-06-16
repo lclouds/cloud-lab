@@ -38,7 +38,7 @@
   </div>
   <div class="field">
     <%= t('.pwd') %><br />
-    <%= f.password_field :pwd %>
+    <%= f.text_field :pwd %>
   </div>
 </td>
 <td valign="top">

@@ -7,7 +7,6 @@ zh_CN:
     first_name: "姓"
     last_name: "名"
   teachers:
-    teachers: "教师"
     edit:
       title:  "教师资料修改"
       back: "返回"
@@ -15,7 +14,7 @@ zh_CN:
       title: "新增教师资料"
       back: "返回"
     index:
-      win_title: "教师列表"
+      win_title:"教师列表"
       first_name: "姓"
       last_name: "名"
       alias_name: "昵称"
