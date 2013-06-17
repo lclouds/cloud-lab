@@ -1,0 +1,33 @@
+<%= form_for(@clclass) do |f| %>
+  <% if @clclass.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@clclass.errors.count, "error") %> prohibited this clclass from being saved:</h2>
+
+      <ul>
+      <% @clclass.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :course_name %><br />
+    <%= f.text_field :course_name %>
+  </div>
+  <div class="field">
+    <%= f.label :teacher %><br />
+    <%= f.text_field :teacher %>
+  </div>
+  <div class="field">
+    <%= f.label :starting_date %><br />
+    <%= f.date_select :starting_date %>
+  </div>
+  <div class="field">
+    <%= f.label :class_description %><br />
+    <%= f.text_area :class_description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

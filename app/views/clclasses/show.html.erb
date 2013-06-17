@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<% if signed_in? %>
+<%= form_for @clclass, :url=>{:action=>"apply"} do |f| %>
+<%= f.submit("Apply") %>
+<% end %>
+<% else %>
+<%= button_to('Sign in to Apply',"/signin") %>
+<% end %>
+<p>
+  <b>Course Name:</b>
+  <%= @clclass.course_name %>
+</p>
+
+<p>
+  <b>Teacher:</b>
+  <%= @clclass.teacher %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @clclass.class_description %>
+</p>
+
+<p>
+  <b>Starting Date</b>
+  <%= @clclass.starting_date %>
+</p>
+
+<%= link_to 'Edit', edit_clclass_path(@clclass) %> |
+<%= link_to 'Back', clclasses_path %>
