@@ -13,7 +13,19 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation
+  attr_accessible :email, 
+                  :first_name, 
+                  :last_name, 
+                  :password, 
+                  :password_confirmation, 
+                  :teamrank, :reg_date, 
+                  :last_date, :language, 
+                  :age, 
+                  :gender, 
+                  :bio, 
+                  :courses, 
+                  :past_courses
+                  
   has_secure_password
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
