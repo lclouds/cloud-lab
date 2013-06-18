@@ -1,13 +1,81 @@
 <% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
+<body class='in-class'>
+<div class='' id='wrap'>
+<div id='main'>
+<div class='navbar' id='topNav'>
+<div class='navbar-container'>
+<div class='container non-course-navbar-container'>
+<div class='navbar subnav non-course'>
+<div class='navbar-inner'>
+<ul class='nav'>
+</li>
+</ul>
 
-<div class="row">
-  <div class="span6 offset3">
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class='container main-container'>
+<div class='content'>
+<div class='row'>
+<div class='span12'>
+<div class='alert alert-danger' id='browser-detect'></div>
+</div>
+</div>
+<noscript>
+<div class='alert alert-error'>
+警告:Javascript当前失效!为了确保你的信息是正确地保存,请在您的浏览器中启用Javascript.
+</div>
+</noscript>
+<script type='text/javascript'>
+  //<![CDATA[
+    function addFlashHolder(type, message) {
+      $('#flash-holder').html(
+        "<div class='alert alert-'" + type + ">" + message + "</div>"
+      );
+    }
+  //]]>
+</script>
+
+<div class='row'>
+<div class='row-fluid'>
+<div class='span12'>
+<h2 class='hidden-accessible'>
+编辑个人信息
+</h2>
+<div class='row-fluid tabbable tabs-left'>
+<div class='span3 tab-span'>
+<div class='well less-padding left-menu'>
+<ul class='nav nav-list'>
+<li class="active">
+<a data-toggle='tab' href='#item-1'>
+注册信息
+</a>
+</li>
+<li class="">
+<a data-toggle='tab' href='#item-2'>
+个人简介详情
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='span9'>
+<div class='white well'>
+<div class='tab-content'>
+<div id="item-1" class="tab-pane active">
+<h3>
+注册信息
+</h3>
+<br>
+
+<div class="row-fluid" >
+  <div class="span6 offset3" >
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
 
-      <%= gravatar_for @user %><br />
-       <a href="http://gravatar.com/emails">Upload Picture</a>
 
       <%= f.label :first_name %>
       <%= f.text_field :first_name %>
@@ -28,4 +96,405 @@
     <% end %>
 
   </div>
+</div>
+
+</div>
+<div id="item-2" class="tab-pane ">
+<h3>
+个人资料
+</h3>
+<br>
+<form accept-charset="UTF-8" action="https://www.venture-lab.org/save_profile" class="user_edit" id="details-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="rjvlcViaZ+QhcLxqSOMEWlxroVfsfhr8ZNH80y8R9JE=" /></div>
+<div class='error'></div>
+
+<noscript>
+<div class="alert alert-error"> 警告:Javascript当前失效!为了确保你的信息是正确地保存,请在您的浏览器中启用Javascript.</div>
+</noscript>
+<div class='row-fluid'>
+<div class='span12'>
+<label for = "searchLocationField"> 您住在哪里？输入城市名称，并从可用的选项中进行选择. </label>
+</div>
+</div>
+<div class='row-fluid'>
+<div class='span12'>
+<input type="hidden" name="country" id = "country">
+<input type="hidden" name="region" id = "region">
+<input type="hidden" name="city" id = "city">
+<input type="hidden" name="lat" id = "lat">
+<input type="hidden" name="lng" id = "lng">
+<input id="searchLocationField" name="user[location]" onchange="updatePositionAttr();" placeholder="输入国家, 省区, 城市" size="30" type="text" />
+<div class='note'>
+您的位置将将共享到您的个人资料里.
+</div>
+<input id="user_share_location" name="user[share_location]" type="hidden" value="true" />
+<br>
+</div>
+</div>
+<div class='row-fluid'>
+<div class='span12'>
+<label for = "language"> 您的主要语言是什么? </label>
+</div>
+</div>
+<div class='row-fluid'>
+<div class='span12'>
+<select aria-describedby="user_primary_language_error" aria-required="true" id="user_primary_language" name="user[primary_language]"><option value="">--选择--</option>
+<option value="Do not want to disclose">不想透漏</option>
+<option value="Afrikaans">南非</option>
+<option value="Albanian">阿尔巴尼亚 </option>
+<option value="Arabic">阿拉伯语</option>
+<option value="Armenian">亚美尼亚语</option>
+<option value="Azerbaijani">阿塞拜疆语</option>
+<option value="Basque">巴斯克语</option>
+<option value="Bengali">孟加拉语</option>
+<option value="Bosnian">波斯尼亚语 </option>
+<option value="Bulgarian">保加利亚语</option>
+<option value="Catalan">加泰罗尼亚语</option>
+<option value="Central Khmer">柬埔寨语</option>
+<option value="Chinese">国语</option>
+<option value="Croatian">克罗地亚语</option>
+<option value="Czech">捷克语</option>
+<option value="Danish">丹麦语</option>
+<option value="Dutch">荷兰语</option>
+<option value="English">英语</option>
+<option value="Estonian">爱沙尼亚语</option>
+<option value="Fijian">斐济语</option>
+<option value="Finnish">芬兰语</option>
+<option value="French">法语</option>
+<option value="Georgian">格鲁吉亚语</option>
+<option value="German">德语</option>
+<option value="Greek">希腊语</option>
+<option value="Gujarati">古吉拉特语</option>
+<option value="Hebrew">希伯来语</option>
+<option value="Hindi">北印度语</option>
+<option value="Hungarian">匈牙利语</option>
+<option value="Icelandic">冰岛语</option>
+<option value="Indonesian">印度尼西亚语</option>
+<option value="Irish">爱尔兰语</option>
+<option value="Italian">意大利语</option>
+<option value="Japanese">日语</option>
+<option value="Korean">韩语 </option>
+<option value="Latin">拉丁语</option>
+<option value="Latvian">拉脱维亚语</option>
+<option value="Lithuanian">立陶宛语</option>
+<option value="Macedonian">马其顿语</option>
+<option value="Malay">马来语</option>
+<option value="Malayalam">马拉雅拉姆语</option>
+<option value="Maltese">马耳他语</option>
+<option value="Maori">毛利语</option>
+<option value="Marathi">马拉地语</option>
+<option value="Mongolian">蒙古语</option>
+<option value="Nepali">尼泊尔语</option>
+<option value="Norwegian">挪威语</option>
+<option value="Panjabi">旁遮普语</option>
+<option value="Persian">波斯语</option>
+<option value="Polish">波兰语</option>
+<option value="Portuguese">葡萄牙语</option>
+<option value="Quechua">盖丘亚族</option>
+<option value="Romanian">罗马尼亚语</option>
+<option value="Russian">俄语</option>
+<option value="Samoan">萨摩亚语</option>
+<option value="Serbian">塞尔维亚语</option>
+<option value="Slovak">斯洛伐克语 </option>
+<option value="Slovenian">斯洛维尼亚语</option>
+<option value="Spanish">西班牙语</option>
+<option value="Swahili">斯瓦希里语</option>
+<option value="Swedish"> 瑞典语</option>
+<option value="Tamil">泰米尔语</option>
+<option value="Tatar">鞑靼语 </option>
+<option value="Telugu">泰卢固语</option>
+<option value="Thai">泰语 </option>
+<option value="Tibetan">藏族</option>
+<option value="Tonga (Tonga Islands)">汤加 (汤加群岛)</option>
+<option value="Turkish">土耳其语</option>
+<option value="Ukrainian">乌克兰语</option>
+<option value="Urdu">乌尔都语</option>
+<option value="Uzbek">乌兹别克语</option>
+<option value="Vietnamese">越南语</option>
+<option value="Welsh">威尔士语</option>
+<option value="Xhosa">科萨语</option></select>
+<div class='note'>
+您的主要语言将共享到个人资料里.
+</div>
+<input id="user_share_primary_language" name="user[share_primary_language]" type="hidden" value="true" />
+<br>
+</div>
+</div>
+<div class='row-fluid'>
+<div class='span12'>
+<label for = "age_range"> 请选择您的年龄范围。此信息将不会被更新共享. </label>
+</div>
+</div>
+<div class='row-fluid'>
+<div class='span12'>
+<select aria-describedby="user_age_range_error" aria-required="true" id="user_age_range" name="user[age_range]"><option value="">--选择--</option>
+<option value="18-20">18-20</option>
+<option value="21-25">21-25</option>
+<option value="26-30">26-30</option>
+<option value="31-35">31-35</option>
+<option value="36-40">36-40</option>
+<option value="41-45">41-45</option>
+<option value="46-50">46-50</option>
+<option value="over 50">超过 50</option>
+<option value="Do not want to disclose">不想透漏</option></select>
+</div>
+</div>
+<br>
+<div class='row-fluid'>
+<div class='span12'>
+<label for = "gender"> 请选择您的性别。此信息将不会被更新共享. </label>
+</div>
+</div>
+<div class='row-fluid'>
+<div class='span12'>
+<select aria-describedby="user_gender_error" aria-required="true" id="user_gender" name="user[gender]"><option value="">--选择--</option>
+<option value="Female">女性</option>
+<option value="Male">男性</option>
+<option value="Do not want to disclose">不想透漏</option></select>
+</div>
+</div>
+<br>
+<div class='row-fluid'>
+<div class='span12'>
+<label for = "bio"> 请输入您的个人经历信息. 这些信息将共享到您的个人资料里. </label>
+</div>
+</div>
+<div class='row-fluid'>
+<div class='span12'>
+<div class='margin-20'>
+<textarea id='user_bio' name='user[bio]' style='height:0px;'></textarea>
+<div id='flash-user_bio'></div>
+<script type='text/javascript'>
+  //<![CDATA[
+    CKEDITOR.replace('user_bio');
+    CKEDITOR.on('instanceReady', function(){
+      if(false)
+      {
+        CKEDITOR.instances["user_bio"].resize(100 , 350);
+      }
+    });
+  //]]>
+</script>
+
+</div>
+
+</div>
+</div>
+<div class='row-fluid'>
+<div class='span9'>
+<input class="btn btn-primary" id="form_submit" name="commit" type="submit" value="提交" />
+</div>
+</div>
+</form>
+<script src='https://maps.googleapis.com/maps/api/js?libraries=places&amp;sensor=true' type='text/javascript'></script>
+<script type='text/javascript'>
+  //<![CDATA[
+    function initLocationSearch(initLat, initLng) {
+    
+    var input = document.getElementById('searchLocationField');
+    var options = {
+    types: ['(cities)']
+    };
+    
+    var autocomplete = new google.maps.places.Autocomplete(input, options);
+    
+    
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+    
+    var place = autocomplete.getPlace();
+    var components = new properLocation(place.address_components);
+    components.calibrate();
+    var size = place.address_components.length
+    var city = components.city != "" ? components.city : place.address_components[0].long_name;
+    var region = components.region != "" ? components.region : place.address_components[size-2].long_name;
+    var country = components.country != "" ? components.country : place.address_components[size-1].long_name;
+    
+    
+    
+    
+    var lat = place.geometry.location.lat();
+    var lng = place.geometry.location.lng();
+    document.getElementById("country").value = country;
+    document.getElementById("region").value = region;
+    document.getElementById("city").value = city;
+    document.getElementById("lat").value = lat;
+    document.getElementById("lng").value = lng;
+    var field = city + ", " + region + ", " + country;
+    document.getElementById("searchLocationField").value = field;
+    });
+    }
+    
+    
+    function properLocation(components){
+      this.city = "";
+      this.region = "";
+      this.country = "";
+    
+      this.calibrate = function () {
+        for (i = 0; i < components.length; i ++){
+          if (components[i].types[0] == "locality"){
+            this.city = components[i].long_name; 
+          }
+          else if (components[i].types[0] == "administrative_area_level_1"){
+            this.region = components[i].long_name;
+          }
+          else if (components[i].types[0] == "country"){
+            this.country = components[i].long_name;
+          }
+        }
+    
+      }
+    
+    
+    }
+    
+    $(document).ready(function(){
+      $("#searchLocationField").keypress(function(e) {
+        if (e.which == 13) {
+          return false;
+        }
+      });
+      var userLocation = {"location":{"city":null,"country":null,"created_at":null,"geo_address":null,"id":null,"lat":null,"lng":null,"region":null,"updated_at":null,"users_count":0}}
+      var initCountry = "";
+      var initRegion = "";
+      var initCity = "";
+    
+      document.getElementById("country").value = initCountry;
+      document.getElementById("region").value = initRegion;
+      document.getElementById("city").value = initCity;
+    
+      var initLat = parseFloat("");
+      if (isNaN(initLat)){
+        initLat = 37.4225;
+      }
+      document.getElementById("lat").value = initLat;
+      var initLng = parseFloat("");
+      if (isNaN(initLng)){
+        initLng = -122.1653;
+      }
+      document.getElementById("lng").value = initLng;
+    
+    
+      var initField = "";
+      initField = initCity
+      if(initCity != "" && initRegion != ""){
+        initField = initField +", " + initRegion
+      }
+      if(initCountry != "" && initField != ""){
+         initField = initField +", "+initCountry;
+      }
+      if(initCountry != "" && initField == ""){
+        initField = initCountry;
+      }
+    
+      $("#searchLocationField").val(initField);
+      initLocationSearch(initLat, initLng);
+    });
+    
+    function updatePositionAttr(){    
+      document.getElementById("country").value = "";
+      document.getElementById("region").value = "";
+      document.getElementById("city").value = "";
+      document.getElementById("lat").value = 37.4225;
+      document.getElementById("lng").value = -122.1653;
+    
+    }
+  //]]>
+</script>
+
+
+<script type='text/javascript'>
+  //<![CDATA[
+    $(document).ready(function(){
+      $("#details-form").validate({
+    
+        rules: {
+          "user[location]": {
+            required: true,
+          },
+          "user[primary_language]": {
+            required: true,
+          },
+          "user[age_range]": {
+            required: true,
+          },
+          "user[gender]": {
+            required: true,
+          }
+        },
+        messages: {
+    
+        }
+      });
+      $("#user-registration").validate({
+    
+        rules: {
+          "user[current_password]": {
+            required: true,
+          }
+        },
+        messages: {
+    
+        }
+      });
+    
+    });
+  //]]>
+</script>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+<div class='container-fluid'>
+
+</div>
+<script type='text/javascript'>
+  //<![CDATA[
+    //Initialize high-contrast mode check when we have document.body
+    $(function() {
+      // create div for testing if high contrast mode is on or images are turned off
+      var div = document.createElement("div");
+      div.style.borderWidth = "1px";
+      div.style.borderStyle = "solid";
+      div.style.borderTopColor = "red";
+      div.style.borderRightColor = "green";
+      div.style.position = "absolute";
+      div.style.top = "-999px";
+      if ($.browser.msie && parseInt($.browser.version, 10) < 8) {
+          // No support for data urls. The ui-icon class will give it a background image.
+          // Proper caching should mean no additional requests will be made.
+          div.className = "ui-icon";
+      }
+      else {
+          div.style.backgroundImage = "url(data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAEBMgA7)";
+      }
+      $(document.body).append(div);
+    
+      // test it
+      var content = "Button bar accessible here!";
+      var bkImg = $.curCSS(div, "backgroundImage");
+      $.support.highContrast = ($.curCSS(div, "borderTopColor") == $.curCSS(div, "borderRightColor")) ||
+          (bkImg != null && (bkImg == "none" || bkImg == "url(invalid-url:)"));
+      if ($.support.highContrast) {
+          $("body").addClass("ui-high-contrast-helper");
+      }
+    
+      if ($.browser.msie) {
+          div.outerHTML = "";	 // prevent mixed-content warning, see http://support.microsoft.com/kb/925014
+      } else {
+          document.body.removeChild(div);
+      }
+    });
+  //]]>
+</script>
+</div>
+
 </div>

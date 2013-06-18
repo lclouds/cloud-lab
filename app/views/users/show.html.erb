@@ -1,13 +1,469 @@
 <% provide(:title, @user.first_name) %>
-<table>
-<tr>
-   <td>头像</td>
-   <td>姓名</td>
-   <td>邮箱</td><br />
-</tr>
-<tr>
-   <td><%= gravatar_for @user %></td>
+<hr />
+<div class='container main-container'>
+<div class='content'>
+<div class='row'>
+<div class='span12'>
+<div class='alert alert-danger' id='browser-detect'></div>
+</div>
+</div>
+<noscript>
+<div class='alert alert-error'>
+Alert: Javascript is currently disabled! In order to ensure that your information is properly saved, please enable Javascript in your browser
+</div>
+</noscript>
+<script type='text/javascript'>
+  //<![CDATA[
+    function addFlashHolder(type, message) {
+      $('#flash-holder').html(
+        "<div class='alert alert-'" + type + ">" + message + "</div>"
+      );
+    }
+  //]]>
+</script>
+
+<div class='row'>
+<script type='text/javascript'>
+  //<![CDATA[
+    $(document).ready(function() {
+      $('.expandable').expander({
+        slicePoint:       400,
+        expandText:       "More »",
+        userCollapseText: "« Less",
+      });
+    });
+  //]]>
+</script>
+<div class='span12'>
+<div class='well white'>
+<div class='profile-well tabbable'>
+<div class='row-fluid'>
+<div class='span3'>
+<!-- /To use this partial -->
+<!-- /@user must be set to owner -->
+<!-- /TODO Need Role helper here for general purpose -->
+<div class='left-side'>
+<!-- -if role -->
+<!-- .ribbon -->
+<!-- = role -->
+<!-- -elsif @course -->
+<!-- .ribbon -->
+<!-- Student -->
+<div class='profile-picture'>
+<div class='profile-pic-border'>
+<div class='pic' style='background-image:url(https://s3.amazonaws.com/venture-lab/thumb/6d2dd8e1060705d33003613e027e4bdd5a76e432.gif?1368169764)'></div>
+</div>
+<div class='modal hide fade in' id='picture-modal'>
+<div class='modal-header'>
+<a class="close" data-dismiss="modal" >&times;</a>
+<br>
+<h3>
+个人头像
+</h3>
+</div>
+<div class='modal-body'>
+<h4>
+从你的电脑上传照片
+</h4>
+<br>
+<div class='well'>
+<p>
+Your picture should be either a jpeg, jpg or png file, less than 5 MB in size.  Venture Lab
+uses ImageMagick to resize your profile picture and crop a 140 by 140 area from the center.
+So pictures that have you at the center will look best.
+</p>
+</div>
+<div>
+<form accept-charset="UTF-8" action="https://venture-lab.org/update_profile" class="user_edit" enctype="multipart/form-data" id="user_edit" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="lsQC/J9HJWG0zYqiAU77o4Ldt7im8ya9EW6fIVijWUY=" /></div>
+<label for="user_picture">头像</label>
+<input id="user_picture" name="user[picture]" type="file" />
+<input id="user_user" name="user[user]" type="hidden" value="172740" />
+<br>
+<input class="btn btn-primary" id="form_submit" name="commit" type="submit" value="Upload Picture" />
+</form>
+</div>
+</div>
+</div>
+
+<a href="#picture-modal" class="btn btn-mini btn-upload btn-primary" data-toggle="modal"><i class='icon-white icon-upload'><span class='hidden-accessible'> </span></i>上传图片</a>
+</div>
+
+<div class='name-group'>
+<h3 class='name-row'>
    <td><%= @user.first_name+@user.last_name %></td>
-   <td><%= @user.email %></td>
+</h3>
+<!-- %hr.little-hr -->
+<div class='role-row'>
+</div>
+</div>
+<div class='well menu'>
+<ul class='nav nav-list'>
+<li class='nav-header'>
+点滴云
+</li>
+<li class='active'>
+<a href='https://venture-lab.org/view_profile/172740'>
+<i class='icon-star'></i>
+个人资料
+</a>
+</li>
+<li class=''>
+<a href='https://venture-lab.org/view_profile/172740?tab=Class'>
+<div class='num badge'>
+5
+</div>
+<i class='icon-list-alt'></i>
+课程
+</a>
+</li>
+<li class=''>
+<a href='https://venture-lab.org/view_profile/172740?tab=Network'>
+<div class='num badge'>
+0
+</div>
+<i class='icon-user'></i>
+网络
+</a>
+</li>
+<li class=''>
+<a href='https://venture-lab.org/view_profile/172740?tab=Endorsement'>
+<div class='num badge'>
+0
+</div>
+<i class='icon-comment'></i>
+信息
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class='span9'>
+<div class='right-main-side'>
+<div class='tab-content'>
+<div class='tab-pane active' id='profile-home-tab'>
+<div class='pull-right'>
+<div class='btn-group'>
+<!-- /Contact/ Message -->
+<!-- /Edit User Profile -->
+<!--<a href="/users/edit" class="btn"><i class='icon-dark icon-edit'><span class='hidden-accessible'> </span></i>修改个人资料</a>-->
+<li class="btn"><i class='icon-dark icon-edit'><span class='hidden-accessible'> </span></i><%= link_to t('Eidt Profile'), edit_user_path(current_user) %></li>
+</div>
+</div>
+
+<div class='head'>
+<h2>
+   <td><%= @user.first_name+@user.last_name %></td>
+</h2>
+<div class='minor-detail'>
+<i class='icon-signal'></i>
+<span>
+On Venture Lab since <span class='detail-value'>about 1 month</span> ago, last activity <span class='detail-value'>21 minutes</span> ago.
+</span>
+</div>
+
+<!-- /Minor general detail -->
+<div class='minor-detail'>
+<span>
+<i class='icon-map-marker'></i>
+Lives in
+<span class='detail-value'>北京, 北京市, 中国</span>
+</span>
+<span>
+<i class='icon-headphones'></i>
+Speaks
+<span class='detail-value'>Chinese</span>
+</span>
+</div>
+
+</div>
+<!-- /Show Bio if have one or if the user is this user. -->
+<div class='bio-container'>
+<h3>个人简历</h3>
+<div class='expandable'>
+<!-- =simple_format BlueCloth.new(@user.bio).to_html.html_safe -->
+
+</div>
+</div>
+<hr class='little-hr full'>
+<!-- %hr.little-hr.full -->
+<!-- =render 'minor_gen_detail' -->
+<div class='latest-activity'>
+<h3>最近提交</h3>
+<ul class='activity-list'>
+<div id='min-list'>
+<div class='center'>
+<a class="btn" id="showAll" href="#full-list">展开</a>
+</div>
+</div>
+<div class='collapse' id='full-list'>
+<div class='center'>
+<a class="btn" id="showLess" href="#min-list">收缩</a>
+</div>
+</div>
+<script type='text/javascript'>
+  //<![CDATA[
+    $("#showAll").click(function(){
+      $("#full-list").collapse('show');
+      $("#min-list").collapse('hide');
+    });
+    $("#showLess").click(function(){
+      $("#full-list").collapse('hide');
+      $("#min-list").collapse('show');
+    });
+  //]]>
+</script>
+<i class='empty-placeholder'>陈还没开始做任何作业.</i>
+</ul>
+</div>
+
+<hr class='little-hr full'>
+<div class='detail'>
+<h3>社区活动</h3>
+<div class='row-fluid'>
+<div class='span12'>
+<div class='detail-row'>
+<i class='icon-check'>
+<span class='hidden-accessible'></span>
+</i>
+Initiated
+<span class='detail-value'>0</span>
+threads in the forum, posted
+<span class='detail-value'>0</span>
+replies, received
+<span class='detail-value'>0</span>
+votes.
+</div>
+<div class='detail-row'>
+<i class='icon-check'>
+<span class='hidden-accessible'></span>
+</i>
+Written
+<span class='detail-value'>0</span>
+peer Reviews.
+</div>
+</div>
+</div>
+</div>
+<hr class='little-hr full'>
+<div class='courses-taking'>
+<h3>当前课程</h3>
+<table class='table courses-table no-th'>
+<tr>
+<td class='instructor-pic'>
+<div>
+<img src='https://img.youtube.com/vi/yjyutgqoBLo/hqdefault.jpg'>
+</div>
+</td>
+<td>
+<h3 class='courseName'>
+<a href="/designthinking">Design Thinking Action Lab</a>
+</h3>
+<div class='rank-n-profile'>
+<span class='rank'>
+<!-- / input for this partial :locals{ :target_user_course => ..., :short=> true/false} -->
+<!-- = target_user_course -->
+<span class='team-rank-group'>
+<span class='rank-label'>
+Team Rank:
+</span>
+<span class='inline-block rank-stars'>
+<a href=''></a>
+<span class='hidden-accessible'>
+chen shuchuan's reputation: 0 stars out of 5
+</span>
+<img alt='' src='/images/empty_star.png' style='width:13px;margin-top:-5px;'>
+<img alt='' src='/images/empty_star.png' style='width:13px;margin-top:-5px;'>
+<img alt='' src='/images/empty_star.png' style='width:13px;margin-top:-5px;'>
+<img alt='' src='/images/empty_star.png' style='width:13px;margin-top:-5px;'>
+<img alt='' src='/images/empty_star.png' style='width:13px;margin-top:-5px;'>
+</span>
+</span>
+
+</span>
+</div>
+</td>
+<td class='see-profile-col'>
+<a class='btn' href='https://venture-lab.org/designthinking/view_profile/172740'>
+课程概要 &raquo;
+</a>
+</td>
 </tr>
+
+<tr>
+<td class='instructor-pic'>
+<div>
+<img src='https://img.youtube.com/vi/Hj03Cnbvt8s/hqdefault.jpg'>
+</div>
+</td>
+<td>
+<h3 class='courseName'>
+<a href="/venture2">Technology Entrepreneurship Part 2</a>
+</h3>
+<div class='rank-n-profile'>
+<span class='rank'>
+<!-- / input for this partial :locals{ :target_user_course => ..., :short=> true/false} -->
+<!-- = target_user_course -->
+<span class='team-rank-group'>
+<span class='rank-label'>
+Team Rank:
+</span>
+<span class='inline-block rank-stars'>
+<a href=''></a>
+<span class='hidden-accessible'>
+chen shuchuan's reputation: 0 stars out of 5
+</span>
+<img alt='' src='/images/empty_star.png' style='width:13px;margin-top:-5px;'>
+<img alt='' src='/images/empty_star.png' style='width:13px;margin-top:-5px;'>
+<img alt='' src='/images/empty_star.png' style='width:13px;margin-top:-5px;'>
+<img alt='' src='/images/empty_star.png' style='width:13px;margin-top:-5px;'>
+<img alt='' src='/images/empty_star.png' style='width:13px;margin-top:-5px;'>
+</span>
+</span>
+
+</span>
+</div>
+</td>
+<td class='see-profile-col'>
+<a class='btn' href='https://venture-lab.org/venture2/view_profile/172740'>
+课程概要&raquo;
+</a>
+</td>
+</tr>
+
+<tr>
+<td class='instructor-pic'>
+<div>
+<img src='https://img.youtube.com/vi/69VZunwRVYE/hqdefault.jpg'>
+</div>
+</td>
+<td>
+<h3 class='courseName'>
+<a href="/finance13">Finance</a>
+</h3>
+<div class='rank-n-profile'>
+<span class='rank'>
+<div class='detail-row'>
+<i>
+Audited
+</i>
+</div>
+</span>
+</div>
+</td>
+<td class='see-profile-col'>
+<a class='btn' href='https://venture-lab.org/finance13/view_profile/172740'>
+课程概要&raquo;
+</a>
+</td>
+</tr>
+
+<tr>
+<td class='instructor-pic'>
+<div>
+<img src='https://img.youtube.com/vi/Kr9olRsABR8/hqdefault.jpg'>
+</div>
+</td>
+<td>
+<h3 class='courseName'>
+<a href="/expanders">Graph Partitioning and Expanders</a>
+</h3>
+<div class='rank-n-profile'>
+<span class='rank'>
+<!-- / input for this partial :locals{ :target_user_course => ..., :short=> true/false} -->
+<!-- = target_user_course -->
+<span class='team-rank-group'>
+<span class='rank-label'>
+Team Rank:
+</span>
+<span class='inline-block rank-stars'>
+<a href=''></a>
+<span class='hidden-accessible'>
+chen shuchuan's reputation: 3 stars out of 5
+</span>
+<img alt='' src='/images/full_star.png' style='width:13px;margin-top:-5px;'>
+<img alt='' src='/images/full_star.png' style='width:13px;margin-top:-5px;'>
+<img alt='' src='/images/full_star.png' style='width:13px;margin-top:-5px;'>
+<img alt='' src='/images/empty_star.png' style='width:13px;margin-top:-5px;'>
+<img alt='' src='/images/empty_star.png' style='width:13px;margin-top:-5px;'>
+</span>
+</span>
+
+</span>
+</div>
+</td>
+<td class='see-profile-col'>
+<a class='btn' href='https://venture-lab.org/expanders/view_profile/172740'>
+课程概要 &raquo;
+</a>
+</td>
+</tr>
+
 </table>
+</div>
+
+</div>
+<div class='tab-pane' id='journals-tab'>
+<div class='head'>
+<h2>
+chen's Journals
+</h2>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+<div class='container-fluid'>
+
+</div>
+<script type='text/javascript'>
+  //<![CDATA[
+    //Initialize high-contrast mode check when we have document.body
+    $(function() {
+      // create div for testing if high contrast mode is on or images are turned off
+      var div = document.createElement("div");
+      div.style.borderWidth = "1px";
+      div.style.borderStyle = "solid";
+      div.style.borderTopColor = "red";
+      div.style.borderRightColor = "green";
+      div.style.position = "absolute";
+      div.style.top = "-999px";
+      if ($.browser.msie && parseInt($.browser.version, 10) < 8) {
+          // No support for data urls. The ui-icon class will give it a background image.
+          // Proper caching should mean no additional requests will be made.
+          div.className = "ui-icon";
+      }
+      else {
+          div.style.backgroundImage = "url(data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAEBMgA7)";
+      }
+      $(document.body).append(div);
+    
+      // test it
+      var content = "Button bar accessible here!";
+      var bkImg = $.curCSS(div, "backgroundImage");
+      $.support.highContrast = ($.curCSS(div, "borderTopColor") == $.curCSS(div, "borderRightColor")) ||
+          (bkImg != null && (bkImg == "none" || bkImg == "url(invalid-url:)"));
+      if ($.support.highContrast) {
+          $("body").addClass("ui-high-contrast-helper");
+      }
+    
+      if ($.browser.msie) {
+          div.outerHTML = "";	 // prevent mixed-content warning, see http://support.microsoft.com/kb/925014
+      } else {
+          document.body.removeChild(div);
+      }
+    });
+  //]]>
+</script>
+</div>
+</div>
