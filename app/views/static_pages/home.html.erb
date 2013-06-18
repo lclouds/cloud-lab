@@ -13,4 +13,65 @@
  <% end %>
 </div>
 
+<h2><%= link_to "Course List", "courses"%></h2>
+<div class="coursesContainer">
+	<% @clclasses.each do |clclass| %>
+	<div class="courseCell row">
+		<div class="span3">
+			<div class="imageContainer">
+			<%= link_to image_tag("test.png")%>
+			</div>
+		</div>
+		<div class="span7">
+			<div class="contentContainer">
+				<div class="courseNameContainer">
+				<h2 class="courseName">
+				<%= link_to clclass.course_name, clclass%>
+				</h2>
+				<span class="instructorName textGray">
+				Tina Seelig:
+				<span class="instructorTitle textGray">
+				<i>
+				no info
+				</i>
+				</span>
+				</span>
+				</div>
+				<div class="courseSummary">
+				<p><%= clclass.class_description %></p>
+				</div>
+				</div>
+		</div>
+	</div>
+	<% end %>
+	
+	
+	<div class="courseCell row">
+		<div class="span3">
+			<div class="imageContainer">
+			<%= link_to image_tag("test.png")%>
+			</div>
+		</div>
+		<div class="span7">
+			<div class="contentContainer">
+				<div class="courseNameContainer">
+				<h2 class="courseName">
+				<a href="https://venture-lab.org/creativity">A Crash Course on Creativity</a>
+				</h2>
+				<span class="instructorName textGray">
+				Tina Seelig:
+				<span class="instructorTitle textGray">
+				<i>
+				Executive Director, Stanford Technology Ventures Program
+				</i>
+				</span>
+				</span>
+				</div>
+				<div class="courseSummary">
+				<p>In this course, Tina Seelig reveals a set of tools and conditions that we each control - our Innovation Engine - that allows us to increase our own creativity and that of our teams and organizations. She shows that just as the scientific method demystifies the process of discovery, there is a formal process for unlocking the pathway to invention.</p>
+				</div>
+				</div>
+		</div>
+	</div>
+</div>
 <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>

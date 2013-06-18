@@ -20,10 +20,10 @@ td{
   padding:3px;
 }
 
-  .odd {
+  .odd tr{
     background:#f0f0f0;
   }
-  .even {
+  .even tr{
     background:#d0d0d0;
   }
 

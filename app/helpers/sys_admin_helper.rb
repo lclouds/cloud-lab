@@ -1,0 +1,2 @@
+module SysAdminHelper
+end

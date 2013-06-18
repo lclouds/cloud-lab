@@ -1,0 +1,27 @@
+<h1>Listing clclasses</h1>
+
+<table>
+  <tr>
+    <th>Course Name</th>
+    <th>The Instructor</th>
+    <th>Starting Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @clclasses.each do |clclass| %>
+  <tr>
+    <th><%= clclass.course_name %></th>
+    <th><%= clclass.teacher %></th>
+    <th><%= clclass.starting_date %></th>
+    <td><%= link_to 'Show', clclass %></td>
+    <td><%= link_to 'Edit', edit_clclass_path(clclass) %></td>
+    <td><%= link_to 'Destroy', clclass, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Clclass', new_clclass_path %>

@@ -3,6 +3,9 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Full name</th>
+    <th>Course Code</th>
+    <th>Description</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,6 +14,9 @@
 <% @courses.each do |course| %>
   <tr>
     <td><%= course.name %></td>
+    <td><%= course.course_name %></td>
+    <td><%= course.course_code %></td>
+    <td><%= course.description %></td>
     <td><%= link_to 'Show', course %></td>
     <td><%= link_to 'Edit', edit_course_path(course) %></td>
     <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>

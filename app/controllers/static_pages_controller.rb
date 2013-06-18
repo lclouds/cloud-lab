@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
+    @clclasses = Clclass.all
+    
   end
 
   def help

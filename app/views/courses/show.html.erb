@@ -5,6 +5,21 @@
   <%= @course.name %>
 </p>
 
+<p>
+  <b>Full name:</b>
+  <%= @course.course_name %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%= @course.course_code %>
+</p>
+
+<p>
+  <b>Introduction:</b>
+  <%= @course.description %>
+</p>
+
 
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
