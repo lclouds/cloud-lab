@@ -18,14 +18,19 @@ class User < ActiveRecord::Base
                   :last_name, 
                   :password, 
                   :password_confirmation, 
-                  :teamrank, :reg_date, 
-                  :last_date, :language, 
+                  :teamrank, 
+                  :reg_date, 
+                  :last_date, 
+                  :language, 
                   :age, 
                   :gender, 
                   :bio, 
                   :courses, 
-                  :past_courses
-                  
+                  :past_courses,
+                  :avatar,
+                  :city,
+                  :avatar_cache
+  mount_uploader :avatar, AvatarUploader     
   has_secure_password
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
