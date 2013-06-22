@@ -101,22 +101,6 @@ ActiveRecord::Schema.define(:version => 20130622150907) do
     t.datetime "updated_at",           :null => false
   end
 
-  create_table "user_infos", :force => true do |t|
-    t.string   "avatar"
-    t.string   "city"
-    t.string   "age"
-    t.string   "gender"
-    t.string   "teamrank"
-    t.date     "last_date"
-    t.string   "language"
-    t.text     "bio"
-    t.string   "courses"
-    t.string   "past_courses"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "user_id"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
