@@ -9,9 +9,14 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-#file-upload
+#file-image-upload
 gem 'carrierwave'  
 gem 'mini_magick'
+#tools-date
+gem 'calendar_date_select', :git => 'http://github.com/paneq/calendar_date_select.git', :branch => 'rails3test'
+#富文本编辑器
+gem "ckeditor"
+gem "paperclip"
 #gem 'sqlite3'
 group :development, :test do
   gem 'sqlite3'

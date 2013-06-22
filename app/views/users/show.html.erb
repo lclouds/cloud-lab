@@ -71,6 +71,12 @@
                   <b>注册时间:</b>
                   <%= @user.created_at %>
                </p>
+               
+               <p>
+                  <b>reg_date:</b>
+                  <%= @user.reg_date %>
+               </p>
+               
                <p>
                <p>
                   <b>团队评价:</b>
@@ -82,7 +88,7 @@
                </p>
                <p>
                   <b>个人简历:</b>
-                  <%= @user.bio %>
+                  <%= raw @user.bio %>
                </p>
            </table>
            <li class="btn"><i class='icon-dark icon-edit'><span class='hidden-accessible'> </span>           	
