@@ -1,10 +1,13 @@
 CloudLab::Application.routes.draw do
+
+
   resources :users
   resources :courses
-  resources :clclasses do
+  resources :clclasses, :shallow do
     member do
        put 'apply'
     end 
+    resources :lectures
   end
   
   resources :sessions, only: [:new, :create, :destroy]
