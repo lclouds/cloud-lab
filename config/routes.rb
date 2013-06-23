@@ -1,7 +1,8 @@
 CloudLab::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
 
-  resources :users
+  resources :users 
   resources :courses
   resources :clclasses, :shallow do
     member do

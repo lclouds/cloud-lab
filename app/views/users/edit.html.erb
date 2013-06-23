@@ -22,22 +22,16 @@
 <div class='row'>
 <div class='row-fluid'>
 <div class='span12'>
-<h2 class='hidden-accessible'>
-编辑个人信息
-</h2>
+<h2 class='hidden-accessible'>编辑个人信息</h2>
 <div class='row-fluid tabbable tabs-left'>
 <div class='span3 tab-span'>
 <div class='well less-padding left-menu'>
 <ul class='nav nav-list'>
 <li class="active">
-<a data-toggle='tab' href='#item-1'>
-注册信息
-</a>
+<a data-toggle='tab' href='#item-1'>注册信息</a>
 </li>
 <li class="">
-<a data-toggle='tab' href='#item-2'>
-个人简介详情
-</a>
+<a data-toggle='tab' href='#item-2'>个人简介详情</a>
 </li>
 </ul>
 </div>
@@ -46,13 +40,11 @@
 <div class='white well'>
 <div class='tab-content'>
 <div id="item-1" class="tab-pane active">
-<h3>
-注册信息
-</h3>
+<h3>注册信息</h3>
 <br>
 
 <div class="row-fluid" >
-  <div class="span6 offset3" >
+
     <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages' %>
 
@@ -69,30 +61,33 @@
       
     <%= f.label :email %>
     <%= f.text_field :email %>
-
-    <%= f.label :city %><br />
+    <div>
+    <%= f.label :reg_date %>
+    <%= f.calendar_date_select :reg_date %>
+    </div>
+    <br />
+    <%= f.label :city %>
     <%= f.text_field :city %>
 
-    <%= f.label :age %><br />
-    <%= f.text_field :age %>
-
-    <%= f.label :gender %><br />
-    <%= f.text_field :gender %>
-
-    <%= f.label :teamrank %><br />
+    <%= f.label :age %>
+    <!--<%= f.text_field :age %>-->
+    <%= f.select :age, [["--选择--",""],['18-20', '18-20'], ['21-25', '21-25'],['26-30','26-30'],["31-35","31-35"],["36-40","36-40"],["41-45","41-45"],["46-50","46-50"],["50以上","50以上"]] %>
+    
+    <%= f.label :gender %>
+   <!-- <%= select_tag "gender", options_for_select([ "man", "woman"]) %>-->
+    <%= f.select :gender, [['男', '男'], ['女', '女'],['秘密','秘密']] %>
+    
+    <%= f.label :teamrank %>
     <%= f.text_field :teamrank %>
 
-    <%= f.label :language %><br />
+    <%= f.label :language %>
     <%= f.text_field :language %>
 
-    <%= f.label :courses %><br />
+    <%= f.label :courses %>
     <%= f.text_field :courses %>
 
-    <%= f.label :past_courses %><br />
+    <%= f.label :past_courses %>
     <%= f.text_field :past_courses %>
-
-    <%= f.label :bio %><br />
-    <%= f.text_area :bio %>
 
     <%= f.label :password %>
     <%= f.password_field :password %>
@@ -100,9 +95,12 @@
     <%= f.label :password_confirmation, "Confirm Password" %>
     <%= f.password_field :password_confirmation %>
 
+    <%= f.label :bio %>
+    <%= f.cktext_area :bio, :class => "ckeditor", :ckeditor => {:language => "zh-CN"} %>
+
     <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
-  </div>
+  
 </div>
 
 </div>
