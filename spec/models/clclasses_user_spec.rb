@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-describe Clclass do
+describe ClclassesUser do
   pending "add some examples to (or delete) #{__FILE__}"
 end
-

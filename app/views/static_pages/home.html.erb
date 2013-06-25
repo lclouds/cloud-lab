@@ -12,7 +12,7 @@
  <% end %>
 </div>
 
-<h2><%= link_to "Course List", "courses"%></h2>
+<h2><%= link_to "Course List", "clclasses"%></h2>
 <div class="coursesContainer">
 	<% @clclasses.each do |clclass| %>
 	<div class="courseCell row">
@@ -25,7 +25,7 @@
 			<div class="contentContainer">
 				<div class="courseNameContainer">
 				<h2 class="courseName">
-				<%= link_to clclass.course_name, clclass%>
+				<%= link_to get_course_by_clclass(clclass.course_id).course_name, clclass%>
 				</h2>
 				<span class="instructorName textGray">
 				Tina Seelig:

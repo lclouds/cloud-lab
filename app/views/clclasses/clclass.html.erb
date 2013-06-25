@@ -1,0 +1,18 @@
+<p>
+	users:<br/>
+	<%@users.each do |u|%>
+       <%=u.last_name%>&nbsp;<%=u.first_name%>, comes from <%= u.city%>, email: <%= u.email%></br>
+    <% end%>
+</p> 
+<p>
+	teacher:
+</p>
+<p>
+	lectures:
+	<%@lectures.each do |l|%>
+       <%=l.name%><br/>
+    <% end%>
+</p>
+<p>
+	assignment: none;
+</p>

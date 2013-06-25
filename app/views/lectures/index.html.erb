@@ -1,0 +1,32 @@
+
+<h1>Listing lectures</h1>
+
+<table>
+  <tr>
+    <th>Lecture Name</th>
+    <th>video</th>
+    <th>slides</th>
+    <th>key_concepts</th>
+    <th>assignment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lectures.each do |lecture| %>
+  <tr>
+    <th><%= lecture.name %></th>
+    <th><%= lecture.video %></th>
+    <th><%= lecture.slides%></th>
+    <th><%= lecture.key_concepts%></th>
+    <th><%= lecture.assignment%></th>
+    <td><%= link_to 'Show', clclass_lecture_path(@clclass, lecture) %></td>
+    <td><%= link_to 'Edit', edit_clclass_lecture_path(@clclass, lecture) %></td>
+    <td><%= link_to 'Destroy', clclass_lecture_path(@clclass, lecture), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lecture', new_clclass_lecture_path %>

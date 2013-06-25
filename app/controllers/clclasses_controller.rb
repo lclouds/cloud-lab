@@ -1,12 +1,13 @@
 #clclass  = cloud lab class
 #can't use class as a name 
 class ClclassesController < ApplicationController
-  
+  include ClclassesHelper
+  before_filter :class_course, only: [:show, :edit]
+  before_filter :clclass, only: [:apply]
   # GET /clclasses
   # GET /clclasses.json
   def index
     @clclasses = Clclass.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @clclasses }
@@ -16,8 +17,16 @@ class ClclassesController < ApplicationController
   # GET /clclasses/1
   # GET /clclasses/1.json
   def show
-    @clclass = Clclass.find(params[:id])
-
+    if signed_in? && applied_class?
+      @user_ids = ClclassesUser.where(:clclass_id=>params[:id])
+      @users = Array.new
+      @user_ids.each do |u|
+        @users.push(User.find(u.user_id))
+      end
+      @lectures = Lecture.all :joins=>:clclass
+      render 'clclass'
+      return
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @clclass }
@@ -28,6 +37,7 @@ class ClclassesController < ApplicationController
   # GET /clclasses/new.json
   def new
     @clclass = Clclass.new
+    @courses = Course.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,7 +47,7 @@ class ClclassesController < ApplicationController
 
   # GET /clclasses/1/edit
   def edit
-    @clclass = Clclass.find(params[:id])
+    @courses = Course.all
   end
 
   # POST /clclasses
@@ -87,8 +97,32 @@ class ClclassesController < ApplicationController
   
   # GET /clclasses/1/apply
   def apply
-    @clclass = Clclass.find(params[:id])
-    render "applied"
+    if applied_class?
+      # render :action => :show
+      return;
+    else
+      puts "56789";
+      @cu = ClclassesUser.new(:user_id=>current_user.id, :clclass_id=>params[:id].to_i)
+      @cu.save
+    end
+    
+    render "apply.html.erb"
   end
 
+  
+  def clclass
+    if @clclass.nil?
+      @clclass = Clclass.find(params[:id])
+    end
+  end
+  def class_course
+    clclass
+    @course = Course.find(@clclass.course_id)
+  end
+  def class_user
+    clclass
+  end
+  def class_teacher
+    clclass
+  end
 end

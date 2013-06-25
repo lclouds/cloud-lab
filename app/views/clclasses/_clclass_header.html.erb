@@ -1,0 +1,42 @@
+
+<% if signed_in? && applied_class? %>
+
+<div class="navbar-container">
+	<div class="container course-navbar-container">
+		<div class="navbar subnav">
+			<div class="navbar-inner">
+				<ul class="nav">
+					<li>
+						<%= link_to "Home", @clclass%>
+					</li>
+					<li>
+						<%= link_to "Lectures", clclass_lectures_path(@clclass, @lecture)%>
+						
+					</li>
+					<li>
+						<a href="https://venture-lab.org/finance13/exercises">Assignments</a>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="community-dropdown-menu"> Community <b class="caret" style="color:#08c;"></b> <span class="hidden-accessible" id="community-dropdown-menu-status">collapsed</span> </a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="https://venture-lab.org/finance13/forums">Forum</a>
+							</li>
+							<li>
+								<hr style="margin-top:2px;margin-bottom:2px">
+							</li>
+							<li>
+								<a href="https://venture-lab.org/finance13/teams"> Teams </a>
+							</li>
+							<li>
+								<a href="https://venture-lab.org/finance13/search/users"> Students </a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</div>
+<%end%>

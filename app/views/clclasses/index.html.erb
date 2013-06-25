@@ -12,7 +12,7 @@
 
 <% @clclasses.each do |clclass| %>
   <tr>
-    <th><%= clclass.course_name %></th>
+    <th><%= get_course_by_clclass(clclass.course_id).course_name %></th>
     <th><%= clclass.teacher %></th>
     <th><%= clclass.starting_date %></th>
     <td><%= link_to 'Show', clclass %></td>

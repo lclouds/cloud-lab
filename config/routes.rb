@@ -4,7 +4,7 @@ CloudLab::Application.routes.draw do
    get :myclasses, :on => :member
   end
   resources :courses
-  resources :clclasses, :shallow do
+  resources :clclasses do
     member do
        put 'apply'
     end 
