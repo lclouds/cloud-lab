@@ -7,17 +7,18 @@
 			<div class="navbar-inner">
 				<ul class="nav">
 					<li>
-						<%= link_to "Home", @clclass%>
+						<%= link_to t("clclass.home"), @clclass%>
 					</li>
 					<li>
-						<%= link_to "Lectures", clclass_lectures_path(@clclass, @lecture)%>
+						<%= link_to t("clclass.lecture.lecture"), clclass_lectures_path(@clclass, @lecture)%>
 						
 					</li>
 					<li>
-						<a href="https://venture-lab.org/finance13/exercises">Assignments</a>
+						<a href="https://venture-lab.org/finance13/exercises"><%= t("clclass.assignment")%></a>
 					</li>
 					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="community-dropdown-menu"> Community <b class="caret" style="color:#08c;"></b> <span class="hidden-accessible" id="community-dropdown-menu-status">collapsed</span> </a>
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="community-dropdown-menu"> <%= t("clclass.community")%>
+							 <b class="caret" style="color:#08c;"></b>  </a>
 						<ul class="dropdown-menu">
 							<li>
 								<a href="https://venture-lab.org/finance13/forums">Forum</a>

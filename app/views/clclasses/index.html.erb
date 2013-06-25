@@ -1,10 +1,10 @@
-<h1>Listing clclasses</h1>
+<h1><%= t("clclass.list")%></h1>
 
 <table>
   <tr>
-    <th>Course Name</th>
-    <th>The Instructor</th>
-    <th>Starting Date</th>
+    <th><%= t("course.full_name")%></th>
+    <th><%= t("clclass.teacher")%></th>
+    <th><%= t("clclass.start_date")%></th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,13 +15,13 @@
     <th><%= get_course_by_clclass(clclass.course_id).course_name %></th>
     <th><%= clclass.teacher %></th>
     <th><%= clclass.starting_date %></th>
-    <td><%= link_to 'Show', clclass %></td>
-    <td><%= link_to 'Edit', edit_clclass_path(clclass) %></td>
-    <td><%= link_to 'Destroy', clclass, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to t("show"), clclass %></td>
+    <td><%= link_to t("edit"), edit_clclass_path(clclass) %></td>
+    <td><%= link_to t("destroy"), clclass, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Clclass', new_clclass_path %>
+<%= link_to t("clclass.new_clclass"), new_clclass_path %>

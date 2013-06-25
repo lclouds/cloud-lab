@@ -1,8 +1,31 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  clclass:
+    list: "Course List"
+    start_date: "Starting Date"
+    home: "课程首页"
+    assignment: "Assignment"
+    community: "Community"
+    students: "The Students"
+    teacher: "The Instructor"
+    summary: "Class Information"
+    lecture: 
+      lecture: "Lecture"
+      list: "Listing Lecture"
+      name: "Lecture Name"
+      video: "Video"
+      slides: "Slides"
+      key_concepts: "Key Concepts"
+      assignment: "Assignment"
+      new: "New Lecture"
+    new_clclass: "New Class"
+    signin_to_apply: "Sign in to Enroll"
+  course:
+    list: "课程列表"
+    name: "课程简称"
+    full_name: "课程名称"
+    code: "课程代码"
+    description: "课程介绍"
+    
 
   teachers:
     teachers: "Teachers"
@@ -56,3 +79,8 @@ en:
   conversations: "Conversations"
   setting: "Setting"
   sign_out: "Sign out"
+  
+
+  show: "Show"
+  edit: "Edit"
+  destroy: "Destroy"
