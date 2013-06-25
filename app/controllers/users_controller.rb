@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index,:edit, :update]
   before_filter :correct_user,   only: [:edit, :update] 
-  
   def index
     @users = User.paginate(page: params[:page], :per_page => 10)
   end
@@ -14,12 +13,19 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
+  def myclasses
+    #@users = User.all
+    @user = User.find(params[:id])  
+    render 'myclasses'    
+ # redirect_to  myclasses_user_path
+  end
+ 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(params[:id])    
   end
   
   def update
-    @user = User.find(params[:id])
+    @user = User.find(params[:id])    
     if params[:user][:avatar] && @user. avatar  
       old_avatar = User.find(params[:id]).avatar  # 重新取user备用  
     end 
@@ -32,7 +38,7 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-  
+ 
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -43,7 +49,7 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-  
+
   private
 
     def signed_in_user
