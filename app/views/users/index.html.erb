@@ -1,19 +1,25 @@
 <% provide(:title, 'All users') %>
-<h1>All users</h1>
+<h1>学生信息列表</h1>
 <hr>
-<table>
-<tr>
-   <td>头像</td>
-   <td>姓名</td>
+<table class="table table-bordered">
+<tr>	
+   <th>姓名</th>
+   <th>性别</th>
+   <th>城市</th>
+   <th>年龄</th>
+   <th>邮箱</th>
+   <th>删除</th>
 </tr>
-
   <% @users.each do |user| %>
     <tr>
-      <td><%= gravatar_for user, size: 52 %></td>
       <td><%= link_to (user.first_name+user.last_name), user %></td>
+      <td><%= user.gender %></td>
+      <td><%= user.city %></td>
+      <td><%= user.age %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
-
 </table>
 <hr>
 <%=will_paginate(@users, :previous_label=>'上一页', :next_label=>'下一页', :separator=>" | ") %>
