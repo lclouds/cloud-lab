@@ -26,7 +26,7 @@ class Teacher < ActiveRecord::Base
         errors.add(:password,"password must be not null") 
       end
     end
-    if !self.password.nil? &&  self.password.length<6
+    if !self.password.nil? &&  self.password.length!=0 &&  self.password.length<6
         errors.add(:password,"length must be grant than 6")
       
     end

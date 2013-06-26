@@ -32,16 +32,16 @@ zh_CN:
       notice: ""
   users:
     first_name: "姓"
-<<<<<<< HEAD
+
     last_name: "名"
   teacher_sessions:
     new:
       sign_in: "教师登录"
       sign_out: "立即注册"
       new_teacher: "尚未注册码"
-=======
-    last_name: "名"  
->>>>>>> 8755b48de4de63b064d82adb5b776b8bea175ad9
+
+
+
   teachers:
     teachers: "教师"
     first_name: "姓"

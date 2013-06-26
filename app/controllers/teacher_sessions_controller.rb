@@ -9,7 +9,7 @@ class TeacherSessionsController < ApplicationController
     if teacher && teacher.authenticate(params[:teacher_session][:password])
       #teacher_sign_in teacher
       session[:teacher] = teacher
-      redirect_back_or teacher
+      redirect_to teacher_root_path
       #redirect_to teacher
     else
       flash.now[:error] = 'Invalid email/password combination' # Not quite right!

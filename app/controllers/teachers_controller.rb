@@ -64,7 +64,7 @@ class TeachersController < ApplicationController
 
     respond_to do |format|
       if @teacher.update_attributes(params[:teacher])
-        format.html { redirect_to @teacher, notice: 'Teacher was successfully updated.' }
+        format.html { redirect_to teacher_root_path, notice: 'Teacher was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -72,6 +72,29 @@ class TeachersController < ApplicationController
       end
     end
   end
+  
+  def home
+    @teacher = session[:teacher]
+    if @teacher.nil?
+      redirect_to teacher_signin_path
+    end
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @teacher }
+    end
+  end
+  
+  def clclasses
+    @teacher = session[:teacher]
+    @classes = Clclass.find_by_teacher(session[:teacher].id)
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @classes }
+    end
+  end
+  
 
   # DELETE /teachers/1
   # DELETE /teachers/1.json
@@ -96,7 +119,7 @@ class TeachersController < ApplicationController
     
     def correct_teacher
       @teacher = Teacher.find(params[:id])
-      redirect_to(teacher_root_path) unless session[:teacher]==@teacher
+      redirect_to(teacher_signin_path, notice: "Please sign in again.") unless session[:teacher]==@teacher
     end
   
 end

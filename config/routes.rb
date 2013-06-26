@@ -29,7 +29,8 @@ CloudLab::Application.routes.draw do
   match '/teacher_signout', to: 'teacher_sessions#destroy', via: :delete
   match '/teacher',  to: 'teacher_sessions#new'
 
-  match '/teacher_root', to: 'static_pages#home'
+  match '/teacher_root', to: 'teachers#home'
+  match '/teachers_clclasses', to: 'teachers#clclasses'
 
   match '/help',    to: 'static_pages#help'
   match '/terms',   to: 'static_pages#terms'
