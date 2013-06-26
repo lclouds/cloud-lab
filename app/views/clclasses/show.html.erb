@@ -5,25 +5,25 @@
 <%= f.submit("Apply") %>
 <% end %>
 <% else %>
-<%= button_to( t("clclass.signin_to_apply"),"../signin") %>
+<%= button_to('Sign in to Apply',"../signin") %>
 <% end %>
 <p>
-  <b><%=t("course.full_name")%>:</b>
-  <%= get_currentcourse.course_name %>
+  <b>Course Name:</b>
+  <%= @clclass.course_name %>
 </p>
 
 <p>
-  <b><%=t("clclass.teacher")%>:</b>
+  <b>Teacher:</b>
   <%= @clclass.teacher %>
 </p>
 
 <p>
-  <b><%=t("course.description")%>:</b>
+  <b>Description:</b>
   <%= @clclass.class_description %>
 </p>
 
 <p>
-  <b><%=t("clclass.start_date")%>:</b>
+  <b>Starting Date</b>
   <%= @clclass.starting_date %>
 </p>
 

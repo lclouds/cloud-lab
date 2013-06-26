@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :course_id %><br />
-  	<%= select_tag 'clclass[course_id]', options_from_collection_for_select(@courses, :id, :name) %>
+    <%= f.label :course_name %><br />
+    <%= f.text_field :course_name %>
   </div>
   <div class="field">
     <%= f.label :teacher %><br />

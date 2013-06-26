@@ -17,28 +17,28 @@
   <li class="active">
     <a data-toggle='tab' href='#item-1'>
     <i class='icon-star'></i>
-      Personal Profile
+           个人信息
     </a>
   </li>
   
   <li class="">
     <a data-toggle='tab' href='#item-2'>
     <i class='icon-list-alt'></i>	
-      Course	
+            我的课程	
     </a>
   </li>
   
   <li class="">
     <a data-toggle='tab' href='#item-3'>
     <i class='icon-user'></i>
-      Network
+            我的作业
     </a>
   </li>
   
     <li class="">
     <a data-toggle='tab' href='#item-4'>
     <i class='icon-comment'></i>
-      Endorsements	
+              通知信息	
     </a>
   </li>
 </ul>
@@ -53,81 +53,94 @@
            <table class="table table-bordered">
                <p>
                	  <i class='icon-user'></i>
-                  <b>first_name:</b>
-                  <%= @user.first_name %>
+                  <b>姓名:</b>
+                  <%= @user.first_name+@user.last_name %>
                </p>
-               <p>
-               	  <i class='icon-user'></i>
-                  <b>last_name:</b>
-                  <%= @user.last_name %>
-               </p>
-               
+   
                <p>
                	  <i class='icon-align-left'></i>               	
-                  <b>gender:</b>
+                  <b>性别:</b>
                   <%= @user.gender %>
                </p>
                <p>
                	  <i class='icon-align-left'></i>               	
-                  <b>age:</b>
+                  <b>年龄:</b>
                   <%= @user.age %>
                </p>
                	  <i class='icon-home'></i>               
-                  <b>Lives in:</b>
+                  <b>所在城市:</b>
                   <%= @user.city %>
                </p>
                <p>
                	  <i class='icon-align-left'></i>               	
-                  <b>Speaks:</b>
+                  <b>国家语言:</b>
                   <%= @user.language %>
                </p>
                <p>
                	  <i class='icon-time'></i>               	
-                  <b>reg_date:</b>
+                  <b>注册时间:</b>
                   <%= @user.created_at %>
                </p>               
                <p>
                	  <i class='icon-time'></i>               	
-                  <b>last_activity:</b>
+                  <b>最后一次活动时间:</b>
                   <%= @user.updated_at %>
                </p>
      
                <p>
                	  <i class='icon-hand-right'></i>               	
-                  <b>teamrank:</b>
+                  <b>团队评价:</b>
                   <%= @user.teamrank %>
                </p>
+                             
                <p>
                	  <i class='icon-envelope'></i>               	
-                  <b>Email:</b>
+                  <b>个人邮箱:</b>
                   <%= @user.email %>
                </p>
                <p>
                	  <i class='icon-pencil'></i>               	
-                  <b>bio:</b>
+                  <b>个人简历:</b>
                   <%= raw @user.bio %>
                </p>
            </table>
            <li class="btn"><i class='icon-dark icon-edit'><span class='hidden-accessible'> </span>           	
-           </i><%= link_to t('Eidt Profile'), edit_user_path(current_user) %></li>
+           </i><%= link_to t('编辑个人信息'), edit_user_path(current_user) %></li>
+           
 </div>
 
 <div id="item-2" class="tab-pane ">
-        <h3><%= @user.first_name %>'s Courses</h3>
          <div class="row-fluid" >
             <div class="span6 offset3" >
-               ....
+               <h3><%= @user.first_name %>'s Courses</h3>	     
+               <table>
+            	  <tr>
+            	  	 <th><%= t("course.full_name")%></th>
+            		 <th><%= t("clclass.teacher")%></th>
+            		 <th><%= t("course.description")%></th>
+            		 <th><%= t("clclass.start_date")%></th>       		
+            	  </tr>
+            	
+                  <% @class_user.each do |cu|%>
+                  <tr>
+                     <td><%= get_course_by_clclass(cu.course_id).course_name%></td>
+			         <td><%= cu.teacher %></td>
+			         <td><%= cu.class_description%></td>
+			         <td><%= cu.starting_date%></td><br />
+			      </tr>  
+			      <% end %>
+		        </table>
             </div>
          </div>
 </div>
 
 <div id="item-3" class="tab-pane ">
-         <h3><%= @user.first_name %>'s Network</h3>
-         <div class="row-fluid" >
-            <div class="span6 offset3" >
-                ....
-            </div>
-         </div>
+     <h3><%= @user.first_name %>'s Network</h3>
+        <div class="row-fluid" >
+           <div class="span6 offset3" >
+              <h1>......</h1>
+          </div>
+     </div>
 </div>
 
 <div id="item-4" class="tab-pane ">

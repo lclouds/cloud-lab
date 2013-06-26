@@ -14,8 +14,6 @@ class CreateClclasses < ActiveRecord::Migration
       t.text :team_projects
       t.text :evaluation
       t.text :statement_accomplishment
-      
-      t.references :user
       t.timestamps
     end
   end

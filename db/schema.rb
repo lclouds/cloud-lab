@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130625055819) do
+=======
+ActiveRecord::Schema.define(:version => 20130622150907) do
+>>>>>>> 9b582a1fb61d39ebf57290308b4419a5acba3965
 
   create_table "administrators", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -92,6 +96,7 @@ ActiveRecord::Schema.define(:version => 20130625055819) do
     t.datetime "updated_at",  :null => false
   end
 
+<<<<<<< HEAD
   create_table "lectures", :force => true do |t|
     t.string   "name"
     t.string   "video"
@@ -107,6 +112,8 @@ ActiveRecord::Schema.define(:version => 20130625055819) do
     t.datetime "updated_at",          :null => false
   end
 
+=======
+>>>>>>> 9b582a1fb61d39ebf57290308b4419a5acba3965
   create_table "teachers", :force => true do |t|
     t.string   "last_name"
     t.string   "first_name"

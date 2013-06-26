@@ -8,7 +8,6 @@ CloudLab::Application.routes.draw do
     member do
        put 'apply'
     end 
-    resources :lectures
   end
   
   resources :sessions, only: [:new, :create, :destroy]

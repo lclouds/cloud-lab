@@ -21,12 +21,12 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-  # def default_url
-  #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  #
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
+   def default_url
+     # For Rails 3.1+ asset pipeline compatibility:
+     # asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+  
+     "/images/fallback/" + [thumb, "default.png"].compact.join('_')
+   end
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
@@ -40,6 +40,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   process :scale => [50, 50]
   # end
   version :thumb do  
+<<<<<<< HEAD
     #process :resize_to_fill => [50, 50]  
   end  
   
@@ -48,6 +49,15 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end  
   
   version :original  
+=======
+    process :resize_to_fill => [200, 200]  
+  end  
+  
+  version :small_thumb, :from_version => :thumb do
+    process resize_to_fill: [50, 50]
+  end
+  #version :original  
+>>>>>>> 9b582a1fb61d39ebf57290308b4419a5acba3965
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_white_list
@@ -61,7 +71,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # end
   def filename  
     if @filename  
-      Digest::SHA1.hexdigest(original_filename) + File.extname(@filename)  
+      #Digest::SHA1.hexdigest(original_filename) + File.extname(@filename)  
+    Time.now.to_i.to_s + File.extname(@filename) 
     end     
   end  
   

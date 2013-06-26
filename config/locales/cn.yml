@@ -1,37 +1,11 @@
 zh_CN:
-  clclass:
-    list: "课程列表"
-    start_date: "开课日期"
-    home: "课程首页"
-    assignment: "作业任务"
-    community: "讨论"
-    students: "班级学生"
-    teacher: "任课教师"
-    summary: "班级信息"
-    lecture: 
-      lecture: "讲义"
-      list: "讲义列表"
-      name: "讲义名称"
-      video: "视频"
-      slides: "课件"
-      key_concepts: "关键概念"
-      assignment: "作业"
-      new: "新建讲义"
-    new_clclass: "新开课班"
-    signin_to_apply: "登陆申请"
-  course:
-    list: "课程列表"
-    name: "课程简称"
-    full_name: "课程名称"
-    code: "课程代码"
-    description: "课程介绍"
-    
   layouts:
     application:
       title: "点滴云"
       notice: ""
   users:
     first_name: "姓"
+<<<<<<< HEAD
 
     last_name: "名"
   teacher_sessions:
@@ -42,6 +16,9 @@ zh_CN:
 
 
 
+=======
+    last_name: "名"
+>>>>>>> 9b582a1fb61d39ebf57290308b4419a5acba3965
   teachers:
     teachers: "教师"
     first_name: "姓"
@@ -145,7 +122,3 @@ zh_CN:
   conversations: "站内消息"
   setting: "设置"
   sign_out: "退出"
-
-  show: "详细"
-  edit: "编辑"
-  destroy: "删除"

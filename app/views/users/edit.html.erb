@@ -1,59 +1,40 @@
 <% provide(:title, "Edit user") %>
 
-<div class='' id='wrap'>
-<div id='main'>
-<div class='navbar' id='topNav'>
-<div class='navbar-container'>
-<div class='container non-course-navbar-container'>
-<div class='navbar subnav non-course'>
 
-</div>
-</div>
-</div>
-</div>
 
-<div class='container main-container'>
-<div class='content'>
-<div class='row'>
-<div class='span12'>
 
-</div>
-</div>
-<div class='row'>
-<div class='row-fluid'>
-<div class='span12'>
-<h2 class='hidden-accessible'>Edit Profile Details</h2>
+<h2 class='hidden-accessible'>编辑个人信息</h2>
 <div class="row-fluid" >
 
     <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages' %>
 
-    <%= f.label :"Upload a Picture from your Computer" %><br />  
+    <%= f.label :"个人头像" %><br />  
     <%= image_tag(@user.avatar_url(:thumb)) if @user.avatar? %>  
     <%= f.file_field :avatar %> 
     <%= f.hidden_field :avatar_cache %> 
 
-    <%= f.label :"textfield to enter your first name" %>
+    <%= f.label :"姓氏" %>
     <%= f.text_field :first_name %>
 
-    <%= f.label :"textfield to enter your last name" %>
+    <%= f.label :"名字" %>	
     <%= f.text_field :last_name %>
       
-    <%= f.label :" Where do you live? Enter the name of the city and select from the available choices" %>
+    <%= f.label :" 所在城市" %>
     <%= f.text_field :city %>
 
-    <%= f.label :" Please select your age range, This information will not be shared on your profile." %>
+    <%= f.label :" 年龄" %>
     <!--<%= f.text_field :age %>-->
-    <%= f.select :age, [["--select one--",""],['18-20', '18-20'], ['21-25', '21-25'],['26-30','26-30'],["31-35","31-35"],["36-40","36-40"],
-                        ["41-45","41-45"],["46-50","46-50"],["over 50","over 50"]] %>
+    <%= f.select :age, [["--选择--",""],['18-20', '18-20'], ['21-25', '21-25'],['26-30','26-30'],["31-35","31-35"],["36-40","36-40"],
+                        ["41-45","41-45"],["46-50","46-50"],["50-60","50-60"],["60以上","60以上"],["秘密","秘密"]] %>
     
-    <%= f.label :"Please select your gender ,This information will not be shared on your profile." %>
+    <%= f.label :"性别" %>
    <!-- <%= select_tag "gender", options_for_select([ "man", "woman"]) %>-->
-    <%= f.select :gender, [['Male', 'Male'], ['Female', 'Female'],['Do not want to disclose','Do not want to disclose']] %>
+    <%= f.select :gender, [['男', '男'], ['女', '女'],['秘密','秘密']] %>
     
 
-    <%= f.label :"What is your primary language?" %>
-    <%= f.select :language, [["--select one--",""],["Afrikaans","Afrikaans"],["Albanian","Albanian"],["Arabic","Arabic"],["Armenian","Armenian"],
+    <%= f.label :"国家语言" %>
+    <%= f.select :language, [["--选择--",""],["Afrikaans","Afrikaans"],["Albanian","Albanian"],["Arabic","Arabic"],["Armenian","Armenian"],
                              ["Azerbaijani","Azerbaijani"],["Basque","Basque"],["Bengali","Bengali"],["Bosnian","Bosnian"],["Bulgarian","Bulgarian"],
                              ["Catalan","Catalan"],["Central Khmer","Central Khmer"],["Chinese","Chinese"],["Croatian","Croatian"],["Czech","Czech"],
                              ["Danish","Danish"],["Dutch","Dutch"],["English","English"],["Estonian","Estonian"],
@@ -69,20 +50,18 @@
                              ["Urdu","Urdu"],["Uzbek","Uzbek"],["Vietnamese","Vietnamese"],["Welsh","Welsh"],["Xhosa","Xhosa"]] %>
 
 
-    <%= f.label :password %>
+    <%= f.label :密码 %>
     <%= f.password_field :password %>
 
-    <%= f.label :password_confirmation, "Confirm Password" %>
+    <%= f.label :password_confirmation, "确认密码" %>
     <%= f.password_field :password_confirmation %>
 
-    <%= f.label :" Please enter your bio, This information will be shared on your profile." %>
+    <%= f.label :" 个人简历" %>
     <%= f.cktext_area :bio, :class => "ckeditor", :ckeditor => {:language => "zh-CN"} %>
 
-    <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <%= f.submit "保存", class: "btn btn-large btn-primary" %>
     <% end %>
   
-</div>
-
 </div>
 
 

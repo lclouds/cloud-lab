@@ -6,4 +6,8 @@ module UsersHelper
     gravatar_url = "https://secure.gravatar.com/avatars/#{gravatar_id}.png?s=#{size}"
     image_tag(gravatar_url, alt: user.first_name, class: "gravatar")
   end
+  
+  def add_class?
+    !ClclassesUser.where(:user_id=>current_user.id).nil?
+  end
 end
