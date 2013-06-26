@@ -3,4 +3,5 @@ class Course < ActiveRecord::Base
                   :course_name, 
                   :course_code,
                   :description
+  has_many :lectures
 end

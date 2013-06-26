@@ -7,7 +7,11 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       sign_in user
-      redirect_back_or user
+      flash[:success] = "Welcome to the dian di yun!"
+      #redirect_back_or user
+      #redirect_to :controller => 'user', :action => 'myclasses' 
+      #redirect_to  myclasses_users_path
+      render 'users/myclasses.html.erb'
     else
       flash.now[:error] = 'Invalid email/password combination' # Not quite right!
       render 'new'

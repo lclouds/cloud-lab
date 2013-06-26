@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-describe Clclass do
+describe Lecture do
   pending "add some examples to (or delete) #{__FILE__}"
 end
-

@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <b><%= t("clclass.lecture.name")%>:</b>
+  <%= @lecture.name %>
+</p>
+
+<p>
+  <b><%= t("clclass.lecture.video")%>:</b>
+  <%= link_to @lecture.video, @lecture.video %>
+</p>
+
+<p>
+  <b><%= t("clclass.lecture.key_concepts")%>:</b>
+  <%= @lecture.key_concepts %>
+</p>
+
+<p>
+  <b><%= t("clclass.lecture.assignment")%>:</b>
+  <%= @lecture.assignment %>
+</p>
+
+
+<%= link_to 'Edit', edit_clclass_lecture_path(@clclass,@lecture) %> |
+<%= link_to 'Back', clclass_lectures_path %>

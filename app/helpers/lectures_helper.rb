@@ -1,0 +1,3 @@
+module LecturesHelper
+  
+end

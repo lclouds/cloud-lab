@@ -7,7 +7,12 @@
 <div class='row-fluid tabbable tabs-left'>
   <div class='span3 tab-span'>
     <div class='well less-padding left-menu'>
-	
+		   <table>
+               <td><%= image_tag(@user.avatar) %></td><br />
+           </table>
+               <p>
+                 <h2> <%= @user.first_name+@user.last_name %></h2>
+               </p>
 <ul class='nav nav-list'>
   <li class="active">
     <a data-toggle='tab' href='#item-1'>
@@ -44,50 +49,62 @@
 <div class='white well'>
 <div class='tab-content'>
 <div id="item-1" class="tab-pane active">
-	       <table>
-               <td><%= image_tag(@user.avatar) %></td><br />
-           </table>
+
            <table class="table table-bordered">
                <p>
-                  <b>姓名:</b>
-                  <%= @user.first_name+@user.last_name %>
+               	  <i class='icon-user'></i>
+                  <b>first_name:</b>
+                  <%= @user.first_name %>
                </p>
                <p>
-                  <b>性别:</b>
+               	  <i class='icon-user'></i>
+                  <b>last_name:</b>
+                  <%= @user.last_name %>
+               </p>
+               
+               <p>
+               	  <i class='icon-align-left'></i>               	
+                  <b>gender:</b>
                   <%= @user.gender %>
                </p>
                <p>
-                  <b>年龄:</b>
+               	  <i class='icon-align-left'></i>               	
+                  <b>age:</b>
                   <%= @user.age %>
                </p>
-                  <b>城市:</b>
+               	  <i class='icon-home'></i>               
+                  <b>Lives in:</b>
                   <%= @user.city %>
                </p>
                <p>
-                  <b>语言:</b>
+               	  <i class='icon-align-left'></i>               	
+                  <b>Speaks:</b>
                   <%= @user.language %>
                </p>
                <p>
-                  <b>注册时间:</b>
-                  <%= @user.created_at %>
-               </p>
-               
-               <p>
+               	  <i class='icon-time'></i>               	
                   <b>reg_date:</b>
-                  <%= @user.reg_date %>
+                  <%= @user.created_at %>
+               </p>               
+               <p>
+               	  <i class='icon-time'></i>               	
+                  <b>last_activity:</b>
+                  <%= @user.updated_at %>
                </p>
-               
+     
                <p>
-               <p>
-                  <b>团队评价:</b>
+               	  <i class='icon-hand-right'></i>               	
+                  <b>teamrank:</b>
                   <%= @user.teamrank %>
                </p>
                <p>
+               	  <i class='icon-envelope'></i>               	
                   <b>Email:</b>
                   <%= @user.email %>
                </p>
                <p>
-                  <b>个人简历:</b>
+               	  <i class='icon-pencil'></i>               	
+                  <b>bio:</b>
                   <%= raw @user.bio %>
                </p>
            </table>
@@ -96,28 +113,28 @@
 </div>
 
 <div id="item-2" class="tab-pane ">
-         <h3>My Courses</h3>
+        <h3><%= @user.first_name %>'s Courses</h3>
          <div class="row-fluid" >
             <div class="span6 offset3" >
-               <h1>add courses view here</h1>
+               ....
             </div>
          </div>
 </div>
 
 <div id="item-3" class="tab-pane ">
-         <h3>My Network</h3>
+         <h3><%= @user.first_name %>'s Network</h3>
          <div class="row-fluid" >
             <div class="span6 offset3" >
-               <h1>my network here</h1>
+                ....
             </div>
          </div>
 </div>
 
 <div id="item-4" class="tab-pane ">
-         <h3>My Endorsements</h3>
+         <h3><%= @user.first_name %>'s Endorsements</h3>         
          <div class="row-fluid" >
             <div class="span6 offset3" >
-               <h1>My Endorsements here</h1>
+               ....
             </div>
          </div>
 </div>

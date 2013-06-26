@@ -10,8 +10,12 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended to check this file into your version control system.
+<<<<<<< HEAD
 
 ActiveRecord::Schema.define(:version => 20130623074933) do
+=======
+ActiveRecord::Schema.define(:version => 20130621035746) do
+>>>>>>> 8755b48de4de63b064d82adb5b776b8bea175ad9
 
   create_table "administrators", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -76,6 +80,19 @@ ActiveRecord::Schema.define(:version => 20130623074933) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "lectures", :force => true do |t|
+    t.string   "name"
+    t.string   "video"
+    t.string   "slides"
+    t.string   "transcript"
+    t.text     "key_concepts"
+    t.text     "reading"
+    t.text     "assignment"
+    t.text     "additional_rsources"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "teachers", :force => true do |t|

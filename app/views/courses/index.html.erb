@@ -1,11 +1,11 @@
-<h1>Listing courses</h1>
+<h1><%= t("course.list")%></h1>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Full name</th>
-    <th>Course Code</th>
-    <th>Description</th>
+    <th><%= t("course.name")%></th>
+    <th><%= t("course.full_name")%></th>
+    <th><%= t("course.code")%></th>
+    <th><%= t("course.description")%></th>
     <th></th>
     <th></th>
     <th></th>
@@ -26,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New Course', new_course_path %>
+<%= link_to t("clclass.new_clclass"), new_course_path %>

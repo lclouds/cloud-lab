@@ -30,6 +30,9 @@ class User < ActiveRecord::Base
                   :avatar,
                   :city,
                   :avatar_cache
+  has_many :clclassuseres
+  has_many :clclass, :through=>:clclassuseres
+  
   mount_uploader :avatar, AvatarUploader     
   has_secure_password
   before_save { |user| user.email = email.downcase }
