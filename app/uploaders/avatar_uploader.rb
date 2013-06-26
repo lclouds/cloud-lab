@@ -40,11 +40,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   process :scale => [50, 50]
   # end
   version :thumb do  
-    process :resize_to_fill => [50, 50]  
+    #process :resize_to_fill => [50, 50]  
   end  
   
   version :normal do  
-    process :resize_to_fill => [180, 180]  
+    #process :resize_to_fill => [180, 180]  
   end  
   
   version :original  

@@ -1,94 +1,126 @@
 <%= form_for(@teacher) do |f| %>
-  <% if @teacher.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+<% if @teacher.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
 
-      <ul>
-      <% @teacher.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<ul>
+		<% @teacher.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
 <table cellSpacing="20">
-<tr><td valign="top">
-  <div class="field">
-     <%= t('..first_name') %><br />
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= t('..last_name') %><br />
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-     <%= t('.alias_name') %><br />
-    <%= f.text_field :alias_name %>
-  </div>
-  <div class="field">
-     <%= t('.valid_certificate') %><br />
-    <%= f.text_field :valid_certificate %>
-  </div>
-  <div class="field">
-     <%= t('.valid_certificate_no') %><br />
-   <%= f.text_field :valid_certificate_no %>
-  </div>
-  <div class="field">
-    <%= t('.regist_name') %><br />
-    <%= f.text_field :regist_name %>
-  </div>
-  <div class="field">
-    <%= t('.pwd') %><br />
-    <%= f.password_field :pwd %>
-  </div>
-</td>
-<td valign="top">
-  <div class="field">
-     <%= t('.image_url') %><br />
-    <%= f.text_field :image_url %>
-  </div>
-  <div class="field">
-    <%= t('.email') %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= t('.telephone') %><br />
-    <%= f.text_field :telephone %>
-  </div>
-  <div class="field">
-     <%= t('.mobile') %><br />
-    <%= f.text_field :mobile %>
-  </div>
-  <div class="field">
-     <%= t('.address') %><br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= t('.postcode') %><br />
-    <%= f.text_field :postcode %>
-  </div>
-</td>
-<td valign="top"> 
-  <div class="field">
-    <%= t('.title') %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= t('.position') %><br />
-    <%= f.text_field :position %>
-  </div>
-  <div class="field" id="field_resume">
-     <%= t('.resume') %><br />
-    <%= f.text_area :resume ,:rows=>10%>
-  </div>
-  <div class="field_comment">
-     <%= t('.comment') %><br />
-    <%= f.text_area :comment  ,:rows=>4%>
-  </div>
-</td></tr>
+	<tr>
+		<td valign="top">
+		<div class="field">
+			<%= t('..first_name') %>
+			<br />
+			<%= f.text_field :first_name %>
+		</div>
+		<div class="field">
+			<%= t('..last_name') %>
+			<br />
+			<%= f.text_field :last_name %>
+		</div>
+		<div class="field">
+			<%= t('.alias_name') %>
+			<br />
+			<%= f.text_field :alias_name %>
+		</div>
+		<div class="field">
+			<%= t('.valid_certificate') %>
+			<br />
+			<%= f.text_field :valid_certificate %>
+		</div>
+		<div class="field">
+			<%= t('.valid_certificate_no') %>
+			<br />
+			<%= f.text_field :valid_certificate_no %>
+		</div>
+		<div class="field">
+			<%= t('.pwd') %>
+			<br />
+			<%= f.password_field :password %>
+		</div>
+		<div class="field">
+			<%= f.label :password_confirmation,t('.pwd_confirmation') %>
+			<br />
+			<%= f.password_field :password_confirmation %>
+		</div></td>
+		<td valign="top">
+		<table border="0px">
+			<tr>
+				<td>
+				<div>
+					<%= image_tag(@teacher.avatar_url(:thumb)) if @teacher.avatar? %>
+					<br />
+				</div></td>
+			</tr>
+			<tr>
+				<td>
+				<div class="field">
+					<%= t('.image_url') %>
+					<br />
+					<%#= f.text_field :image_url %>
+					<%= f.file_field :avatar %>
+					<%= f.hidden_field :avatar_cache %>
+				</div>
+				<div class="field">
+					<%= t('.email') %>
+					<br />
+					<%= f.text_field :email %>
+				</div>
+				<div class="field">
+					<%= t('.telephone') %>
+					<br />
+					<%= f.text_field :telephone %>
+				</div>
+				<div class="field">
+					<%= t('.mobile') %>
+					<br />
+					<%= f.text_field :mobile %>
+				</div>
+				<div class="field">
+					<%= t('.address') %>
+					<br />
+					<%= f.text_field :address %>
+				</div>
+				<div class="field">
+					<%= t('.postcode') %>
+					<br />
+					<%= f.text_field :postcode %>
+				</div></td>
+			</tr>
+		</table></td>
+		<td valign="top">
+		<div class="field">
+			<%= t('.title') %>
+			<br />
+			<%= f.text_field :title %>
+		</div>
+		<div class="field">
+			<%= t('.position') %>
+			<br />
+			<%= f.text_field :position %>
+		</div>
+		<div class="field" id="field_resume">
+			<%= t('.resume') %>
+			<br />
+			<%= f.text_area :resume ,:rows=>10%>
+		</div>
+		<div class="field_comment">
+			<%= t('.comment') %>
+			<br />
+			<%= f.text_area :comment  ,:rows=>4%>
+		</div></td>
+	</tr>
 </table>
-  <div class="actions" align="center">
-    <%= f.submit(t('.commit')) %>
-  </div>
+<div class="actions" align="center">
+	<%= f.submit(t('.commit')) %>
+</div>
 
 <% end %>
 

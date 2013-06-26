@@ -8,7 +8,7 @@
 <tr><td colspan="10">
 	
 <p>
-   <%= image_tag(@teacher.image_url,:class=>'list_image') %>
+   <%= image_tag(@teacher.avatar,:class=>'list_image') %>
      <%= @teacher.resume %>
 
 </p>
@@ -39,16 +39,6 @@
   <%= @teacher.valid_certificate_no %>
 </p>
 
-<p>
-  <b><%=t('.regist_name')%>:</b>
-  <%= @teacher.regist_name %>
-</p>
-<!--
-<p>
-  <b>Pwd:</b>
-  <%= @teacher.pwd %>
-</p>
--->
 
 <p>
   <b><%=t('.title')%>:</b>

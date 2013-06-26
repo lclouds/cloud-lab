@@ -1,4 +1,8 @@
 class TeachersController < ApplicationController
+  before_filter :signed_in_teacher, only: [:index,:edit, :update]
+  before_filter :correct_teacher,   only: [:edit, :update] 
+
+  layout "teachers"
   # GET /teachers
   # GET /teachers.json
   def index
@@ -80,4 +84,19 @@ class TeachersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+
+    def signed_in_teacher
+      unless !session[:teacher].nil?
+        store_location
+        redirect_to teacher_signin_path, notice: "Please sign in."
+      end
+    end
+    
+    def correct_teacher
+      @teacher = Teacher.find(params[:id])
+      redirect_to(teacher_root_path) unless session[:teacher]==@teacher
+    end
+  
 end

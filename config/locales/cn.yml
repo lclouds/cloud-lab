@@ -6,8 +6,31 @@ zh_CN:
   users:
     first_name: "姓"
     last_name: "名"
+  teacher_sessions:
+    new:
+      sign_in: "教师登录"
+      sign_out: "立即注册"
+      new_teacher: "尚未注册码"
   teachers:
     teachers: "教师"
+    first_name: "姓"
+    last_name: "名"
+    alias_name: "昵称"
+    valid_certificate: "证件类别"
+    valid_certificate_no: "证件号码"
+    regist_name: "登录名"
+    pwd: "口令"
+    image_url: "上传头像"
+    telephone: "电话"
+    mobile: "手机"
+    address: "地址"
+    postcode: "邮编"
+    title: "职称"
+    position: "职务"
+    resume: "简历"
+    comment: "备注"
+    commit: "提交修改"
+    pwd_confirmation: "密码确认"
     edit:
       title:  "教师资料修改"
       back: "返回"
@@ -41,7 +64,7 @@ zh_CN:
       valid_certificate_no: "证件号码"
       regist_name: "登录名"
       pwd: "口令"
-      image_url: "头像图片路径"
+      image_url: "上传头像"
       telephone: "电话"
       mobile: "手机"
       address: "地址"
@@ -51,6 +74,7 @@ zh_CN:
       resume: "简历"
       comment: "备注"
       commit: "提交修改"
+      pwd_confirmation: "密码确认"
     show:
       first_name: "姓"
       last_name: "名"
