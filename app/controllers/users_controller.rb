@@ -1,34 +1,44 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index,:edit, :update]
-  before_filter :correct_user,   only: [:edit, :update] 
+  before_filter :correct_user,   only: [:edit, :update]
+  include ClclassesHelper
+  include UsersHelper
   def index
-    @users = User.paginate(page: params[:page], :per_page => 10)
+    @users = User.paginate(page: params[:page], :per_page => 5)
   end
-  
+
   def new
     @user = User.new
   end
-  
+
   def show
     @user = User.find(params[:id])
+    if signed_in?
+      @class_ids = ClclassesUser.where(:user_id=>params[:id])
+      @class_user = Array.new
+      if !@class_ids.nil?
+        @class_ids.each do |c|
+          @class_user.push(Clclass.find(c.clclass_id))
+        end
+      end
+    end
   end
-  
+
   def myclasses
-    #@users = User.all
-    @user = User.find(params[:id])  
-    render 'myclasses'    
- # redirect_to  myclasses_user_path
+    @user = User.find(params[:id])
+    render "myclasses.html.erb"
+  # redirect_to  myclasses_user_path
   end
- 
+
   def edit
-    @user = User.find(params[:id])    
+    @user = User.find(params[:id])
   end
-  
+
   def update
-    @user = User.find(params[:id])    
-    if params[:user][:avatar] && @user. avatar  
-      old_avatar = User.find(params[:id]).avatar  # 重新取user备用  
-    end 
+    @user = User.find(params[:id])
+    if params[:user][:avatar] && @user. avatar
+      old_avatar = User.find(params[:id]).avatar
+    end
     if @user.update_attributes(params[:user])
       old_avatar.remove! if old_avatar
       flash[:success] = "Profile updated"
@@ -38,7 +48,7 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
- 
+
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -50,18 +60,26 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User destroyed."
+
+    redirect_to users_path
+  #render 'index'
+  end
+
   private
 
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to signin_path, notice: "Please sign in."
-      end
+  def signed_in_user
+    unless signed_in?
+      store_location
+      redirect_to signin_path, notice: "Please sign in."
     end
-    
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_path) unless current_user?(@user)
-    end
-    
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_path) unless current_user?(@user)
+  end
+
 end
