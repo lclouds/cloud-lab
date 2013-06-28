@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'bootstrap-sass', '2.0.4'
@@ -13,7 +13,7 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'carrierwave'  
 gem 'mini_magick'
 #tools-date
-gem 'calendar_date_select', :git => 'http://github.com/paneq/calendar_date_select.git', :branch => 'rails3test'
+gem 'calendar_date_select', :git => 'http://github.com/paneq/calendar_date_select.git'
 #富文本编辑器
 gem "ckeditor"
 gem "paperclip"

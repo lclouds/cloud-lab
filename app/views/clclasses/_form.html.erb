@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :course_name %><br />
-    <%= f.text_field :course_name %>
+    <%= f.label :course_id %><br />
+  	<%= select_tag 'clclass[course_id]', options_from_collection_for_select(@courses, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :teacher %><br />
@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :starting_date %><br />
-    <%= f.date_select :starting_date %>
+    <%= f.calendar_date_select :starting_date %>
   </div>
   <div class="field">
     <%= f.label :class_description %><br />

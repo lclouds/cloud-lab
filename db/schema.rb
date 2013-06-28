@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130622150907) do
+ActiveRecord::Schema.define(:version => 20130625055819) do
 
   create_table "administrators", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -51,8 +51,14 @@ ActiveRecord::Schema.define(:version => 20130622150907) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
+  create_table "clclass_teachers", :force => true do |t|
+    t.integer  "clclass_id"
+    t.integer  "teacher_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "clclasses", :force => true do |t|
-    t.string   "course_name"
     t.string   "teacher"
     t.text     "class_description"
     t.date     "starting_date"
@@ -67,6 +73,14 @@ ActiveRecord::Schema.define(:version => 20130622150907) do
     t.text     "statement_accomplishment"
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
+    t.integer  "course_id"
+  end
+
+  create_table "clclasses_users", :force => true do |t|
+    t.integer  "clclass_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "courses", :force => true do |t|
@@ -76,6 +90,21 @@ ActiveRecord::Schema.define(:version => 20130622150907) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "lectures", :force => true do |t|
+    t.string   "name"
+    t.string   "video"
+    t.string   "slides"
+    t.string   "transcript"
+    t.text     "key_concepts"
+    t.text     "reading"
+    t.text     "assignment"
+    t.text     "additional_rsources"
+    t.integer  "course_id"
+    t.integer  "clclass_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "teachers", :force => true do |t|
