@@ -1,31 +1,36 @@
-<p id="notice"><%= notice %></p>
 
-<% if signed_in? %>
-<%= form_for @clclass, :url=>{:action=>"apply"} do |f| %>
-<%= f.submit("Apply") %>
-<% end %>
-<% else %>
-<%= button_to('Sign in to Apply',"../signin") %>
-<% end %>
 <p>
-  <b>Course Name:</b>
-  <%= @clclass.course_name %>
+	<b><%= t("course.full_name")%>:</b>
+	<%= get_currentcourse.course_name %>
 </p>
 
 <p>
-  <b>Teacher:</b>
-  <%= @clclass.teacher %>
+	<b><%= t("clclass.teacher")%>:</b>
+	<%= @clclass.teacher %>
 </p>
 
 <p>
-  <b>Description:</b>
-  <%= @clclass.class_description %>
+	<b><%= t("clclass.start_date")%>:</b>
+	<%= @clclass.starting_date %>
+</p>
+
+  <% if signed_in? %>
+  <%= form_for @clclass, :url=>{:action=>"apply"} do |f| %>
+  <%= f.submit "Apply this class", class: "btn btn-large btn-primary" %>
+  <% end %>
+  <% else %>
+  <%= button_to( t("clclass.signin_to_apply"),"../signin") %>
+  <% end %>
+
+<p>
+	<b><%= t("course.description")%>:</b>
+	<%= raw @clclass.class_description %>
 </p>
 
 <p>
-  <b>Starting Date</b>
-  <%= @clclass.starting_date %>
+	<b><%= t("clclass.technical_requirements")%>:</b>
+	<%= raw @clclass.technical_requirements %>
 </p>
 
-<%= link_to 'Edit', edit_clclass_path(@clclass) %> |
-<%= link_to 'Back', clclasses_path %>
+  <%= link_to 'Edit', edit_clclass_path(@clclass) %> |
+  <%= link_to 'Back', clclasses_path %>

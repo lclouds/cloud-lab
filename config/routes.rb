@@ -1,7 +1,9 @@
 CloudLab::Application.routes.draw do
   root to: 'static_pages#home'
   resources :users do
-   get :myclasses, :on => :member
+    member do
+      get :myclasses
+    end
   end
   resources :courses
   resources :clclasses do
@@ -12,6 +14,7 @@ CloudLab::Application.routes.draw do
   end
   
   resources :sessions, only: [:new, :create, :destroy]
+  resources :teacher_sessions, only: [:new, :create, :destroy]
   devise_for :administrators
 
   scope '(:locale)' do
@@ -22,12 +25,21 @@ CloudLab::Application.routes.draw do
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+  
+  match '/teacher_signup',  to: 'teachers#new'
+  match '/teacher_signin',  to: 'teacher_sessions#new'
+  match '/teacher_signout', to: 'teacher_sessions#destroy', via: :delete
+  match '/teacher',  to: 'teacher_sessions#new'
+
+  match '/teacher_root', to: 'teachers#home'
+  match '/teachers_clclasses', to: 'teachers#clclasses'
+
   match '/help',    to: 'static_pages#help'
   match '/terms',   to: 'static_pages#terms'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   match '/sysadmin',to: 'sys_admin#index'
-  match '/_header', to: 'user#myclasses'
+#  match '/myclasses', to: 'users#myclasses'
   mount Ckeditor::Engine => '/ckeditor'
 
   # The priority is based upon order of creation:

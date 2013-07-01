@@ -1,32 +1,27 @@
 <%= form_for(@clclass) do |f| %>
-  <% if @clclass.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@clclass.errors.count, "error") %> prohibited this clclass from being saved:</h2>
-
-      <ul>
-      <% @clclass.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
-    <%= f.label :course_id %><br />
+    <%= t("course.full_name")%>:<br />
   	<%= select_tag 'clclass[course_id]', options_from_collection_for_select(@courses, :id, :name) %>
   </div>
   <div class="field">
-    <%= f.label :teacher %><br />
+    <%= t('clclass.teacher') %>:<br />
     <%= f.text_field :teacher %>
   </div>
   <div class="field">
-    <%= f.label :starting_date %><br />
+    <%= t("clclass.start_date")%>:<br />
     <%= f.calendar_date_select :starting_date %>
   </div>
+  <br />
   <div class="field">
-    <%= f.label :class_description %><br />
-    <%= f.text_area :class_description %>
+    <%= t("course.description")%>:<br />
+    <%= f.cktext_area :class_description %>
   </div>
+  <div class="field">
+    <%= t("clclass.technical_requirements")%>:<br />
+    <%= f.cktext_area :technical_requirements %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

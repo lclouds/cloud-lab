@@ -8,9 +8,9 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       sign_in user
       flash[:success] = "Welcome to the dian di yun!"
-      redirect_back_or user
+      #redirect_back_or user
       #redirect_to :controller => 'user', :action => 'myclasses' 
-      #redirect_to  myclasses_users_path
+      redirect_to  myclasses_user_path(current_user)
       #render 'users/myclasses.html.erb'
     else
       flash.now[:error] = 'Invalid email/password combination' # Not quite right!
