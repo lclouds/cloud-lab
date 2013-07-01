@@ -123,11 +123,32 @@ ActiveRecord::Schema.define(:version => 20130625055819) do
     t.text     "resume"
     t.string   "image_url"
     t.string   "regist_name"
-    t.string   "pwd"
     t.string   "comment"
     t.integer  "deleted"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.string   "avatar"
+  end
+
+  add_index "teachers", ["email"], :name => "index_teachers_on_email"
+  add_index "teachers", ["remember_token"], :name => "index_teachers_on_remember_token"
+
+  create_table "user_infos", :force => true do |t|
+    t.string   "avatar"
+    t.string   "city"
+    t.string   "age"
+    t.string   "gender"
+    t.string   "teamrank"
+    t.date     "last_date"
+    t.string   "language"
+    t.text     "bio"
+    t.string   "courses"
+    t.string   "past_courses"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|

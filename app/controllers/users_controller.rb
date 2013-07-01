@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index,:edit, :update]
   before_filter :correct_user,   only: [:edit, :update]
   include ClclassesHelper
-  include UsersHelper
   def index
     @users = User.paginate(page: params[:page], :per_page => 5)
   end
@@ -26,8 +25,7 @@ class UsersController < ApplicationController
 
   def myclasses
     @user = User.find(params[:id])
-    render "myclasses.html.erb"
-  # redirect_to  myclasses_user_path
+
   end
 
   def edit

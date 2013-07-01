@@ -40,13 +40,19 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   process :scale => [50, 50]
   # end
   version :thumb do  
-    process :resize_to_fill => [200, 200]  
+    process :resize_to_fill => [50, 50]  
   end  
+  
+  version :normal do  
+    process :resize_to_fill => [180, 180]  
+  end  
+  
   
   version :small_thumb, :from_version => :thumb do
     process resize_to_fill: [50, 50]
   end
   #version :original  
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_white_list
@@ -64,5 +70,4 @@ class AvatarUploader < CarrierWave::Uploader::Base
     Time.now.to_i.to_s + File.extname(@filename) 
     end     
   end  
-  
 end
