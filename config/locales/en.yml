@@ -8,6 +8,7 @@ en:
     students: "The Students"
     teacher: "The Instructor"
     summary: "Class Information"
+    technical_requirements: "Technical_requirements"
     lecture: 
       lecture: "Lecture"
       list: "Listing Lecture"
