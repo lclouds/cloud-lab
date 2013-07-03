@@ -1,5 +1,6 @@
 zh_CN:
   clclass:
+    apply: "申请班级"
     list: "课程列表"
     start_date: "开课日期"
     home: "课程首页"
@@ -9,6 +10,13 @@ zh_CN:
     teacher: "任课教师"
     summary: "班级信息"
     technical_requirements: "学习要求"
+    go_to_class: "进入班级"
+    new_clclass: "新开课班"
+    edit_clclass: "编辑班级"
+    signin_to_apply: "登陆申请"    
+    save: "更新班级"
+    current_courses: "当前课程"
+    past_courses: "过往课程"    
     lecture: 
       lecture: "讲义"
       list: "讲义列表"
@@ -18,25 +26,53 @@ zh_CN:
       key_concepts: "关键概念"
       assignment: "作业"
       new: "新建讲义"
-    new_clclass: "新开课班"
-    signin_to_apply: "登陆申请"
+
   course:
     list: "课程列表"
     name: "课程简称"
     full_name: "课程名称"
     code: "课程代码"
     description: "课程介绍"
+    progress: "进度"
     
   layouts:
     application:
       title: "点滴云"
       notice: ""
+      
   users:
-    first_name: "姓"
-    last_name: "名"  
+    list: "学生信息列表"
+    first_name: "姓氏"
+    last_name: "名字"  
+    username: "姓名"
+    email: "个人邮箱"
+    city: "所在城市"
+    language: "国家语言"
+    password: "密码"
+    password_confirmation: "确认密码" 
+    qq: "QQ"
+    mobile: "联系电话" 
+    reg_date: "注册时间"
+    last_date: "最后一次活动时间" 
+    age: "年龄"
+    gender: "性别"
+    bio: "个人简历"
+    education: "学历" 
+    avatar: "图片"
+    image_url: "上传头像"
+    avatar_cache: "Avatar Cache"
+    remove_avatar: "删除图片文件"
+    edit_profile: "编辑个人信息"
+    personal_profile: "个人信息"
+    courses: "我的课程"
+    network: "课程作业"
+    endorsements: "通知信息"
+    save: "保存"
+    
   teacher_sessions:
     new:
       sign_in: "教师登录"
+      sign_up: "教师注册"
       sign_out: "立即注册"
       new_teacher: "尚未注册码"
       last_name: "名"
@@ -124,7 +160,7 @@ zh_CN:
       commit: "提交修改"
       contacts: "联系方式"
     
-  
+  Congratulations: "祝贺您"
   about: "关于我们"
   terms: "条约"
   contact: "联系我们"
@@ -136,6 +172,9 @@ zh_CN:
   sign_in: "登陆"
   sign_up: "学生注册"
   welcome: "欢迎来到点滴云教育网站"
+  sure: "你确定吗？"
+  previous_label: "上一页"
+  next_label: "下一页"
 
   account: "帐号"
   profile: "我的信息"
@@ -143,6 +182,10 @@ zh_CN:
   conversations: "站内消息"
   setting: "设置"
   sign_out: "退出"
+  password: "密码"
+  password_confirmation: "确认密码" 
+  confirmation: "确认密码"
+  create_my_account: "创建一个"
 
   show: "详细"
   edit: "编辑"

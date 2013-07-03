@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index,:edit, :update]
   before_filter :correct_user,   only: [:edit, :update]
+  before_filter :clclasses,      only: [:show,:myclasses]
+  before_filter :find_class
   include ClclassesHelper
   def index
     @users = User.paginate(page: params[:page], :per_page => 5)
@@ -12,20 +14,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if signed_in?
-      @class_ids = ClclassesUser.where(:user_id=>params[:id])
-      @class_user = Array.new
-      if !@class_ids.nil?
-        @class_ids.each do |c|
-          @class_user.push(Clclass.find(c.clclass_id))
-        end
-      end
-    end
   end
 
   def myclasses
     @user = User.find(params[:id])
-
   end
 
   def edit
@@ -80,4 +72,20 @@ class UsersController < ApplicationController
     redirect_to(root_path) unless current_user?(@user)
   end
 
+  def clclasses
+    @clclasses = Clclass.all
+  end
+  
+  def find_class
+        if signed_in?
+      @class_ids = ClclassesUser.where(:user_id=>params[:id])
+      @class_user = Array.new
+      if !@class_ids.nil?
+        @class_ids.each do |c|
+          @class_user.push(Clclass.find(c.clclass_id))
+        end
+      end
+    end
+  end
+  
 end

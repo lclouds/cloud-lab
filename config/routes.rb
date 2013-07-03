@@ -39,7 +39,6 @@ CloudLab::Application.routes.draw do
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   match '/sysadmin',to: 'sys_admin#index'
-#  match '/myclasses', to: 'users#myclasses'
   mount Ckeditor::Engine => '/ckeditor'
 
   # The priority is based upon order of creation:
