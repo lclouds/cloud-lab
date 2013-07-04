@@ -1,25 +1,31 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <b>Name:</b>
+  <b><%= t('course.name')%>:</b>
+  <div class="well">
   <%= @course.name %>
+  </div>
 </p>
 
 <p>
-  <b>Full name:</b>
+  <b><%= t('course.full_name')%>:</b>
+  <div class="well">
   <%= @course.course_name %>
+  </div>
 </p>
 
 <p>
-  <b>Code:</b>
+  <b><%= t('course.code')%>:</b>
+  <div class="well">
   <%= @course.course_code %>
+  </div>
 </p>
 
 <p>
-  <b>Introduction:</b>
-  <%= @course.description %>
+  <b><%= t('course.description')%>:</b>
+  <div class="well">
+  <%= raw @course.description %>
+  </div>
 </p>
 
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<%= link_to t('edit'), edit_course_path(@course) %> |
+<%= link_to t('back'), courses_path %>

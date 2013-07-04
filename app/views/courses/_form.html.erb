@@ -12,20 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= t('course.name') %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :course_name %><br />
+    <%= t('course.full_name') %><br />
     <%= f.text_field :course_name %>
   </div>
   <div class="field">
-    <%= f.label :course_code %><br />
+    <%= t('course.code') %><br />
     <%= f.number_field :course_code %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= t('course.description') %><br />
+    <%= f.cktext_area :description %>
   </div>
   <div class="actions">
     <%= f.submit %>

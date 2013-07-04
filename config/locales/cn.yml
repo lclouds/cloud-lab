@@ -33,6 +33,8 @@ zh_CN:
     full_name: "课程名称"
     code: "课程代码"
     description: "课程介绍"
+    edit_course: "编辑课程"
+    new_course: "添加课程"
     progress: "进度"
     
   layouts:
@@ -191,3 +193,4 @@ zh_CN:
   show: "详细"
   edit: "编辑"
   destroy: "删除"
+  back: "返回"

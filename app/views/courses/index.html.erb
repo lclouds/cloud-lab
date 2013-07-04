@@ -16,10 +16,10 @@
     <td><%= course.name %></td>
     <td><%= course.course_name %></td>
     <td><%= course.course_code %></td>
-    <td><%= course.description %></td>
-    <td><%= link_to 'Show', course %></td>
-    <td><%= link_to 'Edit', edit_course_path(course) %></td>
-    <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= raw course.description %></td>
+    <td><%= link_to t('show'), course %></td>
+    <td><%= link_to t('edit'), edit_course_path(course) %></td>
+    <td><%= link_to t('destroy'), course, method: :delete, data: { confirm: t('sure') } %></td>
   </tr>
 <% end %>
 </table>

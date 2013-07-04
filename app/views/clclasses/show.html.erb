@@ -1,17 +1,17 @@
-
+<div class="well well-large">
 <p>
 	<b><%= t("course.full_name")%>:</b>
-	<%= get_currentcourse.course_name %>
+	   <%= get_currentcourse.course_name %>
 </p>
 
 <p>
 	<b><%= t("clclass.teacher")%>:</b>
-	<%= @clclass.teacher %>
+	  <%= @clclass.teacher %>
 </p>
 
 <p>
 	<b><%= t("clclass.start_date")%>:</b>
-	<%= @clclass.starting_date %>
+	  <%= @clclass.starting_date %>
 </p>
 
   <% if signed_in? %>
@@ -24,13 +24,13 @@
 
 <p>
 	<b><%= t("course.description")%>:</b>
-	<%= raw @clclass.class_description %>
+      <%= raw @clclass.class_description %>
 </p>
 
 <p>
 	<b><%= t("clclass.technical_requirements")%>:</b>
-	<%= raw @clclass.technical_requirements %>
+	  <%= raw @clclass.technical_requirements %>
 </p>
-
-  <%= link_to 'Edit', edit_clclass_path(@clclass) %> |
-  <%= link_to 'Back', clclasses_path %>
+</div>
+  <%= link_to t('edit'), edit_clclass_path(@clclass) %> |
+  <%= link_to t('back'), clclasses_path %>

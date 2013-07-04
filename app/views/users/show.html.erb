@@ -7,11 +7,12 @@
 						<div class='span3 tab-span'>
 							<div class='well less-padding left-menu'>
 								<table>
-									<td><%= image_tag(@user.avatar, alt: "image") %></td>
+                                      <%= image_tag(@user.avatar_url(:thumb)) if @user.avatar? %>  					
 									<br />
 								</table>
+								<br />
 								<p>
-									<h2> <%= @user.first_name+@user.last_name %></h2>
+									<i class="pull-left"><h2> <%= @user.first_name+@user.last_name %></h2></i>
 								</p>
 								<ul class='nav nav-list'>
 									<li class="active">

@@ -1,20 +1,33 @@
 <h2><%= t("clclass.summary") %></h2>
-<p>
-	<b><%= t("clclass.students")%>:<br/></b>
-	<%@users.each do |u|%>
-       <%=u.last_name%>&nbsp;<%=u.first_name%>, comes from <%= u.city%>, email: <%= u.email%></br>
-    <% end%>
-</p> 
-<p>
-	<b><%= t("clclass.teacher")%>:</b>
+<div class="well well-small">
+	<p>
+		<b><%= t("clclass.students")%>:
+		<br/>
+		</b>
+		<%@users.each do |u|%>
+		<%= u.last_name%>&nbsp;<%= u.first_name%>, comes from <%= u.city%>, email: <%= u.email%></br>
+		<% end%>
+	</p>
+</div>
+<div class="well well-small">
+	<p>
+		<b><%= t("clclass.teacher")%>:</b>
 		<%= @clclass.teacher %>
-</p>
-<p>
-	<b><%= t("clclass.lecture.lecture")%>:<br/></b>
-	<%@lectures.each do |l|%>
-       <%=l.name%><br/>
-    <% end%>
-</p>
-<p>
-	<b><%= t("clclass.assignment")%>:</b> none;
-</p>
+	</p>
+</div>
+<div class="well well-small">
+	<p>
+		<b><%= t("clclass.lecture.lecture")%>:
+		<br/>
+		</b>
+		<%@lectures.each do |l|%>
+		<%= l.name%>
+		<br/>
+		<% end%>
+	</p>
+</div>
+<div class="well well-small">
+	<p>
+		<b><%= t("clclass.assignment")%>:</b> none;
+	</p>
+</div>

@@ -31,6 +31,8 @@ en:
     full_name: "Course Full Name"
     code: "Course Code"
     description: "Course Description"
+    edit_course: "Editing course"
+    new_course: "New course"
     progress: "Progress"
     
   users:
@@ -128,3 +130,4 @@ en:
   show: "Show"
   edit: "Edit"
   destroy: "Destroy"
+  back: "Back"
