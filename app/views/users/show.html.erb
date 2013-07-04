@@ -6,34 +6,36 @@
 					<div class='row-fluid tabbable tabs-left'>
 						<div class='span3 tab-span'>
 							<div class='well less-padding left-menu'>
-								<table>
-                                      <%= image_tag(@user.avatar_url(:thumb)) if @user.avatar? %>  					
+								<table class="center">
+									<div class="img-polaroid">
+										<%= image_tag(@user.avatar_url(:thumb)) if @user.avatar? %>
+									</div>
 									<br />
 								</table>
-								<br />
-								<p>
-									<i class="pull-left"><h2> <%= @user.first_name+@user.last_name %></h2></i>
-								</p>
-								<ul class='nav nav-list'>
-									<li class="active">
-										<a data-toggle='tab' href='#item-1'> <i class='icon-star'></i><%= t('users.personal_profile') %></a>
-									</li>
+									<br />
+									<ul class='nav nav-list'>
+							         	<li class="">
+										     <h2> <%= @user.first_name+@user.last_name %></h2>
+									    </li>										
+										<li class="active">
+											<a data-toggle='tab' href='#item-1'> <i class='icon-star'></i><%= t('users.personal_profile') %></a>
+										</li>
 
-									<li class="">
-										<a data-toggle='tab' href='#item-2'> <i class='icon-list-alt'></i><%= t('users.courses') %></a>
-									</li>
+										<li class="">
+											<a data-toggle='tab' href='#item-2'> <i class='icon-list-alt'></i><%= t('users.courses') %></a>
+										</li>
 
-									<li class="">
-										<a data-toggle='tab' href='#item-3'> <i class='icon-user'></i><%= t('users.network') %></a>
-									</li>
+										<li class="">
+											<a data-toggle='tab' href='#item-3'> <i class='icon-user'></i><%= t('users.network') %></a>
+										</li>
 
-									<li class="">
-										<a data-toggle='tab' href='#item-4'> <i class='icon-comment'></i><%= t('users.endorsements')%> </a>
-									</li>
-								</ul>
-
+										<li class="">
+											<a data-toggle='tab' href='#item-4'> <i class='icon-comment'></i><%= t('users.endorsements')%> </a>
+										</li>
+									</ul>
 							</div>
 						</div>
+
 						<div class='span9'>
 							<div class='white well'>
 								<div class='tab-content'>
@@ -68,13 +70,13 @@
 												<b><%= t('users.reg_date') %>:</b>
 												<%= @user.created_at %>
 											</p>
-											
+
 											<p>
 												<i class='icon-time'></i>
 												<b><%= t('users.last_date') %>:</b>
 												<%= @user.last_date %>
 											</p>
-											
+
 											<p>
 												<i class='icon-book'></i>
 												<b><%= t('users.education') %>:</b>
@@ -89,7 +91,7 @@
 												<i class='icon-hand-right'></i>
 												<b><%= t('users.mobile') %>:</b>
 												<%= @user.mobile %>
-											</p>											
+											</p>
 											<p>
 												<i class='icon-envelope'></i>
 												<b><%= t('users.email') %>:</b>
@@ -108,24 +110,24 @@
 
 									<div id="item-2" class="tab-pane ">
 										<div class="row-fluid" >
-												<h3><%= @user.first_name %>' Courses</h3>
+											<h3><%= @user.first_name %>' Courses</h3>
 											<table class="table table-condensed">
-													<tr>
-														<th><%= t("course.full_name")%></th>
-														<th><%= t("clclass.teacher")%></th>
-														<!--<th><%= t("course.description")%></th>-->
-														<th><%= t("clclass.start_date")%></th>
-													</tr>
-                                                    <br />
-													<% @class_user.each do |cu|%>
-													<tr class="info">
-														<td><%=link_to get_course_by_clclass(cu.course_id).course_name, cu %></td>
-														<td><%= cu.teacher %></td>
-														<!--<td><%= cu.class_description%></td>-->
-														<td><%= cu.starting_date%></td>
-														<br />
-													</tr>
-													<% end %>
+												<tr>
+													<th><%= t("course.full_name")%></th>
+													<th><%= t("clclass.teacher")%></th>
+													<!--<th><%= t("course.description")%></th>-->
+													<th><%= t("clclass.start_date")%></th>
+												</tr>
+												<br />
+												<% @class_user.each do |cu|%>
+												<tr class="info">
+													<td><%= link_to get_course_by_clclass(cu.course_id).course_name, cu %></td>
+													<td><%= cu.teacher %></td>
+													<!--<td><%= cu.class_description%></td>-->
+													<td><%= cu.starting_date%></td>
+													<br />
+												</tr>
+												<% end %>
 											</table>
 										</div>
 									</div>
