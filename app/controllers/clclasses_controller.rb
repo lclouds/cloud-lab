@@ -1,7 +1,9 @@
 #clclass  = cloud lab class
 #can't use class as a name 
 class ClclassesController < ApplicationController
-  include ClclassesHelper
+  load_and_authorize_resource
+  
+  include ClclassesHelperload_and_authorize_resource
   before_filter :class_course, only: [:show, :edit]
   before_filter :clclass, only: [:apply]
   # GET /clclasses
