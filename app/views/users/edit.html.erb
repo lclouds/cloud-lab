@@ -1,39 +1,35 @@
 <% provide(:title, "Edit user") %>
-
-
-
-
-<h2 class='hidden-accessible'>编辑个人信息</h2>
+<h2 class='hidden-accessible'><%= t('users.edit_profile')%></h2>
 <div class="row-fluid" >
 
     <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages' %>
 
-    <%= f.label :"个人头像" %><br />  
+    <%= t("users.image_url")%><br />  
     <%= image_tag(@user.avatar_url(:thumb)) if @user.avatar? %>  
     <%= f.file_field :avatar %> 
     <%= f.hidden_field :avatar_cache %> 
 
-    <%= f.label :"姓氏" %>
+    <%= t("users.first_name") %>
     <%= f.text_field :first_name %>
 
-    <%= f.label :"名字" %>	
+    <%= t("users.last_name") %>	
     <%= f.text_field :last_name %>
       
-    <%= f.label :" 所在城市" %>
+    <%= t("users.city") %>
     <%= f.text_field :city %>
 
-    <%= f.label :" 年龄" %>
+    <%= t("users.age") %>
     <!--<%= f.text_field :age %>-->
     <%= f.select :age, [["--选择--",""],['18-20', '18-20'], ['21-25', '21-25'],['26-30','26-30'],["31-35","31-35"],["36-40","36-40"],
                         ["41-45","41-45"],["46-50","46-50"],["50-60","50-60"],["60以上","60以上"],["秘密","秘密"]] %>
     
-    <%= f.label :"性别" %>
+    <%= t("users.gender") %>
    <!-- <%= select_tag "gender", options_for_select([ "man", "woman"]) %>-->
     <%= f.select :gender, [['男', '男'], ['女', '女'],['秘密','秘密']] %>
     
 
-    <%= f.label :"国家语言" %>
+    <%= t("users.language") %>
     <%= f.select :language, [["--选择--",""],["Afrikaans","Afrikaans"],["Albanian","Albanian"],["Arabic","Arabic"],["Armenian","Armenian"],
                              ["Azerbaijani","Azerbaijani"],["Basque","Basque"],["Bengali","Bengali"],["Bosnian","Bosnian"],["Bulgarian","Bulgarian"],
                              ["Catalan","Catalan"],["Central Khmer","Central Khmer"],["Chinese","Chinese"],["Croatian","Croatian"],["Czech","Czech"],
@@ -49,17 +45,25 @@
                              ["Tonga (Tonga Islands)","Tonga (Tonga Islands)"],["Turkish","Turkish"],["Ukrainian","Ukrainian"],
                              ["Urdu","Urdu"],["Uzbek","Uzbek"],["Vietnamese","Vietnamese"],["Welsh","Welsh"],["Xhosa","Xhosa"]] %>
 
+    <%= t("users.qq") %>
+    <%= f.text_field :qq %>
+    
+    <%= t("users.mobile") %>
+    <%= f.text_field :mobile %>    
 
-    <%= f.label :密码 %>
+    <%= t("users.education") %>
+    <%= f.select :education, [['--选择--', ' '],['博士后','博士后'], ['博士', '博士'],['硕士','硕士'],['本科','本科'],['专科','专科'],['高中','高中'],['初中以上','初中以上']] %>
+
+    <%= t("users.password") %>
     <%= f.password_field :password %>
 
-    <%= f.label :password_confirmation, "确认密码" %>
+    <%= f.label :password_confirmation, t("users.password_confirmation") %>
     <%= f.password_field :password_confirmation %>
 
-    <%= f.label :" 个人简历" %>
+    <%= t("users.bio") %>
     <%= f.cktext_area :bio, :class => "ckeditor", :ckeditor => {:language => "zh-CN"} %>
 
-    <%= f.submit "保存", class: "btn btn-large btn-primary" %>
+    <%= f.submit t("users.save"), class: "btn btn-large btn-primary" %>
     <% end %>
   
 </div>

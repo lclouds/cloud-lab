@@ -1,10 +1,10 @@
 <h3>
-Congratulations!
+<%= t('Congratulations')%> !
 </h3>
 
 <h3>
 You applied <b><%= get_currentcourse.course_name%></b> Course!
 </h3>
 <p>
-<i class="btn btn-large btn-primary"><%= link_to 'go to class', @clclass %></i>
+<i class="btn btn-large btn-primary"><%= link_to t('clclass.go_to_class'), @clclass %></i>
 </p>

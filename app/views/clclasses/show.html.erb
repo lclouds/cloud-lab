@@ -16,7 +16,7 @@
 
   <% if signed_in? %>
   <%= form_for @clclass, :url=>{:action=>"apply"} do |f| %>
-  <%= f.submit "Apply this class", class: "btn btn-large btn-primary" %>
+  <%= f.submit t("clclass.apply"), class: "btn btn-large btn-primary" %>
   <% end %>
   <% else %>
   <%= button_to( t("clclass.signin_to_apply"),"../signin") %>

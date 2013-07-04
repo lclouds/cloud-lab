@@ -1,14 +1,17 @@
 <% provide(:title, 'All users') %>
-<h1>学生信息列表</h1>
+<h1><%= t('users.list')%></h1>
 <hr>
 <table class="table table-bordered">
 <tr>	
-   <th>姓名</th>
-   <th>性别</th>
-   <th>城市</th>
-   <th>年龄</th>
-   <th>邮箱</th>
-   <th>删除</th>
+   <th><%= t('users.username')%></th>
+   <th><%= t('users.gender')%></th>
+   <th><%= t('users.city')%></th>
+   <th><%= t('users.age')%></th>
+   <th><%= t('users.education') %></th>
+   <th><%= t('users.email')%></th>
+   <th><%= t('show')%></th>
+   <th><%= t('edit')%></th>
+   <th><%= t('destroy')%></th>
 </tr>
   <% @users.each do |user| %>
     <tr>
@@ -16,13 +19,16 @@
       <td><%= user.gender %></td>
       <td><%= user.city %></td>
       <td><%= user.age %></td>
+      <td><%= user.education%></td>
       <td><%= user.email %></td>
-      <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t("show"), user %></td>
+      <td><%= link_to t("edit"), edit_user_path(current_user) %></td>      
+      <td><%= link_to t('destroy'), user, method: :delete, data: { confirm: t('sure') } %></td>
     </tr>
   <% end %>
 </table>
 <hr>
-<%=will_paginate(@users, :previous_label=>'上一页', :next_label=>'下一页', :separator=>" | ") %>
+<%=will_paginate(@users, :previous_label=>t('previous_label'), :next_label=>t('next_label'), :separator=>" | ") %>
 
 
 
