@@ -77,9 +77,9 @@ class UsersController < ApplicationController
   end
   
   def find_class
-        if signed_in?
-      @class_ids = ClclassesUser.where(:user_id=>params[:id])
-      @class_user = Array.new
+      if signed_in?
+        @class_ids = ClclassesUser.where(:user_id=>params[:id])
+        @class_user = Array.new
       if !@class_ids.nil?
         @class_ids.each do |c|
           @class_user.push(Clclass.find(c.clclass_id))
