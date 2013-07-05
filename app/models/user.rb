@@ -39,8 +39,13 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   
   def admin?
-    return false
+    if email == 'lclouds.ddy@gmail.com'
+      return true
+    else
+      return false
+    end
   end
+  
   private
 
   def create_remember_token

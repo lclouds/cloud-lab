@@ -25,5 +25,6 @@
 </table>
 
 <br />
-
+<% if can? :new,@course   %>
 <%= link_to t("clclass.new_clclass"), new_course_path %>
+<% end %>
