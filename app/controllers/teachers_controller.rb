@@ -1,4 +1,6 @@
 class TeachersController < ApplicationController
+  load_and_authorize_resource
+  
   before_filter :signed_in_teacher, only: [:index,:edit, :update]
   before_filter :correct_teacher,   only: [:edit, :update] 
 
@@ -111,7 +113,8 @@ class TeachersController < ApplicationController
   private
 
     def signed_in_teacher
-      unless !session[:teacher].nil?
+      # unless !session[:teacher].nil?
+      unless signed_in?
         store_location
         redirect_to teacher_signin_path, notice: "Please sign in."
       end
@@ -119,7 +122,9 @@ class TeachersController < ApplicationController
     
     def correct_teacher
       @teacher = Teacher.find(params[:id])
-      redirect_to(teacher_signin_path, notice: "Please sign in again.") unless session[:teacher]==@teacher
+      # redirect_to(teacher_signin_path, notice: "Please sign in again.") unless session[:teacher]==@teacher
+      # redirect_to(teacher_signin_path) unless session[:teacher]==@teacher
+      redirect_to(teacher_signin_path) unless current_user?(@teacher)
     end
   
 end

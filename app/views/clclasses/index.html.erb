@@ -16,12 +16,14 @@
     <th><%= clclass.teacher %></th>
     <th><%= clclass.starting_date %></th>
     <td><%= link_to t("show"), clclass %></td>
-    <td><%= link_to t("edit"), edit_clclass_path(clclass) %></td>
-    <td><%= link_to t("destroy"), clclass, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= if can? :modify, clclass; link_to t("edit"), edit_clclass_path(clclass) end %></td>
+    <td><%= if can? :modify, clclass; link_to t("destroy"), clclass, method: :delete, data: { confirm: 'Are you sure?' } end %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
+<% if can? :new,@clclasses   %>
 <%= link_to t("clclass.new_clclass"), new_clclass_path %>
+<% end %>

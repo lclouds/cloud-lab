@@ -19,6 +19,9 @@ class Teacher < ActiveRecord::Base
   #validates :password, presence: true, length: { minimum: 6 }
   #validates :password_confirmation, presence: true
 
+  def admin?
+    return true
+  end
   protected
   def password_validate
     if self.password_digest.nil? 

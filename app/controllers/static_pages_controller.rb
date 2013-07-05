@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  skip_authorization_check
+  
   def home
     @clclasses = Clclass.all
     
@@ -14,5 +16,8 @@ class StaticPagesController < ApplicationController
   end
   
   def contact
+  end
+  def unauth
+    
   end
 end
