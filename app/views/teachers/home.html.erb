@@ -15,20 +15,14 @@
 								</p>
 								<ul class='nav nav-list'>
 									<li class="active">
-										<%= link_to t('profile'), teacher_root_path %>
+										<a data-toggle='tab' href='#item-1'> <i class='icon-star'></i><%= t('users.personal_profile') %></a>
+										<!-- <%= link_to t('profile'), teacher_root_path %> -->
 										
 									</li>
 
 									<li class="">
-										<%= link_to t('My Course'), teachers_clclasses_path %>
-									</li>
-
-									<li class="">
-										<a data-toggle='tab' href='#item-3'> <i class='icon-user'></i> Network </a>
-									</li>
-
-									<li class="">
-										<a data-toggle='tab' href='#item-4'> <i class='icon-comment'></i> Endorsements </a>
+										<a data-toggle='tab' href='#item-2'> <i class='icon-list-alt'></i><%= t('users.courses') %></a>
+										<!-- <%= link_to t('My Course'), teachers_clclasses_path %> -->
 									</li>
 								</ul>
 
@@ -80,31 +74,28 @@
 									</div>
 
 									<div id="item-2" class="tab-pane ">
-										<h3><%= @teacher.alias_name %>'s Courses</h3>
+										<div class="span8" >
+											<h3><%= @teacher.first_name + t("users._s_course") %></h3>
+											<p>&nbsp;</p>
+											<div>
+												<%if @classes.size == 0%>
+												<%= t("teachers.noclass")%>
+												<%end%>
+												<% @classes.each do |cl| %>
+												<p>
+												<%= link_to get_course_by_clclass(cl.course_id).course_name, cl %>
+												</p>
+												<% end %>
+											</div>
+										</div>
+										<!-- <h3><%= @teacher.alias_name %>'s Courses</h3>
 										<div class="row-fluid" >
 											<div class="span6 offset3" >
 												....
 											</div>
-										</div>
+										</div> -->
 									</div>
 
-									<div id="item-3" class="tab-pane ">
-										<h3><%= @teacher.alias_name %>'s Network</h3>
-										<div class="row-fluid" >
-											<div class="span6 offset3" >
-												....
-											</div>
-										</div>
-									</div>
-
-									<div id="item-4" class="tab-pane ">
-										<h3><%= @teacher.first_name %>'s Endorsements</h3>
-										<div class="row-fluid" >
-											<div class="span6 offset3" >
-												....
-											</div>
-										</div>
-									</div>
 
 								</div>
 							</div>

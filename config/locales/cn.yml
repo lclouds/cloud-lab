@@ -92,6 +92,8 @@ zh_CN:
       new_teacher: "还没有账户"
       last_name: "名"
   teachers:
+    clclass: "我的班级"
+    noclass: "暂无您的课程"
     teachers: "教师"
     first_name: "姓"
     last_name: "名"
@@ -203,6 +205,17 @@ zh_CN:
   confirmation: "确认密码"
   create_my_account: "创建一个"
   sign_in_teacher: "教师登录"
+  sysadmin:
+    name: "系统管理"
+    teacher_new: "创建教师帐户"
+    teacher_list: "列出所有教师"
+    course_new: "创建课程"
+    course_list: "列出所有课程"
+    clclass_new: "新开班级"
+    clclass_list: "列出所有班级"
+    user_new: "创建学生帐户"
+    user_list: "列出所有学生"
+    
   
   show: "详细"
   edit: "编辑"

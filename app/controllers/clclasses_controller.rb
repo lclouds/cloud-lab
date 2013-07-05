@@ -52,6 +52,7 @@ class ClclassesController < ApplicationController
   # GET /clclasses/1/edit
   def edit
     @courses = Course.all
+    @teachers = Teacher.all
   end
 
   # POST /clclasses

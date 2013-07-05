@@ -58,5 +58,10 @@ module SessionsHelper
       return true
     end
   end
+  def is_admin?
+    if is_student? && current_user.admin?
+      return true
+    end
+  end
 end
 

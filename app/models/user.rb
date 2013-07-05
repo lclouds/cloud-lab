@@ -40,7 +40,6 @@ class User < ActiveRecord::Base
   
   def admin?
     if email == 'lclouds.ddy@gmail.com'
-      puts '------current user is admin'
       return true
     else
       return false

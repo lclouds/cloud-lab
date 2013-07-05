@@ -11,9 +11,10 @@
 				<th><%= t("clclass.start_date")%></th>
 			</tr>
 			<% @class_user.each do |clclass| %>
+			<% @teacher = get_teacher_by_clclass(clclass.teacher)%>
 			<tr>
 				<td><%= link_to get_course_by_clclass(clclass.course_id).course_name, clclass %></td>
-				<td><%= clclass.teacher %></td>
+				<td><%= link_to @teacher.first_name, @teacher %></td>
 				<td width="60%"><%= raw clclass.class_description%></td>
 				<td><%= %></td>
 				<td><%= clclass.starting_date %></td>

@@ -79,6 +79,8 @@ en:
     _s_endorsements: "'s Endorsements"
 
   teachers:
+    clclass: "My Classes"
+    noclass: "No Classes"
     teachers: "Teachers"
     new:
       title:  "Creating Teacher"
@@ -139,6 +141,16 @@ en:
   confirmation: "Confirmation"
   create_my_account: "Create my account"
   sign_in_teacher: "Teachers Sign In"
+  sysadmin:
+    name: "System Management"
+    teacher_new: "Create new teacher Account"
+    teacher_list: "Show all teachers"
+    course_new: "Create new course"
+    course_list: "Show all courses"
+    clclass_new: "Open a new Class"
+    clclass_list: "Show all opening classes"
+    user_new: "Create new user Account"
+    user_list: "List all user"
   
   show: "Show"
   edit: "Edit"

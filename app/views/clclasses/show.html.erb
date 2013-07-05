@@ -1,4 +1,13 @@
 <div class="well well-large">
+	
+  <% if signed_in? %>
+  <%= form_for @clclass, :url=>{:action=>"apply"} do |f| %>
+  <%= f.submit t("clclass.apply"), class: "btn btn-large btn-primary" %>
+  <% end %>
+  <% else %>
+  <%= button_to( t("clclass.signin_to_apply"),"../signin") %>
+  <hr />
+  <% end %>
 <p>
 	<b><%= t("course.full_name")%>:</b>
 	   <%= get_currentcourse.course_name %>
@@ -14,14 +23,6 @@
 	  <%= @clclass.starting_date %>
 </p>
 <hr />
-  <% if signed_in? %>
-  <%= form_for @clclass, :url=>{:action=>"apply"} do |f| %>
-  <%= f.submit t("clclass.apply"), class: "btn btn-large btn-primary" %>
-  <% end %>
-  <% else %>
-  <%= button_to( t("clclass.signin_to_apply"),"../signin") %>
-  <hr />
-  <% end %>
 
 <p>
 	<b><%= t("course.description")%>:</b>
@@ -34,5 +35,5 @@
 </p>
 <hr />
 </div>
-  <%if can? :modify, @clclass; %> <%= link_to t('edit'), edit_clclass_path(@clclass) %> |<%end%>
+  <%if can? :modify, @clclass %> <%= link_to t('edit'), edit_clclass_path(@clclass) %> |<%end%>
   <%= link_to t('back'), clclasses_path %>

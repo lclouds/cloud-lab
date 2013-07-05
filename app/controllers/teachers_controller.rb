@@ -2,7 +2,7 @@ class TeachersController < ApplicationController
   load_and_authorize_resource
   
   before_filter :check_teacher_login, only: [:home]
-  before_filter :signed_in_teacher, only: [:index,:edit, :update]
+  before_filter :signed_in_teacher, only: [:index,:edit, :update, :clclasses]
   before_filter :correct_teacher,   only: [:edit, :update] 
   
   layout "teachers"
@@ -85,6 +85,7 @@ class TeachersController < ApplicationController
   
   def home
     @teacher = current_user
+    @classes = Clclass.where(:teacher=>@teacher.id)
     # if @teacher.nil?
       # redirect_to teacher_signin_path
     # end
@@ -96,8 +97,8 @@ class TeachersController < ApplicationController
   end
   
   def clclasses
-    @teacher = session[:teacher]
-    @classes = Clclass.find_by_teacher(session[:teacher].id)
+    @teacher = current_user
+    @classes = Clclass.where(:teacher=>@teacher.id)
 
     respond_to do |format|
       format.html # new.html.erb
