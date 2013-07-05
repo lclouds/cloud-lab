@@ -6,7 +6,7 @@
   </div>
   <div class="field">
     <%= t('clclass.teacher') %>:<br />
-    <%= f.text_field :teacher %>
+  	<%= select_tag 'clclass[teacher]', options_from_collection_for_select(@teachers, :id, :first_name) %>
   </div>
   <div class="field">
     <%= t("clclass.start_date")%>:<br />

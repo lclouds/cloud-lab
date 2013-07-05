@@ -5,7 +5,7 @@
 			<div class="well well-large">
 				<p>
 					<b><%= t("clclass.teacher")%>:</b>
-					<%= @clclass.teacher %>
+					<%= link_to @teacher.first_name, @teacher %>
 				</p>
 				<hr />
 				<dl class="dl-horizontal">

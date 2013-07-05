@@ -16,6 +16,10 @@ class Clclass < ActiveRecord::Base
                    
    has_many :clclassesusers
    has_many :users, :through => :clclassesusers
+   
+   validates :teacher, presence: true
+   validates :course_id, presence: true
+   
    # has_and_belongs_to_many :users
    # has_many :users, foreign_key: "user_id"
    # accepts_nested_attributes_for :users

@@ -4,7 +4,7 @@ class TeachersController < ApplicationController
   before_filter :check_teacher_login, only: [:home]
   before_filter :signed_in_teacher, only: [:index,:edit, :update]
   before_filter :correct_teacher,   only: [:edit, :update] 
-
+  
   layout "teachers"
   # GET /teachers
   # GET /teachers.json
@@ -65,15 +65,15 @@ class TeachersController < ApplicationController
   # PUT /teachers/1.json
   def update
     @teacher = Teacher.find(params[:id])
-=begin
-    if params[:teacher][:avatar] && @teacher. avatar
-      old_avatar = @teacher.avatar
-    end
-=end
+
+    # if params[:teacher][:avatar] && @teacher. avatar
+      # old_avatar = @teacher.avatar
+    # end
+
     respond_to do |format|
       if @teacher.update_attributes(params[:teacher])
+        # old_avatar.remove! if old_avatar
         sign_in @teacher
-#         old_avatar.remove! if old_avatar
         format.html { redirect_to teacher_root_path, notice: 'Teacher was successfully updated.' }
         format.json { head :no_content }
       else

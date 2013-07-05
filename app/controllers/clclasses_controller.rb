@@ -5,6 +5,7 @@ class ClclassesController < ApplicationController
   
   include ClclassesHelper
   before_filter :class_course, only: [:show, :edit]
+  before_filter :class_teacher, only: [:show, :edit]
   before_filter :clclass, only: [:apply]
   # GET /clclasses
   # GET /clclasses.json
@@ -40,6 +41,7 @@ class ClclassesController < ApplicationController
   def new
     @clclass = Clclass.new
     @courses = Course.all
+    @teachers = Teacher.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -126,5 +128,6 @@ class ClclassesController < ApplicationController
   end
   def class_teacher
     clclass
+    @teacher = Teacher.find(@clclass.teacher)
   end
 end
