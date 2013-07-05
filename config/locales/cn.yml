@@ -30,6 +30,9 @@ zh_CN:
       edit_lecture: "编辑讲义"
       additional_rsources: "附加资源"
       save: "保存"
+      introduction: "讲义介绍"
+      info: "讲义资料"
+      
   course:
     list: "课程列表"
     name: "课程简称"

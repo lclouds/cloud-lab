@@ -28,6 +28,8 @@ en:
       edit: "Edit Lecture"
       additional_rsources: "Additional Rsources"
       save: "Save"
+      introduction: "Introduction to lecture"
+      info: "Lecture Infomation"
       
   course:
     list: "Course List"
