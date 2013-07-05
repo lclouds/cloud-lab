@@ -17,6 +17,9 @@ zh_CN:
     save: "更新班级"
     current_courses: "当前课程"
     past_courses: "过往课程"    
+    you_applied: "您已经成功申请"
+    this_course: "这门课程"
+    
     
     lecture: 
       lecture: "讲义"

@@ -1,37 +1,38 @@
 <div class="well well-large">
-	
+<p>
+	<b><%= t("course.full_name")%>:</b>
+	   <%= get_currentcourse.course_name %>
+</p>
+<hr />
+<p>
+	<b><%= t("clclass.teacher")%>:</b>
+	  <%= @clclass.teacher %>
+</p>
+<hr />
+<p>
+	<b><%= t("clclass.start_date")%>:</b>
+	  <%= @clclass.starting_date %>
+</p>
+<hr />
   <% if signed_in? %>
   <%= form_for @clclass, :url=>{:action=>"apply"} do |f| %>
   <%= f.submit t("clclass.apply"), class: "btn btn-large btn-primary" %>
   <% end %>
   <% else %>
   <%= button_to( t("clclass.signin_to_apply"),"../signin") %>
+  <hr />
   <% end %>
-<p>
-	<b><%= t("course.full_name")%>:</b>
-	   <%= get_currentcourse.course_name %>
-</p>
-
-<p>
-	<b><%= t("clclass.teacher")%>:</b>
-	  <%= @clclass.teacher %>
-</p>
-
-<p>
-	<b><%= t("clclass.start_date")%>:</b>
-	  <%= @clclass.starting_date %>
-</p>
-
 
 <p>
 	<b><%= t("course.description")%>:</b>
       <%= raw @clclass.class_description %>
 </p>
-
+<hr />
 <p>
 	<b><%= t("clclass.technical_requirements")%>:</b>
 	  <%= raw @clclass.technical_requirements %>
 </p>
+<hr />
 </div>
   <%if can? :modify, @clclass; %> <%= link_to t('edit'), edit_clclass_path(@clclass) %> |<%end%>
   <%= link_to t('back'), clclasses_path %>

@@ -3,8 +3,8 @@
 </h3>
 
 <h3>
-You applied <b><%= get_currentcourse.course_name%></b> Course!
+<%= t('clclass.you_applied') %> <b><%= get_currentcourse.course_name%></b> <%= t('clclass.this_course') %>!
 </h3>
 <p>
-<i class="btn btn-large btn-primary"><%= link_to t('clclass.go_to_class'), @clclass %></i>
+<span class="btn btn-large btn-primary"><%= link_to t('clclass.go_to_class'), @clclass %></span>
 </p>

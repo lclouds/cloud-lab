@@ -41,6 +41,7 @@
 								<div class='tab-content'>
 									<div id="item-1" class="tab-pane active">
 										<table class="table table-bordered">
+											<hr />
 											<p>
 												<i class='icon-user'></i>
 												<b><%= t('users.username') %>:</b>
@@ -56,6 +57,7 @@
 												<b><%= t('users.age') %>:</b>
 												<%= @user.age %>
 											</p>
+											<p>
 											<i class='icon-home'></i>
 											<b><%= t('users.city') %>:</b>
 											<%= @user.city %>
@@ -103,9 +105,12 @@
 												<%= raw @user.bio %>
 											</p>
 										</table>
+										<hr />
+										<%  if can? :modify, @user %>
 										<li class="btn">
 											<i class='icon-dark icon-edit'><span class='hidden-accessible'> </span> </i><%= link_to t('users.edit_profile'), edit_user_path(current_user) %>
 										</li>
+										<% end %>
 									</div>
 
 									<div id="item-2" class="tab-pane ">
@@ -116,7 +121,6 @@
 												<tr>
 													<th><%= t("course.full_name")%></th>
 													<th><%= t("clclass.teacher")%></th>
-													<!--<th><%= t("course.description")%></th>-->
 													<th><%= t("clclass.start_date")%></th>
 													<th></th>
 													<th></th>
@@ -132,7 +136,6 @@
 												<tr class="info">
 													<td><%= link_to get_course_by_clclass(cu.course_id).course_name, cu %></td>
 													<td><%= cu.teacher %></td>
-													<!--<td><%= cu.class_description%></td>-->
 													<td><%= cu.starting_date%></td>
 													<td></td>
 													<td></td>
