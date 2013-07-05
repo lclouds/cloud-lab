@@ -28,11 +28,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if params[:user][:avatar] && @user. avatar
-      old_avatar = User.find(params[:id]).avatar
-    end
+#    if params[:user][:avatar] && @user. avatar
+#      old_avatar = User.find(params[:id]).avatar
+#    end
     if @user.update_attributes(params[:user])
-      old_avatar.remove! if old_avatar
+#      old_avatar.remove! if old_avatar
       flash[:success] = "Profile updated"
       sign_in @user
       redirect_to @user
