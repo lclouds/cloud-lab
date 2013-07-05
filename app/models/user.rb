@@ -38,6 +38,14 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
   
+  def admin?
+    if email == 'lclouds.ddy@gmail.com'
+      return true
+    else
+      return false
+    end
+  end
+  
   private
 
   def create_remember_token
