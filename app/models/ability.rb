@@ -6,12 +6,14 @@ class Ability
     #
     alias_action :update, :destroy, :to => :modify
     alias_action :create, :read, :update, :destroy, :to => :crud
+    puts 'current user -----------'+user.class.to_s
     if user.class.to_s == 'Teacher'
       
       can :manage, Teacher, :id => user.id
       can :read, Teacher
       can :read, Course
       can [:index, :show], Clclass
+      can :manage, Lecture
       
     else
       user ||= User.new # guest user (not logged in)

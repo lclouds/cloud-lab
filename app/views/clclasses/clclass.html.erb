@@ -12,7 +12,7 @@
 <div class="well well-small">
 	<p>
 		<b><%= t("clclass.teacher")%>:</b>
-		<%= @clclass.teacher %>
+		<%= link_to @teacher.first_name, @teacher %>
 	</p>
 </div>
 <div class="well well-small">

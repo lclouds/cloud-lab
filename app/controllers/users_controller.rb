@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
   
+  before_filter :find_user,      only: [:show, :myclasse, :edit, :update, :destroy, :correct_user]
   before_filter :signed_in_user, only: [:index,:edit, :update]
   before_filter :correct_user,   only: [:edit, :update]
   before_filter :clclasses,      only: [:show,:myclasses]
   before_filter :find_class
+  
   include ClclassesHelper
   def index
     @users = User.paginate(page: params[:page], :per_page => 5)
@@ -15,24 +17,23 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
-  def myclasses
+  def find_user
     @user = User.find(params[:id])
+  end
+  def myclasse
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
-    if params[:user][:avatar] && @user. avatar
-      old_avatar = User.find(params[:id]).avatar
-    end
+    # if params[:user][:avatar] && @user. avatar
+      # old_avatar = @user.avatar
+    # end
     if @user.update_attributes(params[:user])
-      old_avatar.remove! if old_avatar
+      # old_avatar.remove! if old_avatar
       flash[:success] = "Profile updated"
       sign_in @user
       redirect_to @user
@@ -53,7 +54,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    
+    @user.destroy
     flash[:success] = "User destroyed."
 
     redirect_to users_path
@@ -70,7 +72,6 @@ class UsersController < ApplicationController
   end
 
   def correct_user
-    @user = User.find(params[:id])
     redirect_to(root_path) unless current_user?(@user)
   end
 

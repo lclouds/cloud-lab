@@ -6,7 +6,8 @@ class LecturesController < ApplicationController
   # GET /lectures.json
   def index
 
-    @lectures = Lecture.scoped
+    # @lectures = Lecture.scoped
+    @lectures = Lecture.where(:clclass_id=> @clclass.id)
 
     respond_to do |format|
       format.html # index.html.erb
