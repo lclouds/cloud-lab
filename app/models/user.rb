@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
                   :avatar_cache,
                   :remove_avatar
 
-  has_many :clclassuseres
+  has_many :clclassuseres, dependent: :destroy
   has_many :clclass, :through=>:clclassuseres
   
   mount_uploader :avatar, AvatarUploader     

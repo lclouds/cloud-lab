@@ -1,5 +1,5 @@
 <% provide(:title, t(".sign_in") )%>
-<h1><%=t(".sign_in")%></h1>
+<h1><%=t("sign_in_teacher")%></h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -11,7 +11,7 @@
       <%= t('teachers.pwd') %>
       <%= f.password_field :password %>
 
-      <%= f.submit t(".sign_in") , class: "btn btn-large btn-primary" %>
+      <%= f.submit t("sign_in") , class: "btn btn-large btn-primary" %>
     <% end %>
 
     <!-- <p><%= t(".new_teacher")%>? <%= link_to t(".sign_up"), teacher_signup_path %></p> -->

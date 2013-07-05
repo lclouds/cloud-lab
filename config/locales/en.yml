@@ -15,6 +15,7 @@ en:
     edit_clclass: "Edit Class"
     signin_to_apply: "Sign in to Enroll"
     save: "Save Class"
+    
     lecture: 
       lecture: "Lecture"
       list: "Listing Lecture"
@@ -23,8 +24,11 @@ en:
       slides: "Slides"
       key_concepts: "Key Concepts"
       assignment: "Assignment"
-      new: "New Lecture"
-
+      new_lecture: "New Lecture"
+      edit: "Edit Lecture"
+      additional_rsources: "Additional Rsources"
+      save: "Save"
+      
   course:
     list: "Course List"
     name: "Course Name"
@@ -65,6 +69,7 @@ en:
     save: "Save"
     current_courses: "Current Courses"
     past_courses: "Past Courses"
+    sign_in_user: "User Sign In "
 
   teachers:
     teachers: "Teachers"
@@ -126,7 +131,8 @@ en:
   password_confirmation: "Password_configmation" 
   confirmation: "Confirmation"
   create_my_account: "Create my account"
-
+  sign_in_teacher: "Teachers Sign In"
+  
   show: "Show"
   edit: "Edit"
   destroy: "Destroy"

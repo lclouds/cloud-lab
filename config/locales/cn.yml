@@ -17,6 +17,7 @@ zh_CN:
     save: "更新班级"
     current_courses: "当前课程"
     past_courses: "过往课程"    
+    
     lecture: 
       lecture: "讲义"
       list: "讲义列表"
@@ -25,8 +26,10 @@ zh_CN:
       slides: "课件"
       key_concepts: "关键概念"
       assignment: "作业"
-      new: "新建讲义"
-
+      new_lecture: "新建讲义"
+      edit_lecture: "编辑讲义"
+      additional_rsources: "附加资源"
+      save: "保存"
   course:
     list: "课程列表"
     name: "课程简称"
@@ -47,7 +50,7 @@ zh_CN:
     first_name: "姓氏"
     last_name: "名字"  
     username: "姓名"
-    email: "个人邮箱"
+    email: "Email"
     city: "所在城市"
     language: "国家语言"
     password: "密码"
@@ -70,13 +73,14 @@ zh_CN:
     network: "课程作业"
     endorsements: "通知信息"
     save: "保存"
+    sign_in_user: "学生登录"
     
   teacher_sessions:
     new:
       sign_in: "教师登录"
       sign_up: "教师注册"
       sign_out: "立即注册"
-      new_teacher: "尚未注册码"
+      new_teacher: "还没有账户"
       last_name: "名"
   teachers:
     teachers: "教师"
@@ -86,7 +90,7 @@ zh_CN:
     valid_certificate: "证件类别"
     valid_certificate_no: "证件号码"
     regist_name: "登录名"
-    pwd: "口令"
+    pwd: "密码"
     image_url: "上传头像"
     telephone: "电话"
     mobile: "手机"
@@ -112,7 +116,7 @@ zh_CN:
       valid_certificate: "证件类别"
       valid_certificate_no: "证件号码"
       regist_name: "登录名"
-      pwd: "口令"
+      pwd: "密码"
       image_url: "头像图片路径"
       telephone: "电话"
       mobile: "手机"
@@ -189,7 +193,8 @@ zh_CN:
   password_confirmation: "确认密码" 
   confirmation: "确认密码"
   create_my_account: "创建一个"
-
+  sign_in_teacher: "教师登录"
+  
   show: "详细"
   edit: "编辑"
   destroy: "删除"
