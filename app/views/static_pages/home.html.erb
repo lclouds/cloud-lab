@@ -6,8 +6,7 @@
     <a href="#">Dian Di Yun</a>
     company.
   </h2> 
- <% if signed_in? %>
-  <% else %>
+ <% if !signed_in? %>
   <%= link_to t('sign_up'), signup_path, class: "btn btn-large btn-primary" %>
  <% end %>
 </div>

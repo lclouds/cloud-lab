@@ -5,7 +5,7 @@
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to t('home'), root_path %></li>
-          <li><%= link_to t('news'), "#" %></li>
+          <li><%= link_to t('news'), news_path %></li>
           <% if signed_in?  %>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -13,9 +13,17 @@
               </a>
               <ul class="dropdown-menu">  
                 <li><%= link_to t('profile'), current_user %></li>
+                <%if is_student? %>
                 <li><%= link_to t('my_classes'), myclasses_user_path(current_user) %></li>
                 <li><%= link_to t('conversations'), '#' %></li>
                 <li><%= link_to t('setting'), edit_user_path(current_user) %></li>
+                <% end%>
+                <%if is_teacher? %>
+                <li class="divider"></li>
+                <li><%= link_to t('teachers.teachers'), teachers_path %></li>
+                <li><%= link_to t('conversations'), '#' %></li>
+                <li><%= link_to t('setting'), edit_teacher_path(current_user) %></li>
+                <% end%>
                 <li class="divider"></li>
                 <li>
                   <%= link_to t('sign_out'), signout_path, method: "delete" %>

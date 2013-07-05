@@ -3,6 +3,10 @@ class TeacherSessionsController < ApplicationController
   
   layout "teachers"
   def new
+    if is_teacher?
+      redirect_to teacher_root_path
+      return
+    end
     render 'new'
   end
 
