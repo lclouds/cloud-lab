@@ -47,5 +47,16 @@ module SessionsHelper
     session[:return_to] = request.fullpath
   end
   
+  def is_teacher?
+    if current_user.class.to_s == 'Teacher'
+      return true
+    end
+  end
+  
+  def is_student?
+    if current_user.class.to_s == 'User'
+      return true
+    end
+  end
 end
 

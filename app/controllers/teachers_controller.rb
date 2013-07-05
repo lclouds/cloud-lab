@@ -1,6 +1,7 @@
 class TeachersController < ApplicationController
   load_and_authorize_resource
   
+  before_filter :check_teacher_login, only: [:home]
   before_filter :signed_in_teacher, only: [:index,:edit, :update]
   before_filter :correct_teacher,   only: [:edit, :update] 
 
@@ -50,6 +51,7 @@ class TeachersController < ApplicationController
 
     respond_to do |format|
       if @teacher.save
+        sign_in @teacher
         format.html { redirect_to @teacher, notice: 'Teacher was successfully created.' }
         format.json { render json: @teacher, status: :created, location: @teacher }
       else
@@ -66,6 +68,7 @@ class TeachersController < ApplicationController
 
     respond_to do |format|
       if @teacher.update_attributes(params[:teacher])
+        sign_in @teacher
         format.html { redirect_to teacher_root_path, notice: 'Teacher was successfully updated.' }
         format.json { head :no_content }
       else
@@ -76,10 +79,10 @@ class TeachersController < ApplicationController
   end
   
   def home
-    @teacher = session[:teacher]
-    if @teacher.nil?
-      redirect_to teacher_signin_path
-    end
+    @teacher = current_user
+    # if @teacher.nil?
+      # redirect_to teacher_signin_path
+    # end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -110,6 +113,13 @@ class TeachersController < ApplicationController
     end
   end
   
+  def check_teacher_login
+    if signed_in? && is_teacher?
+      puts '--=========='
+    else
+      puts 'fffffff=========='
+    end
+  end
   private
 
     def signed_in_teacher

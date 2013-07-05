@@ -34,8 +34,8 @@
     <td><%= teacher.title %></td>
     <td><%= teacher.position %></td>
      <td><%= link_to 'Show', teacher %></td>
-    <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-    <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= if can? :manage,teacher; link_to 'Edit', edit_teacher_path(teacher) end %></td>
+    <td><%= if can? :manage,teacher; link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } end %></td>
   </tr>
 <% end %>
 </table>
