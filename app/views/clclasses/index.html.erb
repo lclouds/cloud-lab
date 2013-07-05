@@ -11,9 +11,10 @@
   </tr>
 
 <% @clclasses.each do |clclass| %>
+<% @teacher = get_teacher_by_clclass(clclass.teacher)%>
   <tr>
     <th><%= link_to get_course_by_clclass(clclass.course_id).course_name, clclass %></th>
-    <th><%= clclass.teacher %></th>
+    <th><%= link_to @teacher.first_name,  @teacher%></th>
     <th><%= clclass.starting_date %></th>
     <td><%= link_to t("show"), clclass %></td>
     <td><%= if can? :modify, clclass; link_to t("edit"), edit_clclass_path(clclass) end %></td>

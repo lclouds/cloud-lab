@@ -45,7 +45,7 @@ CloudLab::Application.routes.draw do
   
   match '/sysadmin',to: 'sys_admin#index'
   match '/error_auth', to: 'static_pages#unauth'
-  match '*a' => redirect("/404.html")
+  # match '*a' => redirect("/404.html")
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

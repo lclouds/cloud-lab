@@ -2,6 +2,9 @@ module ClclassesHelper
   def get_course_by_clclass(clclass_id)
     return Course.find(clclass_id)
   end
+  def get_teacher_by_clclass(teacher_id)
+    return Teacher.find(teacher_id)
+  end
 
   def get_currentcourse
     return Course.find(@clclass.course_id)

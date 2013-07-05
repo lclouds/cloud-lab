@@ -15,7 +15,7 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'carrierwave'  
 gem 'mini_magick'
 #tools-date
-gem 'calendar_date_select', :git => 'http://github.com/paneq/calendar_date_select.git'
+# gem 'calendar_date_select', :git => 'http://github.com/paneq/calendar_date_select.git'
 #富文本编辑器
 gem "ckeditor"
 gem "paperclip"
@@ -31,7 +31,7 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
+  # gem 'psych'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
