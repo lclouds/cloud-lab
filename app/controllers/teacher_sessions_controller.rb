@@ -1,4 +1,6 @@
 class TeacherSessionsController < ApplicationController
+  skip_authorization_check
+  
   layout "teachers"
   def new
     render 'new'
@@ -8,7 +10,8 @@ class TeacherSessionsController < ApplicationController
     teacher = Teacher.find_by_email(params[:teacher_session][:email].downcase)
     if teacher && teacher.authenticate(params[:teacher_session][:password])
       #teacher_sign_in teacher
-      session[:teacher] = teacher
+      sign_in teacher
+      # session[:teacher] = teacher
       redirect_to teacher_root_path
       #redirect_to teacher
     else
@@ -18,11 +21,12 @@ class TeacherSessionsController < ApplicationController
   end
 
   def destroy
-    teacher = session[:teacher]
-    if teacher 
-      #teacher_sign_out 
-    end
-    session[:teacher] = nil
-    redirect_to teacher_root_path
+    sign_out
+    # teacher = session[:teacher]
+    # if teacher 
+      # #teacher_sign_out 
+    # end
+    # session[:teacher] = nil
+    redirect_to root_path
   end
 end

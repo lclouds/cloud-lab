@@ -17,9 +17,9 @@ CloudLab::Application.routes.draw do
   resources :teacher_sessions, only: [:new, :create, :destroy]
   devise_for :administrators
 
-  scope '(:locale)' do
+  # scope '(:locale)' do
     resources :teachers
-  end
+  # end
   
 
   match '/signup',  to: 'users#new'
@@ -40,6 +40,8 @@ CloudLab::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
   match '/sysadmin',to: 'sys_admin#index'
   mount Ckeditor::Engine => '/ckeditor'
+  
+  match '/error_auth', to: 'static_pages#unauth'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
