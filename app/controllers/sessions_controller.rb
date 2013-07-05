@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       sign_in user
-      flash[:success] = "Welcome to the dian di yun!"
+      flash[:success] = t("welcome")
       #redirect_back_or user
       #redirect_to :controller => 'user', :action => 'myclasses' 
       redirect_to  myclasses_user_path(current_user)
