@@ -70,10 +70,13 @@ zh_CN:
     edit_profile: "编辑个人信息"
     personal_profile: "个人信息"
     courses: "我的课程"
-    network: "课程作业"
-    endorsements: "通知信息"
+    network: "好友网络"
+    endorsements: "学习证明"
     save: "保存"
     sign_in_user: "学生登录"
+    _s_course: " 的课程"
+    _s_network: " 的好友"
+    _s_endorsements: " 的学习证明"
     
   teacher_sessions:
     new:
@@ -178,7 +181,7 @@ zh_CN:
   sign_in: "登陆"
   sign_up: "马上注册"
   new_user: "还没有账户？"
-  welcome: "欢迎来到点滴云教育网站"
+  welcome: "欢迎来到点滴云教育"
   sure: "你确定吗？"
   previous_label: "上一页"
   next_label: "下一页"

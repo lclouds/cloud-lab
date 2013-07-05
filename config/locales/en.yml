@@ -70,6 +70,9 @@ en:
     current_courses: "Current Courses"
     past_courses: "Past Courses"
     sign_in_user: "User Sign In "
+    _s_course: "'s Courses"
+    _s_network: "'s Network"
+    _s_endorsements: "'s Endorsements"
 
   teachers:
     teachers: "Teachers"

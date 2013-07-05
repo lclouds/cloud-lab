@@ -110,7 +110,7 @@
 
 									<div id="item-2" class="tab-pane ">
 										<div class="span8" >
-											<h3><%= @user.first_name %>' Courses</h3>
+											<h3><%= @user.first_name + t("users._s_course") %></h3>
 											<table class="table table-condensed">
 												<thead>
 												<tr>
@@ -149,19 +149,19 @@
 									</div>
 
 									<div id="item-3" class="tab-pane ">
-										<h3><%= @user.first_name %>'s Network</h3>
+										<h3><%= @user.first_name + t("users._s_network")%></h3>
 										<div class="row-fluid" >
 											<div class="span6 offset3" >
-												<h1>......</h1>
+												<h1></h1>
 											</div>
 										</div>
 									</div>
 
 									<div id="item-4" class="tab-pane ">
-										<h3><%= @user.first_name %>'s Endorsements</h3>
+										<h3><%= @user.first_name  + t("users._s_endorsements") %></h3>
 										<div class="row-fluid" >
 											<div class="span6 offset3" >
-												....
+												<h1></h1>
 											</div>
 										</div>
 									</div>

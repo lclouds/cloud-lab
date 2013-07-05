@@ -19,12 +19,13 @@ class Ability
         can :manage, :all
       else
         can :read, :all
+        cannot :manage, Teacher
       end
       can :read, Course
       can [:new, :create, :myclasses], User
       can :manage, User,  :id => user.id
       can [:index, :show, :apply], Clclass
-      cannot :manage, Teacher
+      
     end
     
     
