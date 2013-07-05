@@ -1,33 +1,42 @@
-<h2><%= t("clclass.summary") %></h2>
-<div class="well well-small">
-	<p>
-		<b><%= t("clclass.students")%>:
-		<br/>
-		</b>
-		<%@users.each do |u|%>
-		<%= u.last_name%>&nbsp;<%= u.first_name%>, comes from <%= u.city%>, email: <%= u.email%></br>
-		<% end%>
-	</p>
-</div>
-<div class="well well-small">
-	<p>
-		<b><%= t("clclass.teacher")%>:</b>
-		<%= link_to @teacher.first_name, @teacher %>
-	</p>
-</div>
-<div class="well well-small">
-	<p>
-		<b><%= t("clclass.lecture.lecture")%>:
-		<br/>
-		</b>
-		<%@lectures.each do |l|%>
-		<%= l.name%>
-		<br/>
-		<% end%>
-	</p>
-</div>
-<div class="well well-small">
-	<p>
-		<b><%= t("clclass.assignment")%>:</b> none;
-	</p>
-</div>
+<!--<h2><%= t("clclass.summary") %></h2>-->
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span10">
+			<div class="well well-large">
+				<p>
+					<b><%= t("clclass.teacher")%>:</b>
+					<%= link_to @teacher.first_name, @teacher %>
+				</p>
+				<hr />
+				<dl class="dl-horizontal">
+					<b><%= t("course.description") %>:</b>
+					<%= raw @clclass.class_description%>
+				</dl>
+				<hr />
+				<p>
+					<b><%= t("clclass.technical_requirements")%>:</b>
+					<%= raw @clclass.technical_requirements %>
+				</p>
+                <hr />
+			</div>
+		</div>
+		<!--end of well left-->
+		<div class="">
+			<div class="span2">
+				<div class="well">
+					<p>
+						<b><%= t("clclass.students")%>:
+						<br/>
+						</b>
+						<%@users.each do |u|%>
+						<%= image_tag(u.avatar) %><br />
+						<%= link_to (u.first_name+u.last_name),u %>
+						</br>
+						<% end%>
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--end of well right-->
+	</div><!--end of row-fluid-->
+</div><!--end of container-->
