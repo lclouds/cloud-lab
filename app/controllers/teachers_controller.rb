@@ -61,9 +61,14 @@ class TeachersController < ApplicationController
   # PUT /teachers/1.json
   def update
     @teacher = Teacher.find(params[:id])
-
+=begin
+    if params[:teacher][:avatar] && @teacher. avatar
+      old_avatar = @teacher.avatar
+    end
+=end
     respond_to do |format|
       if @teacher.update_attributes(params[:teacher])
+#         old_avatar.remove! if old_avatar
         format.html { redirect_to teacher_root_path, notice: 'Teacher was successfully updated.' }
         format.json { head :no_content }
       else
@@ -77,11 +82,6 @@ class TeachersController < ApplicationController
     @teacher = session[:teacher]
     if @teacher.nil?
       redirect_to teacher_signin_path
-    end
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @teacher }
     end
   end
   

@@ -1,7 +1,7 @@
 
 <h1><%= t("clclass.lecture.list")%></h1>
 
-<table>
+<table class="table table-bordered">
   <tr>
     <th><%= t("clclass.lecture.name") %></th>
     <th><%= t("clclass.lecture.video") %></th>
@@ -20,13 +20,13 @@
     <th><%= lecture.slides%></th>
     <th><%= lecture.key_concepts%></th>
     <th><%= lecture.assignment%></th>
-    <td><%= link_to t("show"), clclass_lecture_path(@clclass, lecture) %></td>
-    <td><%= link_to t("edit"), edit_clclass_lecture_path(@clclass, lecture) %></td>
-    <td><%= link_to t("destroy"), clclass_lecture_path(@clclass, lecture), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <th><%= link_to t("show"), clclass_lecture_path(@clclass, lecture) %></th>
+    <th><%= link_to t("edit"), edit_clclass_lecture_path(@clclass, lecture) %></th>
+    <th><%= link_to t("destroy"), clclass_lecture_path(@clclass, lecture), method: :delete, data: { confirm: 'Are you sure?' } %></th>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to t("clclass.lecture.new"), new_clclass_lecture_path %>
+<%= link_to t("clclass.lecture.new_lecture"), new_clclass_lecture_path %>

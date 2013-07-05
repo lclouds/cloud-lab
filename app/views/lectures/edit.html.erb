@@ -1,6 +1,6 @@
-<h1>Editing lecture</h1>
+<h1><%= t('clclass.lecture.edit_lecture')%></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', [@clclass,@lecture] %> |
-<%= link_to 'Back', clclass_lectures_path %>
+<%= link_to t('show'), [@clclass,@lecture] %> |
+<%= link_to t('back'), clclass_lectures_path %>

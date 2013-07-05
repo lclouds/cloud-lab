@@ -109,25 +109,41 @@
 									</div>
 
 									<div id="item-2" class="tab-pane ">
-										<div class="row-fluid" >
+										<div class="span8" >
 											<h3><%= @user.first_name %>' Courses</h3>
 											<table class="table table-condensed">
+												<thead>
 												<tr>
 													<th><%= t("course.full_name")%></th>
 													<th><%= t("clclass.teacher")%></th>
 													<!--<th><%= t("course.description")%></th>-->
 													<th><%= t("clclass.start_date")%></th>
+													<th></th>
+													<th></th>
+													<th></th>
+													<th></th>
+													<th></th>
+													<th></th>
 												</tr>
+												</thead>
 												<br />
+												<tbody>
 												<% @class_user.each do |cu|%>
 												<tr class="info">
 													<td><%= link_to get_course_by_clclass(cu.course_id).course_name, cu %></td>
 													<td><%= cu.teacher %></td>
 													<!--<td><%= cu.class_description%></td>-->
 													<td><%= cu.starting_date%></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
 													<br />
 												</tr>
 												<% end %>
+												</tbody>
 											</table>
 										</div>
 									</div>

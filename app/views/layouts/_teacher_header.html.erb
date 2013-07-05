@@ -14,7 +14,7 @@
               </a>
               <ul class="dropdown-menu">  
                 <li><%= link_to t('profile'), teacher_root_path %></li>
-                <li><%= link_to t('My Course'), teachers_clclasses_path %></li>
+                <li><%= link_to t('my_classes'), teachers_clclasses_path %></li>
                 <li><%= link_to t('conversations'), '#' %></li>
                 <li><%= link_to t('setting'), edit_teacher_path(current_teacher) %></li>
                 <li class="divider"></li>
@@ -26,7 +26,15 @@
               </ul>
             </li>
           <% else %>
-            <li><%= link_to t('sign_in'), teacher_signin_path %></li>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= t('sign_in') %> <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">  
+                <li><%= link_to t('sign_in_teacher'), teacher_signin_path %></li>      
+                <li><%= link_to t('users.sign_in_user'), signin_path %></li>
+              </ul>
+            </li>          
           <% end %>
         </ul>
       </nav>
