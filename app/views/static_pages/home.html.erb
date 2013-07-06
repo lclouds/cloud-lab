@@ -17,7 +17,7 @@
 	<div class="courseCell row">
 		<div class="span3">
 			<div class="imageContainer">
-			 <%= link_to image_tag(get_teacher_by_clclass(clclass.teacher).avatar), clclass%>
+			 <%= link_to image_tag(get_teacher_by_clclass(clclass.teacher).avatar, :width=>"169px"), clclass%>
 			</div>
 		</div>
 		<div class="span7">
@@ -47,7 +47,7 @@
 	<div class="courseCell row">
 		<div class="span3">
 			<div class="imageContainer">
-			<%= link_to image_tag("test.png")%>
+			<%= link_to image_tag("test.png",:width=>"169px")%>
 			</div>
 		</div>
 		<div class="span7">
