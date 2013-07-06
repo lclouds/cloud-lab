@@ -2,7 +2,11 @@
 
   <div class="field">
     <%= t("course.full_name")%>:<br />
+    <% if @clclass.course_id %>
+  	<%= select_tag 'clclass[course_id]', options_from_collection_for_select(@courses, :id, :name, @clclass.course_id), :disabled=>true %>
+    <% else %>
   	<%= select_tag 'clclass[course_id]', options_from_collection_for_select(@courses, :id, :name) %>
+    <% end %>
   </div>
   <div class="field">
     <%= t('clclass.teacher') %>:<br />
