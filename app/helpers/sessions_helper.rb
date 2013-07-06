@@ -30,6 +30,9 @@ module SessionsHelper
   end
   
   def current_user
+    if cookies[:remember_token] == nil
+      return nil
+    end
     @current_user ||= User.find_by_remember_token(cookies[:remember_token]) || Teacher.find_by_remember_token(cookies[:remember_token])
   end
   
