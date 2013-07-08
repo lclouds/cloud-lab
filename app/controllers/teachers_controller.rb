@@ -96,8 +96,8 @@ class TeachersController < ApplicationController
   end
   
   def clclasses
-    @teacher = session[:teacher]
-    @classes = Clclass.find_by_teacher(session[:teacher].id)
+    #@teacher = session[:teacher]
+    @classes = Clclass.find_by_teacher(current_user.id)
 
     respond_to do |format|
       format.html # new.html.erb

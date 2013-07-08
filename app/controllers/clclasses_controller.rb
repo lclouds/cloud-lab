@@ -3,6 +3,8 @@
 class ClclassesController < ApplicationController
   load_and_authorize_resource
   
+  layout :products_layout 
+  
   include ClclassesHelper
   before_filter :class_course, only: [:show, :edit]
   before_filter :class_teacher, only: [:show, :edit]
@@ -130,4 +132,10 @@ class ClclassesController < ApplicationController
     clclass
     @teacher = Teacher.find(@clclass.teacher)
   end
+  
+  private 
+    def products_layout 
+      is_teacher? ? "teachers" : "application" 
+    end 
+   
 end
