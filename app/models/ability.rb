@@ -22,7 +22,9 @@ class Ability
         can :manage, :all
       else
         can :read, :all
-        cannot :manage, Teacher
+  #      cannot :manage, Teacher
+  #      can :manage, Teacher
+        can [:index],Teacher
       end
       can :read, Course
       can [:new, :create, :myclasses], User
