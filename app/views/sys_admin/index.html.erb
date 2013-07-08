@@ -1,10 +1,12 @@
-<ul>
-	<li><%= link_to "teacher list", "teachers" %></li>
-	<li><%= link_to "add new teacher", new_teacher_path() %></li>
-	<li><%= link_to "course list", "courses" %></li>
-	<li><%= link_to "add new course", new_course_path() %></li>
-	<li><%= link_to "class list", "clclasses" %></li>
-	<li><%= link_to "add new class", new_clclass_path() %></li>
-	<li><%= link_to "user list", "users" %></li>
-	<li><%= link_to "add new user", new_user_path() %></li>
-</ul>
+<p><%= link_to t("sysadmin.teacher_list"), "teachers" %></p>
+<p><%= link_to t("sysadmin.teacher_new"), new_teacher_path() %></p>
+<hr />
+<p><%= link_to t("sysadmin.course_list"), "courses" %></p>
+<p><%= link_to t("sysadmin.course_new"), new_course_path() %></p>
+<hr />
+<p><%= link_to t("sysadmin.clclass_list"), "clclasses" %></p>
+<p><%= link_to t("sysadmin.clclass_new"), new_clclass_path() %></p>
+<hr />
+<p><%= link_to t("sysadmin.user_list"), "users" %></p>
+<p><%= link_to t("sysadmin.user_new"), new_user_path() %></p>
+

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,4 +22,28 @@
 <!--  <%= debug(params) if Rails.env.development? %> -->
     </div>
 </body>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+</head>
+<body>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+      <% end %>
+      <%= yield(:sub_header) %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+<!--  <%= debug(params) if Rails.env.development? %> -->
+    </div>
+</body>
+>>>>>>> 7020ce5b20de487565c726ed5255e8d71ef48722
 </html>

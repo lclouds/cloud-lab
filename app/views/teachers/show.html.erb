@@ -1,6 +1,86 @@
+<<<<<<< HEAD
 <div>
 <%= render  'show_form'%>     
 
 <%= link_to t('.edit'), edit_teacher_path(@teacher) %> |
 <%= link_to t('.back'), teachers_path %>
 </div>
+=======
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span2">
+			<div class="well well-large">
+				<p>
+					<b><%= image_tag(@teacher.avatar,:class=>'list_image') %></b>
+					<b><%= @teacher.resume %></b>
+					<br />
+					<hr />
+				</p>
+			</div>
+		</div>
+
+		<div class="span9">
+			<div class="well well-large">
+				<p>
+					<b><%= t('.first_name')+t('.last_name')%>:</b>
+					<%= @teacher.first_name+@teacher.last_name  %>
+				</p>
+				<p>
+					<b><%= t('.alias_name')%>:</b>
+					<%= @teacher.alias_name %>
+				</p>
+				<p>
+					<b><%= t('.valid_certificate')%>:</b>
+					<%= @teacher.valid_certificate %>
+				</p>
+				<p>
+					<b><%= t('.valid_certificate_no')%>:</b>
+					<%= @teacher.valid_certificate_no %>
+				</p>
+				<p>
+					<b><%= t('.title')%>:</b>
+					<%= @teacher.title %>
+				</p>
+				<p>
+					<b><%= t('.position')%>:</b>
+					<%= @teacher.position %>
+				</p>
+				<p>
+					<b><%= t('.contacts')%>:</b>
+				</p>
+				<p>
+					<b><%= t('.Email')%>:</b>
+					<%= @teacher.email %>
+				</p>
+				<p>
+					<b><%= t('.telephone')%>:</b>
+					<%= @teacher.telephone %>
+				</p>
+				<p>
+					<b><%= t('.mobile')%>:</b>
+					<%= @teacher.mobile %>
+				</p>
+				<p>
+					<b><%= t('.address')%>:</b>
+					<%= @teacher.address %>
+				</p>
+				<p>
+					<b><%= t('.postcode')%>:</b>
+					<%= @teacher.postcode %>
+				</p>
+				<p>
+					<b><%= t('.comment')%>:</b>
+					<%= @teacher.comment %>
+				</p>
+               <%  if can? :modify, @teacher %>
+				<tr>
+					<td> <%= link_to t('.edit'), edit_teacher_path(@teacher) %> |
+					<%= link_to t('.back'), teachers_path %> </td>
+				</tr>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
+>>>>>>> 7020ce5b20de487565c726ed5255e8d71ef48722

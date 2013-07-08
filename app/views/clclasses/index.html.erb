@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1><%= t("clclass.list")%></h1>
 
 <table class="table table-condensed">
@@ -27,3 +28,35 @@
 <% if can? :new,@clclasses   %>
 <%= link_to t("clclass.new_clclass"), new_clclass_path %>
 <% end %>
+=======
+<h1><%= t("clclass.list")%></h1>
+
+<table class="table table-condensed">
+  <tr>
+    <th><%= t("course.full_name")%></th>
+    <th><%= t("clclass.teacher")%></th>
+    <th><%= t("clclass.start_date")%></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @clclasses.each do |clclass| %>
+<% @teacher = get_teacher_by_clclass(clclass.teacher)%>
+  <tr>
+    <th><%= link_to get_course_by_clclass(clclass.course_id).course_name, clclass %></th>
+    <th><%= link_to @teacher.first_name,  @teacher%></th>
+    <th><%= clclass.starting_date %></th>
+    <td><%= link_to t("show"), clclass %></td>
+    <td><%= if can? :modify, clclass; link_to t("edit"), edit_clclass_path(clclass) end %></td>
+    <td><%= if can? :modify, clclass; link_to t("destroy"), clclass, method: :delete, data: { confirm: 'Are you sure?' } end %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% if can? :new,@clclasses   %>
+<%= link_to t("clclass.new_clclass"), new_clclass_path %>
+<% end %>
+>>>>>>> 7020ce5b20de487565c726ed5255e8d71ef48722
