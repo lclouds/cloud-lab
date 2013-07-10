@@ -28,7 +28,7 @@
 				<%= link_to get_course_by_clclass(clclass.course_id).course_name, clclass%>
 				</h2>
 				<span class="instructorName textGray">
-				<%= @teacher.last_name + ' ' + @teacher.first_name%> : 
+				<%= @teacher.first_name+''+@teacher.last_name%> : 
 				<span class="instructorTitle textGray">
 				<i>
 					<%= @teacher.title%>
