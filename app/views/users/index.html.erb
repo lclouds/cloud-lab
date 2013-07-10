@@ -3,6 +3,7 @@
 <hr>
 <table class="table table-bordered">
 <tr>	
+   <th><%= t('users.avatar')%></th>	
    <th><%= t('users.username')%></th>
    <th><%= t('users.gender')%></th>
    <th><%= t('users.city')%></th>
@@ -15,6 +16,7 @@
 </tr>
   <% @users.each do |user| %>
     <tr>
+      <td><%= image_tag(user.avatar_url(:small_thumb)) if user.avatar? %></td>	
       <td><%= link_to (user.first_name+user.last_name), user %></td>
       <td><%= user.gender %></td>
       <td><%= user.city %></td>

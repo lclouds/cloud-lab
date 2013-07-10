@@ -29,9 +29,14 @@
 						<br/>
 						</b>
 						<%@users.each do |u|%>
-						<%= image_tag(u.avatar) %><br />
-						<%= link_to (u.first_name+u.last_name),u %>
-						</br>
+						<table>
+						  <tr>
+						     <td><%= image_tag(u.avatar_url(:small_thumb)) if u.avatar? %></td>	
+						  </tr>
+						  <tr>
+						     <td><%= link_to (u.first_name+u.last_name),u %></td>
+					      </tr>
+						</table>
 						<% end%>
 					</p>
 				</div>

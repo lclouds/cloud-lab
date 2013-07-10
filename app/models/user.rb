@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   
   mount_uploader :avatar, AvatarUploader     
   has_secure_password
+  validate :password_validate
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
     
@@ -34,14 +35,27 @@ class User < ActiveRecord::Base
   validates :email, presence: true,
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  validates :password, presence: true, length: { minimum: 6 }
-  validates :password_confirmation, presence: true
+#  validates :password, presence: true, length: { minimum: 6 }
+#  validates :password_confirmation, presence: true
   
   def admin?
     if email == 'lclouds.ddy@gmail.com'
       return true
     else
       return false
+    end
+  end
+  
+    protected
+  def password_validate
+    if self.password_digest.nil? 
+      if self.password.nil?
+        errors.add(:password,"password must be not null") 
+      end
+    end
+    if !self.password.nil? &&  self.password.length!=0 &&  self.password.length<6
+        errors.add(:password,"length must be grant than 6")
+      
     end
   end
   
