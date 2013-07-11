@@ -1,8 +1,5 @@
 class Lecture < ActiveRecord::Base
    attr_accessible :name,
-                   :video,
-                   :slides,
-                   :transcript,
                    :key_concepts,
                    :reading,
                    :assignment,
@@ -10,4 +7,5 @@ class Lecture < ActiveRecord::Base
                    :course_id
                    
     belongs_to :clclass
+    has_many :video
 end

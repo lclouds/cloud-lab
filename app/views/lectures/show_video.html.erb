@@ -1,0 +1,10 @@
+<div>
+	<h1>Video: <%= @video.name%></h1>
+	<p>url: <%= @video.url%></p>
+	<p>slides: <%= @video.slides%></p>
+	<p>transcript: <%= @video.transcript%></p>
+	<p>length: <%= @video.length%></p>
+</div>
+<%= link_to "edit video", edit_video_clclass_lecture_path(@clclass,@lecture,@video)%>
+
+<%= link_to "dertory video", destroy_video_clclass_lecture_path(@clclass,@lecture,@video), method: :delete, data: { confirm: 'Are you sure?' } %>

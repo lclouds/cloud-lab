@@ -10,7 +10,17 @@ CloudLab::Application.routes.draw do
     member do
        put 'apply'
     end 
-    resources :lectures
+    resources :lectures do
+      
+      member do
+        get 'new_video'
+        get '/v/:video_id', to: 'lectures#show_video', as: "show_video", requirements: { :video_id => /^d+/ }
+        put '/v/:video_id', to: 'lectures#update_video', as: "update_video"
+        delete '/v/:video_id', to: 'lectures#destroy_video', as: "destroy_video"
+        get '/v/:video_id/edit', to: 'lectures#edit_video', as: "edit_video"
+        post 'videos'
+      end
+    end
   end
   
   resources :sessions, only: [:new, :create, :destroy]

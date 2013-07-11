@@ -6,11 +6,11 @@
   <%= @lecture.name %>
 </p>
 
+<% @lecture.video.each do |v|%>
 <p>
-  <b><%= t("clclass.lecture.video")%>:</b>
-  <%= link_to @lecture.video, @lecture.video %>
+  Video: <%= link_to v.name, show_video_clclass_lecture_path(@clclass, @lecture, v)  %>
 </p>
-
+<% end %>
 <p>
   <b><%= t("clclass.lecture.key_concepts")%>:</b>
   <%= @lecture.key_concepts %>
@@ -21,6 +21,6 @@
   <%= @lecture.assignment %>
 </p>
 
-
+<%= link_to "add new video",  new_video_clclass_lecture_path %>
 <%= link_to t('edit'), edit_clclass_lecture_path(@clclass,@lecture) %> |
 <%= link_to t('back'), clclass_lectures_path %>

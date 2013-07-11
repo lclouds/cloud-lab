@@ -1,11 +1,8 @@
-
 <h1><%= t("clclass.lecture.list")%></h1>
 
 <table class="table table-bordered">
   <tr>
     <th><%= t("clclass.lecture.name") %></th>
-    <th><%= t("clclass.lecture.video") %></th>
-    <th><%= t("clclass.lecture.slides") %></th>
     <th><%= t("clclass.lecture.key_concepts") %></th>
     <th><%= t("clclass.lecture.assignment") %></th>
     <th></th>
@@ -16,8 +13,6 @@
 <% @lectures.each do |lecture| %>
   <tr>
     <th><%= lecture.name %></th>
-    <th><%= lecture.video %></th>
-    <th><%= lecture.slides%></th>
     <th><%= lecture.key_concepts%></th>
     <th><%= lecture.assignment%></th>
     <th><%= link_to t("show"), clclass_lecture_path(@clclass, lecture) %></th>
@@ -30,4 +25,3 @@
 <br />
 
 <%= if can? :modify, @lectures; link_to t("clclass.lecture.new_lecture"), new_clclass_lecture_path end %>
-

@@ -1,0 +1,43 @@
+<%
+if @video.lecture_id
+	u = {:action=>'update_video'}
+else
+	u = {:action=>"videos"}
+end%>
+<%= form_for([@clclass, @lecture, @video], :url=>u) do |f| %>
+  <% if @video.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@video.errors.count, "error") %> prohibited this lecture from being saved:</h2>
+
+      <ul>
+      <% @video.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= "name" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= "url" %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= "slides" %><br />
+    <%= f.text_field :slides %>
+  </div>
+  <div class="field">
+    <%= "transcript" %><br />
+    <%= f.text_area :transcript %>
+  </div>
+  <div class="field">
+    <%= "length" %><br />
+    <%= f.text_field :length %>
+  </div>
+  <div class="actions">
+    <%= f.submit "save", class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>
