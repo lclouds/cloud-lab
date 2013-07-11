@@ -51,7 +51,7 @@ class TeachersController < ApplicationController
 
     respond_to do |format|
       if @teacher.save
-        sign_in @teacher
+        # sign_in @teacher
         format.html { redirect_to @teacher, notice: 'Teacher was successfully created.' }
         format.json { render json: @teacher, status: :created, location: @teacher }
       else
@@ -130,7 +130,7 @@ class TeachersController < ApplicationController
 
     def signed_in_teacher
       # unless !session[:teacher].nil?
-      unless signed_in?
+      unless signed_in? || is_admin?
         store_location
         redirect_to teacher_signin_path, notice: "Please sign in."
       end
@@ -140,7 +140,7 @@ class TeachersController < ApplicationController
       @teacher = Teacher.find(params[:id])
       # redirect_to(teacher_signin_path, notice: "Please sign in again.") unless session[:teacher]==@teacher
       # redirect_to(teacher_signin_path) unless session[:teacher]==@teacher
-      redirect_to(teacher_signin_path) unless current_user?(@teacher)
+      redirect_to(teacher_signin_path) unless current_user?(@teacher)||is_admin?
     end
   
 end

@@ -38,7 +38,6 @@ class LecturesController < ApplicationController
 
   # GET /lectures/1/edit
   def edit
-    puts '------editidt'
   end
 
   # POST /lectures

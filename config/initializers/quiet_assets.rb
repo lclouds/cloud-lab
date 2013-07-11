@@ -1,4 +1,4 @@
-
+=begin
 if Rails.env.development?
   Rails.application.assets.logger = Logger.new('/dev/null')
   Rails::Rack::Logger.class_eval do
@@ -12,3 +12,4 @@ if Rails.env.development?
     alias_method_chain :call, :quiet_assets
   end
 end
+=end

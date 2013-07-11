@@ -1,0 +1,92 @@
+<table width="750px" align="center" class="table-bordered">
+	<tr>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td colspan="2">
+		<p>
+			<%= image_tag(@teacher.avatar_url(:thumb),:class=>'list_image') if @teacher.avatar? %>
+			<%= @teacher.resume %>
+
+		</p></td>
+	</tr>
+	<tr>
+		<td width="50%">
+		<p>
+			<i class='icon-user'></i>
+			<b><%= t('.first_name')%>:</b>
+			<%= @teacher.first_name %>
+		</p>
+		<p>
+			<i class='icon-user'></i>
+			<b><%= t('.last_name')%>:</b>
+			<%= @teacher.last_name %>
+		</p>
+		<p>
+			<i class='icon-user'></i>
+			<b><%= t('.alias_name')%>:</b>
+			<%= @teacher.alias_name %>
+		</p>
+		<p>
+			<i class='icon-user'></i>
+			<b><%= t('.valid_certificate')%>:</b>
+			<%= @teacher.valid_certificate %>
+		</p>
+		<p>
+			<i class='icon-user'></i>
+			<b><%= t('.valid_certificate_no')%>:</b>
+			<br/>
+			<%= @teacher.valid_certificate_no %>
+		</p>
+		<p>
+			<i class='icon-align-left'></i>
+			<b><%= t('.title')%>:</b>
+			<%= @teacher.title %>
+		</p>
+		<p>
+			<i class='icon-align-left'></i>
+			<b><%= t('.position')%>:</b>
+			<%= @teacher.position %>
+		</p></td>
+		<td valign="top" >
+		<p>
+
+			<b><%= t('.contacts')%>:</b>
+		</p>
+		<p>
+			<i class='icon-envelope'></i>
+			<b><%= t('.Email')%>:</b>
+			<%= @teacher.email %>
+		</p>
+		<p>
+			<i class='icon-home'></i>
+			<b><%= t('.telephone')%>:</b>
+			<%= @teacher.telephone %>
+		</p>
+		<p>
+			<i class='icon-hand-right'></i>
+			<b><%= t('.mobile')%>:</b>
+			<%= @teacher.mobile %>
+		</p>
+		<p>
+			<i class='icon-home'></i>
+			<b><%= t('.address')%>:</b>
+			<%= @teacher.address %>
+		</p>
+		<p>
+			<i class='icon-home'></i>
+			<b><%= t('.postcode')%>:</b>
+			<%= @teacher.postcode %>
+		</p></td>
+	</tr>
+
+	<tr>
+		<td>
+		<p>
+			<b><%= t('.comment')%>:</b>
+			<br/>
+			<%= @teacher.comment %>
+		</p></td>
+	</tr>
+</table>

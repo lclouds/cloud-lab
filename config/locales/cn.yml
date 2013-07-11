@@ -69,7 +69,7 @@ zh_CN:
     gender: "性别"
     bio: "个人简历"
     education: "学历" 
-    avatar: "图片"
+    avatar: "头像"
     image_url: "上传头像"
     avatar_cache: "Avatar Cache"
     remove_avatar: "删除图片文件"
@@ -83,6 +83,7 @@ zh_CN:
     _s_course: " 的课程"
     _s_network: " 的好友"
     _s_endorsements: " 的学习证明"
+    leave_blank: "(如果不想更改请留空白 )"
     
   teacher_sessions:
     new:
@@ -193,6 +194,7 @@ zh_CN:
   sure: "你确定吗？"
   previous_label: "上一页"
   next_label: "下一页"
+  picture: "图片"
 
   account: "帐号"
   profile: "我的信息"

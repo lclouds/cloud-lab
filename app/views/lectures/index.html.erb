@@ -1,4 +1,3 @@
-
 <h1><%= t("clclass.lecture.list")%></h1>
 
 <table class="table table-bordered">
@@ -26,4 +25,3 @@
 <br />
 
 <%= if can? :modify, @lectures; link_to t("clclass.lecture.new_lecture"), new_clclass_lecture_path end %>
-

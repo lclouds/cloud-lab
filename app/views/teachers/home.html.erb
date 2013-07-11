@@ -1,109 +1,22 @@
-<div class='container main-container'>
-	<div class='content'>
-		<div class='row'>
-			<div class='row-fluid'>
-				<div class='span12'>
-					<div class='row-fluid tabbable tabs-left'>
-						<div class='span3 tab-span'>
-							<div class='well less-padding left-menu'>
-								<table>
-									<td><%= image_tag(@teacher.avatar) %></td>
-									<br />
-								</table>
-								<p>
-									<h2> <%= @teacher.first_name+@teacher.last_name %></h2>
-								</p>
-								<ul class='nav nav-list'>
-									<li class="active">
-										<a data-toggle='tab' href='#item-1'> <i class='icon-star'></i><%= t('users.personal_profile') %></a>
-										<!-- <%= link_to t('profile'), teacher_root_path %> -->
-										
-									</li>
+<div id="item-1" class="tab-pane active">
+	<%= render  'show_form'%>
+</div>
 
-									<li class="">
-										<a data-toggle='tab' href='#item-2'> <i class='icon-list-alt'></i><%= t('users.courses') %></a>
-										<!-- <%= link_to t('My Course'), teachers_clclasses_path %> -->
-									</li>
-								</ul>
-
-							</div>
-						</div>
-						<div class='span9'>
-							<div class='white well'>
-								<div class='tab-content'>
-									<div id="item-1" class="tab-pane active">
-
-										<table class="table table-bordered">
-											<p>
-												<i class='icon-user'></i>
-												<b><%= t("teachers.first_name")%>:</b>
-												<%= @teacher.first_name %>
-											</p>
-											<p>
-												<i class='icon-user'></i>
-												<b><%= t("teachers.last_name")%>:</b>
-												<%= @teacher.last_name %>
-											</p>
-											<p>
-												<i class='icon-user'></i>
-												<b><%= t("teachers.alias_name")%>:</b>
-												<%= @teacher.last_name %>
-											</p>
-
-											<p>
-												<i class='icon-align-left'></i>
-												<b><%= t('.valid_certificate')%>:</b>
-												<%= @teacher.valid_certificate %>
-											</p>
-
-											<p>
-												<i class='icon-align-left'></i>
-												<b><%= t('.valid_certificate_no')%>:</b>
-												<br/>
-												<%= @teacher.valid_certificate_no %>
-											</p>
-											<p>
-												<i class='icon-envelope'></i>
-												<b>Email:</b>
-												<%= @teacher.email %>
-											</p>
-										</table>
-										<li class="btn">
-											<i class='icon-dark icon-edit'><span class='hidden-accessible'> </span> </i><%= link_to t('Eidt Profile'), edit_teacher_path(@teacher) %>
-										</li>
-									</div>
-
-									<div id="item-2" class="tab-pane ">
-										<div class="span8" >
-											<h3><%= @teacher.first_name + t("users._s_course") %></h3>
-											<p>&nbsp;</p>
-											<div>
-												<%if @classes.size == 0%>
-												<%= t("teachers.noclass")%>
-												<%end%>
-												<% @classes.each do |cl| %>
-												<p>
-												<%= link_to get_course_by_clclass(cl.course_id).course_name, cl %>
-												</p>
-												<% end %>
-											</div>
-										</div>
-										<!-- <h3><%= @teacher.alias_name %>'s Courses</h3>
-										<div class="row-fluid" >
-											<div class="span6 offset3" >
-												....
-											</div>
-										</div> -->
-									</div>
-
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+<div id="item-2" class="tab-pane ">
+	<div class="span8" >
+		<h3><%= @teacher.first_name + t("users._s_course") %></h3>
+		<p>
+			&nbsp;
+		</p>
+		<div>
+			<%if @classes.size == 0%>
+			<%= t("teachers.noclass")%>
+			<%end%>
+			<% @classes.each do |cl| %>
+			<p>
+				<%= link_to get_course_by_clclass(cl.course_id).course_name, cl %>
+			</p>
+			<% end %>
 		</div>
 	</div>
-</div>
 

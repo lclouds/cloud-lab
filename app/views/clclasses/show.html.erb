@@ -15,7 +15,7 @@
 <hr />
 <p>
 	<b><%= t("clclass.teacher")%>:</b>
-	  <%= @clclass.teacher %>
+	<%= @teacher.last_name + ' ' + @teacher.first_name%> 
 </p>
 <hr />
 <p>
@@ -37,3 +37,4 @@
 </div>
   <%if can? :modify, @clclass %> <%= link_to t('edit'), edit_clclass_path(@clclass) %> |<%end%>
   <%= link_to t('back'), clclasses_path %>
+
