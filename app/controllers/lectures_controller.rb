@@ -2,6 +2,7 @@ class LecturesController < ApplicationController
   load_and_authorize_resource
   
   before_filter :clclass
+  before_filter :lecture, only: [:show, :edit, :update, :destroy, :new_video]
   # GET /lectures
   # GET /lectures.json
   def index
@@ -18,8 +19,6 @@ class LecturesController < ApplicationController
   # GET /lectures/1
   # GET /lectures/1.json
   def show
-    @lecture = Lecture.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: [@clclass,@lecture] }
@@ -39,7 +38,7 @@ class LecturesController < ApplicationController
 
   # GET /lectures/1/edit
   def edit
-    @lecture = Lecture.find(params[:id])
+    puts '------editidt'
   end
 
   # POST /lectures
@@ -62,7 +61,6 @@ class LecturesController < ApplicationController
   # PUT /lectures/1
   # PUT /lectures/1.json
   def update
-    @lecture = Lecture.find(params[:id])
 
     respond_to do |format|
       if @lecture.update_attributes(params[:lecture])
@@ -78,7 +76,7 @@ class LecturesController < ApplicationController
   # DELETE /lectures/1
   # DELETE /lectures/1.json
   def destroy
-    @lecture = Lecture.find(params[:id])
+    # @lecture = Lecture.find(params[:id])
     @lecture.destroy
 
     respond_to do |format|
@@ -90,4 +88,65 @@ class LecturesController < ApplicationController
   def clclass
     @clclass = Clclass.find(params[:clclass_id])
   end
+  
+  def new_video
+    @video = Video.new
+
+    respond_to do |format|
+      format.html # new_video.html.erb
+      format.json { render json: @video }
+    end
+  end
+  #POST 
+  def videos
+    @video = Video.new(params[:video])
+    @video.lecture_id = params[:id]
+    respond_to do |format|
+      if @video.save
+        format.html { redirect_to [@clclass,@lecture], notice: 'Video was successfully created.' }
+        format.json { render json: [@clclass,@lecture], status: :created, location: [@clclass,@lecture] }
+      else
+        format.html { render action: "new" }
+        format.json { render json: [@clclass,@lecture].errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
+  def show_video
+    @video = Video.find(params[:video_id])
+  end
+  def edit_video
+    @video = Video.find(params[:video_id])
+  end
+  
+  # PUT /lectures/1/10
+  # PUT /lectures/1/10.json
+  def update_video
+    @video = Video.find(params[:video_id])
+
+    respond_to do |format|
+      if @video.update_attributes(params[:video])
+        format.html { redirect_to [@clclass,@lecture], notice: 'Lecture was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: [@clclass,@lecture].errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
+  def destroy_video
+    @video = Video.find(params[:video_id])
+    @video.destroy
+
+    respond_to do |format|
+      format.html { redirect_to clclass_lecture_path(params[:clclass_id],params[:id]) }
+      format.json { head :no_content }
+    end
+  end
+  
+  def lecture
+    @lecture = Lecture.find(params[:id])
+  end
+    
 end
