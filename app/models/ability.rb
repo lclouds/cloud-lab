@@ -17,6 +17,7 @@ class Ability
       can :read, Course
       can [:index, :show], Clclass
       can :manage, Lecture
+      can :manage, Exercise
 
     else
       user ||= User.new # guest user (not logged in)
@@ -29,6 +30,8 @@ class Ability
         can [:index],Teacher
       end
       can :read, Course
+      can :read, Lecture
+      can :read, Exercise
       can [:new, :create, :myclasses], User
       can :manage, User,  :id => user.id
       can [:index, :show, :apply], Clclass

@@ -6,12 +6,13 @@ CloudLab::Application.routes.draw do
     end
   end
   resources :courses
-  resources :clclasses do
+  resources :clclasses do  
+    resources :exercises
     member do
        put 'apply'
     end 
-    resources :lectures do
-      
+    resources :lectures do 
+      resources :exercises
       member do
         get 'new_video'
         get '/v/:video_id', to: 'lectures#show_video', as: "show_video", requirements: { :video_id => /^d+/ }

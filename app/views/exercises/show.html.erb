@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @exercise.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @exercise.description %>
+</p>
+
+<p>
+  <b>Special instruction:</b>
+  <%= @exercise.special_instruction %>
+</p>
+
+<p>
+  <b>Action items:</b>
+  <%= @exercise.action_items %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @exercise.start_date %>
+</p>
+
+<p>
+  <b>Deadline:</b>
+  <%= @exercise.deadline %>
+</p>
+
+<p>
+  <b>Lecture:</b>
+  <%= @exercise.lecture.name %>
+</p>
+
+<p>
+  <b>Clclass:</b>
+  <%= get_course_by_clclass( @exercise.clclass.course_id).name %>
+</p>
+
+
+<%= link_to 'Edit', edit_clclass_exercise_path(@clclass,@exercise) %> |
+<%= link_to 'Back', clclass_exercises_path %>

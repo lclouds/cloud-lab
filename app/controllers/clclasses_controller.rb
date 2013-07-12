@@ -109,7 +109,6 @@ class ClclassesController < ApplicationController
       # render :action => :show
       return;
     else
-      puts "56789";
       @cu = ClclassesUser.new(:user_id=>current_user.id, :clclass_id=>params[:id].to_i)
       @cu.save
     end

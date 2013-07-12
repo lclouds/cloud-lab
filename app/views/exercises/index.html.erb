@@ -1,0 +1,37 @@
+<h1>Listing exercises</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Special instruction</th>
+    <th>Action items</th>
+    <th>Start date</th>
+    <th>Deadline</th>
+    <th>Lecture</th>
+    <th>Clclass</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @exercises.each do |exercise| %>
+  <tr>
+    <td><%= exercise.name %></td>
+    <td><%= exercise.description %></td>
+    <td><%= exercise.special_instruction %></td>
+    <td><%= exercise.action_items %></td>
+    <td><%= exercise.start_date %></td>
+    <td><%= exercise.deadline %></td>
+    <td><%= exercise.lecture.name %></td>
+    <td><%= get_course_by_clclass( exercise.clclass.course_id).name %></td>
+    <td><%= link_to 'Show', clclass_exercise_path(@clclass,exercise) %></td>
+    <td><%= link_to 'Edit', edit_clclass_exercise_path(@clclass,exercise) %></td>
+    <td><%= link_to 'Destroy', clclass_exercise_path(@clclass,exercise), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<!-- <%= link_to 'New Exercise'%> -->

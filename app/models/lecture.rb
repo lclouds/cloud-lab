@@ -8,4 +8,5 @@ class Lecture < ActiveRecord::Base
                    
     belongs_to :clclass
     has_many :video
+    has_many :exercise
 end
