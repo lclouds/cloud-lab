@@ -137,7 +137,7 @@ class ClclassesController < ApplicationController
   
   private 
     def products_layout 
-      is_teacher? ? "teachers" : "application" 
+      is_teacher? ? "teachers" : "clclasses" 
     end 
    
 end
