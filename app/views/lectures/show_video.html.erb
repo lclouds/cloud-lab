@@ -1,10 +1,16 @@
-<div>
-	<h1>Video: <%= @video.name%></h1>
-	<p>url: <%= @video.url%></p>
-	<p>slides: <%= @video.slides%></p>
-	<p>transcript: <%= @video.transcript%></p>
-	<p>length: <%= @video.length%></p>
+<div class="well">
+	       <h1> <%= @video.name%></h1>
+	           <p align="middle"><%=raw @video.url%></p>
+	           <hr />
+
+               <b>课件</b>
+	           <p align="middle"><%= @video.slides%></p>
+	             <hr />
+	           <b>成绩单</b>
+	           <p align="middle"> <%= raw @video.transcript%></p>
+	           <hr />
 </div>
 <%= link_to "edit video", edit_video_clclass_lecture_path(@clclass,@lecture,@video)%>
 
 <%= link_to "dertory video", destroy_video_clclass_lecture_path(@clclass,@lecture,@video), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to t('back'), clclass_lectures_path %>

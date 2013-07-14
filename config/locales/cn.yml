@@ -34,7 +34,18 @@ zh_CN:
       additional_rsources: "附加资源"
       save: "保存"
       introduction: "讲义介绍"
-      info: "讲义资料"
+      content: "讲义内容"
+      
+    exercise:
+      list_exercise: "作业列表"
+      new_exercise: "新建作业"
+      edit_exercise: "编辑作业"  
+      name: "作业名称"
+      description: "作业描述"
+      special_instruction: "特别说明"
+      action_items: "任务项"
+      start_date: "开始日期"
+      deadline: "结束日期"
       
   course:
     list: "课程列表"

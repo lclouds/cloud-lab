@@ -23,6 +23,7 @@ end%>
   </div>
   <div class="field">
     <%= "url" %><br />
+    <i><%= t('ps:分享有四种复制方式，请选择第三种或第四种，复制‘html代码’或‘通用代码’到这里')%></i><br />
     <%= f.text_field :url %>
   </div>
   <div class="field">
@@ -31,7 +32,7 @@ end%>
   </div>
   <div class="field">
     <%= "transcript" %><br />
-    <%= f.text_area :transcript %>
+    <%= f.cktext_area :transcript %>
   </div>
   <div class="field">
     <%= "length" %><br />
@@ -41,3 +42,4 @@ end%>
     <%= f.submit "save", class: "btn btn-large btn-primary" %>
   </div>
 <% end %>
+<%= link_to t('back'), clclass_lectures_path %>

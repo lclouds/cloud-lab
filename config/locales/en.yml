@@ -31,7 +31,18 @@ en:
       additional_rsources: "Additional Rsources"
       save: "Save"
       introduction: "Introduction to lecture"
-      info: "Lecture Infomation"
+      content: "Lecture Content"
+      
+    exercise:
+      list_exercise: "List Exercise"
+      new_exercise: "New Exercise"
+      edit_exercise: "Edit Exercise"
+      name: "Exercise Name"
+      description: "Exercise Description"
+      special_instruction: "Special Instruction"
+      action_items: "action_items"
+      start_date: "Start Date"
+      deadline: "Deadline"
       
   course:
     list: "Course List"

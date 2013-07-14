@@ -1,27 +1,101 @@
-<h1><%= t("clclass.lecture.list")%></h1>
+<div class='row-fluid'>
+	<div class='span12' style="background-color: white;">
+		<div class='row-fluid tabbable tabs-left'>
+			<div class='span3 tab-span'>
+				<div class='well less-padding left-menu'>
+					<ul class='nav nav-list'>
+						<li class="active">
+							<a data-toggle='tab' href='#item-1'> <i class='icon-star'></i><%= t('clclass.lecture.introduction') %></a>
+						</li>
+        
+							<li class="">
+								<!--<a data-toggle='tab' href='#item-2'> <i class='icon-list-alt'></i><%= t('clclass.lecture.content') %></a>-->
+							   	<li class='nav-header'><i class='icon-list-alt'></i><%= t('clclass.lecture.content') %></li>
+								<% @lectures.each do |lecture| %>
+								<ul>
+									<li class="">
+										<%= link_to lecture.name, clclass_lecture_path(@clclass, lecture) %>
+									</li>
+								</ul>
+								<% end %>
+							</li>
+					</ul>
+				</div>
+			</div>
 
-<table class="table table-bordered">
-  <tr>
-    <th><%= t("clclass.lecture.name") %></th>
-    <th><%= t("clclass.lecture.key_concepts") %></th>
-    <th><%= t("clclass.lecture.assignment") %></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+			<div class='span9'>
+				<div class='white well'>
+					<div class='tab-content'>
+						<div id="item-1" class="tab-pane active">
+							<h2>Introduction to lecture</h2>
+							<hr />
+							
+									<% @lectures.each do |lecture| %>
+									<tr align="middle">
+										<b><th><%= lecture.name %></th></b>&nbsp;&nbsp;
+										<b><th><%= lecture.key_concepts%></th></b>&nbsp;&nbsp;
+										<b><th><%= lecture.assignment%></th></b>&nbsp;&nbsp;
+										<th><%= link_to t("show"), clclass_lecture_path(@clclass, lecture) %></th>
+										<th><%= link_to t("edit"), edit_clclass_lecture_path(@clclass, lecture) %></th>
+										<th><%= link_to t("destroy"), clclass_lecture_path(@clclass, lecture), method: :delete, data: { confirm: 'Are you sure?' } %></th>
+									</tr>
+									<hr>
+									<% end %>
+							
+							
+							
+							<div class="icon-film"></div><th>video</th>
+							<br />
+							<p>
+                                                                                                              这里是每个课程的视频
+							</p>
+							<hr />
+							<div class="icon-list-alt"></div><th>Key Concepts</th>
+							<p>
+								这里是每个课程的关键概念
+							</p>
+							<hr />
+							<div class="icon-book"></div><th>Reading</th>
+							<p>
+								reading
+							</p>
+							<hr />
+							<div class="icon-pencil"></div><th>Assignment</th>
+							<p>
+								这里是每个课程之后布置的作业
+							</p>
+							<hr />
+						</div>
 
-<% @lectures.each do |lecture| %>
-  <tr>
-    <th><%= lecture.name %></th>
-    <th><%= lecture.key_concepts%></th>
-    <th><%= lecture.assignment%></th>
-    <th><%= link_to t("show"), clclass_lecture_path(@clclass, lecture) %></th>
-    <th><%= link_to t("edit"), edit_clclass_lecture_path(@clclass, lecture) %></th>
-    <th><%= link_to t("destroy"), clclass_lecture_path(@clclass, lecture), method: :delete, data: { confirm: 'Are you sure?' } %></th>
-  </tr>
-<% end %>
-</table>
+						<div id="item-2" class="tab-pane ">
+							<h2>Lecture  Models</h2>
+							<hr />
+							<div class="icon-film"></div><th>video</th>
+							<br />
+							<p>
+								video
+							</p>
+							<hr />
+							<div class="icon-list-alt"></div><th>Key Concepts</th>
+							<p>
+								key concepts
+							</p>
+							<hr />
+							<div class="icon-book"></div><th>Reading</th>
+							<p>
+								reading
+							</p>
+							<hr />
+							<div class="icon-pencil"></div><th>Assignment</th>
+							<p>
+								assignment
+							</p>
+							<hr />
+						</div>
 
-<br />
-
-<%= if can? :modify, @lectures; link_to t("clclass.lecture.new_lecture"), new_clclass_lecture_path end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

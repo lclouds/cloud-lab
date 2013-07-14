@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709022028) do
+ActiveRecord::Schema.define(:version => 20130712032038) do
 
   create_table "administrators", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -92,11 +92,24 @@ ActiveRecord::Schema.define(:version => 20130709022028) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "exercises", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.text     "special_instruction"
+    t.text     "action_items"
+    t.datetime "start_date"
+    t.datetime "deadline"
+    t.integer  "lecture_id"
+    t.integer  "clclass_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "exercises", ["clclass_id"], :name => "index_exercises_on_clclass_id"
+  add_index "exercises", ["lecture_id"], :name => "index_exercises_on_lecture_id"
+
   create_table "lectures", :force => true do |t|
     t.string   "name"
-    t.string   "video"
-    t.string   "slides"
-    t.string   "transcript"
     t.text     "key_concepts"
     t.text     "reading"
     t.text     "assignment"
@@ -135,22 +148,6 @@ ActiveRecord::Schema.define(:version => 20130709022028) do
   add_index "teachers", ["email"], :name => "index_teachers_on_email"
   add_index "teachers", ["remember_token"], :name => "index_teachers_on_remember_token"
 
-  create_table "user_infos", :force => true do |t|
-    t.string   "avatar"
-    t.string   "city"
-    t.string   "age"
-    t.string   "gender"
-    t.string   "teamrank"
-    t.date     "last_date"
-    t.string   "language"
-    t.text     "bio"
-    t.string   "courses"
-    t.string   "past_courses"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "user_id"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -174,5 +171,18 @@ ActiveRecord::Schema.define(:version => 20130709022028) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "videos", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "length"
+    t.string   "slides"
+    t.text     "transcript"
+    t.integer  "lecture_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "videos", ["lecture_id"], :name => "index_videos_on_lecture_id"
 
 end

@@ -30,8 +30,10 @@ class Ability
         can [:index],Teacher
       end
       can :read, Course
-      can :read, Lecture
-      can :read, Exercise
+#      can [:read,:show_video], Lecture
+      can :manage, Lecture
+#      can :read, Exercise
+      can :manage, Exercise
       can [:new, :create, :myclasses], User
       can :manage, User,  :id => user.id
       can [:index, :show, :apply], Clclass
