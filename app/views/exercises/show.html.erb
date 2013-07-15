@@ -1,53 +1,53 @@
 <div class="row-fluid">
 	<div class="well well-large">
-		
-<p>
-  <b><%= t('course.name')%>:</b>
-  <%= get_course_by_clclass( @exercise.clclass.course_id).name %>
-</p>		
-		
-<p>
-  <b><%= t('clclass.lecture.name')%>:</b>
-  <%= @exercise.lecture.name %>
-</p>		
-		
-<p>
-  <b><%= t('clclass.exercise.name')%>:</b>
-  <%= @exercise.name %>
-</p>
 
-<p>
-  <b><%= t('clclass.exercise.description')%>:</b>
-  <div class="well well-small">
-  <%= @exercise.description %>
-  </div>
-</p>
+		<p>
+			<b><%= t('course.name')%>:</b>
+			<%= get_course_by_clclass( @exercise.clclass.course_id).name %>
+		</p>
 
-<p>
-  <b><%= t('clclass.exercise.special_instruction')%>:</b>
-  <div class="well well-small">
-  <%= @exercise.special_instruction %>
-  </div>
-</p>
+		<p>
+			<b><%= t('clclass.lecture.name')%>:</b>
+			<%= @exercise.lecture.name %>
+		</p>
 
-<p>
-  <b><%= t('clclass.exercise.action_items')%>:</b>
-  <div class="well well-small">
-  <%= @exercise.action_items %>
-  </div>
-</p>
+		<p>
+			<b><%= t('clclass.exercise.name')%>:</b>
+			<%= @exercise.name %>
+		</p>
 
-<p>
-  <b><%= t('clclass.exercise.start_date')%>:</b>
-  <%= @exercise.start_date %>
-</p>
+		<p>
+			<b><%= t('clclass.exercise.description')%>:</b>
+			<div class="well well-small">
+				<%= @exercise.description %>
+			</div>
+		</p>
 
-<p>
-  <b><%= t('clclass.exercise.deadline')%>:</b>
-  <%= @exercise.deadline %>
-</p>
+		<p>
+			<b><%= t('clclass.exercise.special_instruction')%>:</b>
+			<div class="well well-small">
+				<%= @exercise.special_instruction %>
+			</div>
+		</p>
 
-<%= link_to t('edit'), edit_clclass_exercise_path(@clclass,@exercise) %> |
-<%= link_to t('back'), clclass_exercises_path %>
-</div>
+		<p>
+			<b><%= t('clclass.exercise.action_items')%>:</b>
+			<div class="well well-small">
+				<%= @exercise.action_items %>
+			</div>
+		</p>
+
+		<p>
+			<b><%= t('clclass.exercise.start_date')%>:</b>
+			<%= @exercise.start_date %>
+		</p>
+
+		<p>
+			<b><%= t('clclass.exercise.deadline')%>:</b>
+			<%= @exercise.deadline %>
+		</p>
+
+		<%= link_to t('edit'), edit_clclass_exercise_path(@clclass,@exercise) %> |
+		<%= link_to t('back'), clclass_exercises_path %>
+	</div>
 </div>

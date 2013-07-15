@@ -18,7 +18,7 @@ end%>
   <% end %>
 
   <div class="field">
-    <%= "name" %><br />
+    <%= t('clclass.video.name') %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
@@ -27,19 +27,15 @@ end%>
     <%= f.text_field :url %>
   </div>
   <div class="field">
-    <%= "slides" %><br />
+    <%= t('clclass.video.slides') %><br />
     <%= f.text_field :slides %>
   </div>
   <div class="field">
-    <%= "transcript" %><br />
+    <%= t('clclass.video.transcript') %><br />
     <%= f.cktext_area :transcript %>
   </div>
-  <div class="field">
-    <%= "length" %><br />
-    <%= f.text_field :length %>
-  </div>
+
   <div class="actions">
-    <%= f.submit "save", class: "btn btn-large btn-primary" %>
+    <%= f.submit t("save"), class: "btn btn-large btn-primary" %>
   </div>
 <% end %>
-<%= link_to t('back'), clclass_lectures_path %>

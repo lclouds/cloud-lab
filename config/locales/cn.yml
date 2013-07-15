@@ -47,6 +47,13 @@ zh_CN:
       start_date: "开始日期"
       deadline: "结束日期"
       
+    video:
+      name: "视频名称"  
+      slides: "课件"
+      transcript: "成绩"
+      edit_video: "编辑视频"
+      new_video: "新建视频"
+      
   course:
     list: "课程列表"
     name: "课程简称"
@@ -229,7 +236,7 @@ zh_CN:
     user_new: "创建学生帐户"
     user_list: "列出所有学生"
     
-  
+  save: "保存"
   show: "详细"
   edit: "编辑"
   destroy: "删除"

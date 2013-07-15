@@ -34,8 +34,8 @@
            </div>
         </p>
         <hr />
-        <%= link_to "add new video",  new_video_clclass_lecture_path %>
-        <%= link_to "add new exercise",  new_clclass_lecture_exercise_path(@clclass,@lecture) %>
+        <%= link_to t("clclass.video.new_video"),  new_video_clclass_lecture_path %>
+        <%= link_to t("clclass.exercise.new_exercise"),  new_clclass_lecture_exercise_path(@clclass,@lecture) %>
         <%= link_to t('edit'), edit_clclass_lecture_path(@clclass,@lecture) %> |
         <%= link_to t('back'), clclass_lectures_path %>
         </div>

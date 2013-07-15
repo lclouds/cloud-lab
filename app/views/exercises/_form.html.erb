@@ -1,42 +1,44 @@
 <%= form_for([@clclass,@lecture,@exercise]) do |f| %>
-  <% if @exercise.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@exercise.errors.count, "error") %> prohibited this exercise from being saved:</h2>
+<% if @exercise.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@exercise.errors.count, "error") %> prohibited this exercise from being saved:</h2>
 
-      <ul>
-      <% @exercise.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<ul>
+		<% @exercise.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label t('clclass.exercise.name') %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label t('clclass.exercise.description') %>
-    <%= f.text_area :description ,:rows => 6 %>
-  </div>
-  <div class="field">
-    <%= f.label t('clclass.exercise.special_instruction') %>
-    <%= f.text_area :special_instruction,:rows => 6 %>
-  </div> 
-  <div class="field">
-    <%= f.label t('clclass.exercise.action_items') %>
-    <%= f.text_area :action_items, :rows => 6 %>
-  </div>
-  <div class="field">
-    <%= f.label t('clclass.exercise.start_date') %>
-    <%= f.datetime_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label t('clclass.exercise.deadline') %>
-    <%= f.datetime_select :deadline %>
-  </div>
+<div class="field">
+	<%= f.label t('clclass.exercise.name') %>
+	<%= f.text_field :name %>
+</div>
+<div class="field">
+	<%= f.label t('clclass.exercise.description') %>
+	<%= f.text_area :description ,:rows => 6 %>
+</div>
+<div class="field">
+	<%= f.label t('clclass.exercise.special_instruction') %>
+	<%= f.text_area :special_instruction,:rows => 6 %>
+</div>
+<div class="field">
+	<%= f.label t('clclass.exercise.action_items') %>
+	<%= f.text_area :action_items, :rows => 6 %>
+</div>
+<div class="field">
+	<%= f.label t('clclass.exercise.start_date') %>
+	<%= f.datetime_select :start_date %>
+</div>
+<div class="field">
+	<%= f.label t('clclass.exercise.deadline') %>
+	<%= f.datetime_select :deadline %>
+</div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="actions">
+	<%= f.submit %>
+</div>
 <% end %>

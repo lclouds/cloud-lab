@@ -44,6 +44,13 @@ en:
       start_date: "Start Date"
       deadline: "Deadline"
       
+    video:
+      name: "Video Name"  
+      slides: "Slides"
+      transcript: "Transcript"
+      edit_video: "Edit Video"
+      new_video: "New Video"
+      
   course:
     list: "Course List"
     name: "Course Name"
@@ -165,6 +172,7 @@ en:
     user_new: "Create new user Account"
     user_list: "List all user"
   
+  save: "Save"
   show: "Show"
   edit: "Edit"
   destroy: "Destroy"

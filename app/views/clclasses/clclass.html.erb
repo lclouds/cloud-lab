@@ -1,51 +1,51 @@
 <!--<h2><%= t("clclass.summary") %></h2>-->
 <div class="span12">
 	<div class="white well">
-<div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span10">
-			<div class="well well-large">
-				<p>
-					<b><%= t("clclass.teacher")%>:</b>
-					<%= link_to @teacher.first_name, @teacher %>
-				</p>
-				<hr />
-				<dl class="dl-horizontal">
-					<b><%= t("course.description") %>:</b>
-					<%= raw @clclass.class_description%>
-				</dl>
-				<hr />
-				<p>
-					<b><%= t("clclass.technical_requirements")%>:</b>
-					<%= raw @clclass.technical_requirements %>
-				</p>
-                <hr />
-			</div>
-		</div>
-		<!--end of well left-->
-		<div class="">
-			<div class="span2">
-				<div class="well">
-					<p>
-						<b><%= t("clclass.students")%>:
-						<br/>
-						</b>
-						<%@users.each do |u|%>
-						<table>
-						  <tr>
-						     <td><%= image_tag(u.avatar_url(:small_thumb)) if u.avatar? %></td>	
-						  </tr>
-						  <tr>
-						     <td><%= link_to (u.first_name+u.last_name),u %></td>
-					      </tr>
-						</table>
-						<% end%>
-					</p>
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span10">
+					<div class="well well-large">
+						<p>
+							<b><%= t("clclass.teacher")%>:</b>
+							<%= link_to @teacher.first_name, @teacher %>
+						</p>
+						<hr />
+						<dl class="dl-horizontal">
+							<b><%= t("course.description") %>:</b>
+							<%= raw @clclass.class_description%>
+						</dl>
+						<hr />
+						<p>
+							<b><%= t("clclass.technical_requirements")%>:</b>
+							<%= raw @clclass.technical_requirements %>
+						</p>
+						<hr />
+					</div>
 				</div>
-			</div>
-		</div>
-		<!--end of well right-->
-	</div><!--end of row-fluid-->
-</div><!--end of container-->
-</div>
+				<!--end of well left-->
+				<div class="">
+					<div class="span2">
+						<div class="well">
+							<p>
+								<b><%= t("clclass.students")%>:
+								<br/>
+								</b>
+								<%@users.each do |u|%>
+								<table>
+									<tr>
+										<td><%= image_tag(u.avatar_url(:small_thumb)) if u.avatar? %></td>
+									</tr>
+									<tr>
+										<td><%= link_to (u.first_name+u.last_name),u %></td>
+									</tr>
+								</table>
+								<% end%>
+							</p>
+						</div>
+					</div>
+				</div>
+				<!--end of well right-->
+			</div><!--end of row-fluid-->
+		</div><!--end of container-->
+	</div>
 </div>
