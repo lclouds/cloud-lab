@@ -1,16 +1,22 @@
 <div class="well">
-	       <h1> <%= @video.name%></h1>
-	           <p align="middle"><%=raw @video.url%></p>
-	           <hr />
+	<h1> <%= @video.name%></h1>
+	<p align="middle">
+		<%= raw @video.url%>
+	</p>
+	<hr />
 
-               <b>课件</b>
-	           <p align="middle"><%= @video.slides%></p>
-	             <hr />
-	           <b>成绩单</b>
-	           <p align="middle"> <%= raw @video.transcript%></p>
-	           <hr />
+	<b><%= t('clclass.video.slides')%></b>
+	<p align="middle">
+		<%= @video.slides%>
+	</p>
+	<hr />
+	<b><%= t('clclass.video.transcript')%></b>
+	<p align="middle">
+		<%= raw @video.transcript%>
+	</p>
+	<hr />
+	<%= link_to t("clclass.video.edit_video"), edit_video_clclass_lecture_path(@clclass,@lecture,@video)%>
+
+	<%= link_to t("clclass.video.dertory_video"), destroy_video_clclass_lecture_path(@clclass,@lecture,@video), method: :delete, data: { confirm: 'Are you sure?' } %>
+	<%= link_to t('back'), clclass_lectures_path %>
 </div>
-<%= link_to "edit video", edit_video_clclass_lecture_path(@clclass,@lecture,@video)%>
-
-<%= link_to "dertory video", destroy_video_clclass_lecture_path(@clclass,@lecture,@video), method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to t('back'), clclass_lectures_path %>

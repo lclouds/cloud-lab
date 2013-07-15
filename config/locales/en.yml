@@ -50,6 +50,7 @@ en:
       transcript: "Transcript"
       edit_video: "Edit Video"
       new_video: "New Video"
+      dertory_video: "Dertory Video"
       
   course:
     list: "Course List"
