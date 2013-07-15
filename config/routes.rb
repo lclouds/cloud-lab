@@ -7,10 +7,20 @@ CloudLab::Application.routes.draw do
   end
   resources :courses
   resources :clclasses do  
-    resources :exercises
     member do
        put 'apply'
-    end 
+    end
+    resources :exercises do
+      member do
+        get 'new_report', to: 'exercises#new_report'
+        post 'reports', to: 'exercises#reports'
+        get '/report/:report_id', to: 'exercises#show_report', as: 'show_report'
+        get '/reports/:submission', to: 'exercises#show_reports', as: 'show_reports'
+        # put '/report/:report_id', to: 'exercises#update_report'
+        # get '/report/:report_id/edit'
+        delete '/report/:report_id', to: 'exercises#destroy_report', as: 'destroy_report'
+      end
+    end
     resources :lectures do 
       resources :exercises
       member do

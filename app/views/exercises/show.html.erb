@@ -47,7 +47,13 @@
 			<%= @exercise.deadline %>
 		</p>
 
+		<%= link_to 'submit my report', new_report_clclass_exercise_path(@clclass,@exercise) %> |
 		<%= link_to t('edit'), edit_clclass_exercise_path(@clclass,@exercise) %> |
 		<%= link_to t('back'), clclass_exercises_path %>
+		
+		
+	<p><%= link_to "My submissions", show_reports_clclass_exercise_path(@clclass,@exercise,"submission") %></p>
+	<p><%= link_to "All submissions", show_reports_clclass_exercise_path(@clclass,@exercise,"all_submission") %></p>
+	<p></p>
 	</div>
 </div>

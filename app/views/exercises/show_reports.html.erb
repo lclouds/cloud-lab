@@ -1,0 +1,4 @@
+<% @reports.each do |r|%>
+<h3><%= link_to r.name, show_report_clclass_exercise_path(@clclass,@exercise,r.id) %> &nbsp;
+	<%= link_to "destroy", destroy_report_clclass_exercise_path(@clclass,@exercise,r.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+</h3><%end %>
