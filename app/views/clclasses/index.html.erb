@@ -1,30 +1,32 @@
-<h1><%= t("clclass.list")%></h1>
+<div class="white well">
+	<h1><%= t("clclass.list")%></h1>
 
-<table class="table table-condensed">
-  <tr>
-    <th><%= t("course.full_name")%></th>
-    <th><%= t("clclass.teacher")%></th>
-    <th><%= t("clclass.start_date")%></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+	<table class="table table-condensed">
+		<tr>
+			<th><%= t("course.full_name")%></th>
+			<th><%= t("clclass.teacher")%></th>
+			<th><%= t("clclass.start_date")%></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
 
-<% @clclasses.each do |clclass| %>
-<% @teacher = get_teacher_by_clclass(clclass.teacher)%>
-  <tr>
-    <th><%= link_to get_course_by_clclass(clclass.course_id).course_name, clclass %></th>
-    <th><%= link_to @teacher.first_name,  @teacher%></th>
-    <th><%= clclass.starting_date %></th>
-    <td><%= link_to t("show"), clclass %></td>
-    <td><%= if can? :modify, clclass; link_to t("edit"), edit_clclass_path(clclass) end %></td>
-    <td><%= if can? :modify, clclass; link_to t("destroy"), clclass, method: :delete, data: { confirm: 'Are you sure?' } end %></td>
-  </tr>
-<% end %>
-</table>
+		<% @clclasses.each do |clclass| %>
+		<% @teacher = get_teacher_by_clclass(clclass.teacher)%>
+		<tr>
+			<th><%= link_to get_course_by_clclass(clclass.course_id).course_name, clclass %></th>
+			<th><%= link_to @teacher.first_name,  @teacher%></th>
+			<th><%= clclass.starting_date %></th>
+			<th><%= link_to t("show"), clclass , class: "btn btn-large btn-inverse"%></th>
+			<th><%= if can? :modify, clclass; link_to t("edit"), edit_clclass_path(clclass),class: "btn btn-large btn-warning" end %></th>
+			<th><%= if can? :modify, clclass; link_to t("destroy"), clclass, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-large btn-danger" end %></th>
+		</tr>
+		<% end %>
+	</table>
 
-<br />
+	<br />
 
-<% if can? :new,@clclasses   %>
-<%= link_to t("clclass.new_clclass"), new_clclass_path %>
-<% end %>
+	<% if can? :new,@clclasses   %>
+	<%= link_to t("clclass.new_clclass"), new_clclass_path ,class: "btn btn-large btn-info"%>
+	<% end %>
+</div>

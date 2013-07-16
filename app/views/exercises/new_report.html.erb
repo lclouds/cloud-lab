@@ -13,15 +13,16 @@
 </div>
 <% end %>
 
-<div class="field">
-	<%= f.label "name" %>
-	<%= f.text_field :name %>
+<div class="well">
+	<p>
+		<b><%= t("clclass.report.name") %>:</b>
+		<%= f.text_field :name %>
+	</p>
+	<p>
+		<b><%= t("clclass.report.solutions") %>:</b><br />
+		<%= f.cktext_area :problems_solutions %>
+	</p>
+	<%= f.submit t('save'),  class: "btn btn-primary" %>
+	<td><%= link_to t('back'), clclass_exercise_path , class: "btn btn-info" %></td>
+	<% end %>
 </div>
-<div class="field">
-	<%= f.label "solutions" %>
-	<%= f.text_area :problems_solutions ,:rows => 6 %>
-</div>
-<div class="actions">
-	<%= f.submit %>
-</div>
-<% end %>

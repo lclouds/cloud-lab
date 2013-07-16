@@ -12,6 +12,7 @@ class LecturesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js
       format.json { render json: [@clclass,@lecture] }
     end
   end
@@ -19,9 +20,11 @@ class LecturesController < ApplicationController
   # GET /lectures/1
   # GET /lectures/1.json
   def show
+    @lectures = Lecture.where(:clclass_id=> @clclass.id)
     @exercises = Exercise.where(:lecture_id=>params[:id])
     respond_to do |format|
       format.html # show.html.erb
+      format.js
       format.json { render json: [@clclass,@lecture] }
     end
   end

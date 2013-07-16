@@ -2,58 +2,62 @@
 	<div class="well well-large">
 
 		<p>
+			<i class="icon-list"></i>
 			<b><%= t('course.name')%>:</b>
 			<%= get_course_by_clclass( @exercise.clclass.course_id).name %>
 		</p>
 
 		<p>
+			<i class="icon-align-left"></i>
 			<b><%= t('clclass.lecture.name')%>:</b>
 			<%= @exercise.lecture.name %>
 		</p>
 
 		<p>
+			<i class=" icon-align-center"></i>
 			<b><%= t('clclass.exercise.name')%>:</b>
 			<%= @exercise.name %>
 		</p>
 
 		<p>
+			<i class="icon-calendar"></i>
+			<b><%= t('clclass.exercise.start_date')%>:</b>
+			<%= @exercise.start_date %>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<i class="icon-time"></i>
+			<b><%= t('clclass.exercise.deadline')%>:</b>
+			<%= @exercise.deadline %>
+		</p>
+
+		<p>
+			<i class="icon-star"></i>
 			<b><%= t('clclass.exercise.description')%>:</b>
 			<div class="well well-small">
 				<%= @exercise.description %>
 			</div>
 		</p>
-
+		<hr />
 		<p>
+			<i class="icon-star"></i>
+			<b><%= t('clclass.exercise.action_items')%>:</b>
+			<div class="well well-small">
+				<%= @exercise.action_items %>
+			</div>
+		</p>
+		<%= link_to t('clclass.report.submit_report'), new_report_clclass_exercise_path(@clclass,@exercise) , class: "btn btn-inverse"%>
+		<%= link_to t("clclass.report.my_submissions"), show_reports_clclass_exercise_path(@clclass,@exercise,"submission") ,class: "btn btn-inverse" %>
+		<%= link_to t("clclass.report.all_submissions"), show_reports_clclass_exercise_path(@clclass,@exercise,"all_submission") ,class: "btn btn-inverse"%>
+		<hr />
+		<p>
+			<i class="icon-star"></i>
 			<b><%= t('clclass.exercise.special_instruction')%>:</b>
 			<div class="well well-small">
 				<%= @exercise.special_instruction %>
 			</div>
 		</p>
 
-		<p>
-			<b><%= t('clclass.exercise.action_items')%>:</b>
-			<div class="well well-small">
-				<%= @exercise.action_items %>
-			</div>
-		</p>
-
-		<p>
-			<b><%= t('clclass.exercise.start_date')%>:</b>
-			<%= @exercise.start_date %>
-		</p>
-
-		<p>
-			<b><%= t('clclass.exercise.deadline')%>:</b>
-			<%= @exercise.deadline %>
-		</p>
-
-		<%= link_to 'submit my report', new_report_clclass_exercise_path(@clclass,@exercise) %> |
-		<%= link_to t('edit'), edit_clclass_exercise_path(@clclass,@exercise) %> |
-		<%= link_to t('back'), clclass_exercises_path %>
-		
-		
-	<p><%= link_to "My submissions", show_reports_clclass_exercise_path(@clclass,@exercise,"submission") %></p>
-	<p><%= link_to "All submissions", show_reports_clclass_exercise_path(@clclass,@exercise,"all_submission") %></p>
-	<p></p>
+		<hr />
+		<%= link_to t('edit'), edit_clclass_exercise_path(@clclass,@exercise) , class: "btn btn-primary"%> |
+		<%= link_to t('back'), clclass_exercises_path , class: "btn btn-info"%>
 	</div>
 </div>

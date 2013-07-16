@@ -32,7 +32,7 @@ class Ability
       can :read, Course
       can [:read,:show_video], Lecture
 #      can :manage, Lecture
-      can :read, Exercise
+      can [:reports,:new_report,:show_report,:show_reports,:destroy_report], Exercise
 #      can :manage, Exercise
       can [:new, :create, :myclasses], User
       can :manage, User,  :id => user.id

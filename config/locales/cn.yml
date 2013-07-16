@@ -55,6 +55,15 @@ zh_CN:
       new_video: "新建视频"
       dertory_video: "删除视频"
       
+    report:
+      name: "报告名称"
+      solutions: "报告方案"
+      create_time: "建立时间"
+      update_time: "修改时间"      
+      submit_report: "填写报告" 
+      my_submissions: "我的报告"
+      all_submissions: "所有报告"      
+      
   course:
     list: "课程列表"
     name: "课程简称"

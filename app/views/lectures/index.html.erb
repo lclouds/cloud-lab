@@ -5,13 +5,13 @@
 				<div class='well less-padding left-menu'>
 					<ul class='nav nav-list'>
 						<li class="active">
-							<a data-toggle='tab' href='#item-1'> <i class='icon-star'></i><%= t('clclass.lecture.introduction') %></a>
+							<%= link_to t("clclass.lecture.introduction"), clclass_lectures_path(@clclass)%>
 						</li>
 
 						<li class="">
 							<!--<a data-toggle='tab' href='#item-2'> <i class='icon-list-alt'></i><%= t('clclass.lecture.content') %></a>-->
 						<li class='nav-header'>
-							<i class='icon-list-alt'></i><%= t('clclass.lecture.content') %>
+							<%= t('clclass.lecture.content') %>
 						</li>
 						<% @lectures.each do |lecture| %>
 						<ul>

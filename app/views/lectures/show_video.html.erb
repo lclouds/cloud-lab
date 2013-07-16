@@ -15,8 +15,7 @@
 		<%= raw @video.transcript%>
 	</p>
 	<hr />
-	<%= link_to t("clclass.video.edit_video"), edit_video_clclass_lecture_path(@clclass,@lecture,@video)%>
-
-	<%= link_to t("clclass.video.dertory_video"), destroy_video_clclass_lecture_path(@clclass,@lecture,@video), method: :delete, data: { confirm: 'Are you sure?' } %>
-	<%= link_to t('back'), clclass_lectures_path %>
+	<%= link_to t("clclass.video.edit_video"), edit_video_clclass_lecture_path(@clclass,@lecture,@video),class: "btn btn-primary"%>
+	<%= link_to t("clclass.video.dertory_video"), destroy_video_clclass_lecture_path(@clclass,@lecture,@video), method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger" %>
+	<%= link_to t('back'), clclass_lectures_path ,class: "btn btn-info"%>
 </div>

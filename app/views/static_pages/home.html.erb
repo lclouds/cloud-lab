@@ -1,14 +1,10 @@
 <div class="center hero-unit">
-  <h1><%= t('welcome')%></h1>
+	<h1><%= t('welcome')%></h1>
 
-  <h2>
-    This is the home page for the
-    <a href="#">Dian Di Yun</a>
-    company.
-  </h2> 
- <% if !signed_in? %>
-  <%= link_to t('sign_up'), signup_path, class: "btn btn-large btn-primary" %>
- <% end %>
+	<h2> This is the home page for the <%= link_to t('Dian Di Yun'), root_path %> company. </h2>
+	<% if !signed_in? %>
+	<%= link_to t('sign_up'), signup_path, class: "btn btn-large btn-primary" %>
+	<% end %>
 </div>
 
 <h2><%= link_to t('clclass.list'), "clclasses"%></h2>
@@ -18,61 +14,25 @@
 	<div class="courseCell row">
 		<div class="span3">
 			<div class="imageContainer">
-			 <% if @teacher.avatar? %>
-			   <%= link_to image_tag(@teacher.avatar_url(:thumb)) , clclass%>
-			 <% end %>
+				<% if @teacher.avatar? %>
+				<%= link_to image_tag(@teacher.avatar_url(:thumb)) , clclass%>
+				<% end %>
 			</div>
 		</div>
 		<div class="span7">
 			<div class="contentContainer">
 				<div class="courseNameContainer">
-				<h2 class="courseName">
-				<%= link_to get_course_by_clclass(clclass.course_id).course_name, clclass%>
-				</h2>
-				<span class="instructorName textGray">
-				<%= @teacher.first_name+''+@teacher.last_name%> : 
-				<span class="instructorTitle textGray">
-				<i>
-					<%= @teacher.title%>
-				</i>
-				</span>
-				</span>
+					<h2 class="courseName"> <%= link_to get_course_by_clclass(clclass.course_id).course_name, clclass%> </h2>
+					<span class="instructorName textGray"> <%= @teacher.first_name+''+@teacher.last_name%> : <span class="instructorTitle textGray"> <i> <%= @teacher.title%> </i> </span> </span>
 				</div>
 				<div class="courseSummary">
-				<p><%= raw clclass.class_description %></p>
+					<p>
+						<%= truncate(strip_tags(raw clclass.class_description), :length =>80) %>
+					</p>
 				</div>
-				</div>
+			</div>
 		</div>
 	</div>
 	<% end %>
-	
-	
-	<div class="courseCell row">
-		<div class="span3">
-			<div class="imageContainer">
-			<%= link_to image_tag("test.png",:width=>"169px")%>
-			</div>
-		</div>
-		<div class="span7">
-			<div class="contentContainer">
-				<div class="courseNameContainer">
-				<h2 class="courseName">
-				<a href="https://venture-lab.org/creativity">A Crash Course on Creativity</a>
-				</h2>
-				<span class="instructorName textGray">
-				Tina Seelig:
-				<span class="instructorTitle textGray">
-				<i>
-				Executive Director, Stanford Technology Ventures Program
-				</i>
-				</span>
-				</span>
-				</div>
-				<div class="courseSummary">
-				<p>In this course, Tina Seelig reveals a set of tools and conditions that we each control - our Innovation Engine - that allows us to increase our own creativity and that of our teams and organizations. She shows that just as the scientific method demystifies the process of discovery, there is a formal process for unlocking the pathway to invention.</p>
-				</div>
-				</div>
-		</div>
-	</div>
 </div>
 

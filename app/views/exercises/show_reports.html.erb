@@ -1,4 +1,20 @@
-<% @reports.each do |r|%>
-<h3><%= link_to r.name, show_report_clclass_exercise_path(@clclass,@exercise,r.id) %> &nbsp;
-	<%= link_to "destroy", destroy_report_clclass_exercise_path(@clclass,@exercise,r.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-</h3><%end %>
+<div class="row-fluid">
+	<div class="span12">
+		<div class="white well">
+			<h1><%= t('clclass.report.my_submissions')%></h1>
+			<% @reports.each do |r|%>
+			<div class="row-fluid">
+				<div class="span6">
+					<div class="well">
+						<%= link_to r.name, show_report_clclass_exercise_path(@clclass,@exercise,r.id) %> &nbsp;
+						<%= link_to "destroy", destroy_report_clclass_exercise_path(@clclass,@exercise,r.id),
+						method: :delete,
+						data: { confirm: 'Are you sure?' },class: "btn btn-warning" %>
+					</div>
+				</div>
+			</div>
+			<%end %>
+			<td><%= link_to t('back'), clclass_exercise_path, class: "btn btn-info" %></td>
+		</div>
+	</div>
+</div>

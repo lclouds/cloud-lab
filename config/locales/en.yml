@@ -52,6 +52,15 @@ en:
       new_video: "New Video"
       dertory_video: "Dertory Video"
       
+    report:
+      name: "Report Name"
+      solutions: "Report Solutions"
+      create_time: "Create Time"
+      update_time: "Update Time"
+      submit_report: "Submit Report"
+      my_submissions: "My Submissions"
+      all_submissions: "All Submissions"
+            
   course:
     list: "Course List"
     name: "Course Name"
