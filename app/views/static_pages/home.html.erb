@@ -6,8 +6,8 @@
 	<%= link_to t('sign_up'), signup_path, class: "btn btn-large btn-primary" %>
 	<% end %>
 </div>
-
-<h2><%= link_to t('clclass.list'), "clclasses"%></h2>
+<div class="fallClass">
+<%= link_to t('clclass.list'), "clclasses"%></div>
 <div class="coursesContainer">
 	<% @clclasses.each do |clclass| %>
 	<% @teacher = get_teacher_by_clclass(clclass.teacher) %>

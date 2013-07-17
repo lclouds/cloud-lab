@@ -1,15 +1,12 @@
 <div class='row-fluid'>
-	<div class='span12' style="background-color: white;">
+	<div class='span12' style="background-color: lavender;">
 		<div class='row-fluid tabbable tabs-left'>
-			<div class='span3 tab-span'>
+			<div class='span2 tab-span'>
 				<div class='well less-padding left-menu'>
 					<ul class='nav nav-list'>
 						<li class="active">
 							<%= link_to t("clclass.lecture.introduction"), clclass_lectures_path(@clclass)%>
 						</li>
-
-						<li class="">
-							<!--<a data-toggle='tab' href='#item-2'> <i class='icon-list-alt'></i><%= t('clclass.lecture.content') %></a>-->
 						<li class='nav-header'>
 							<%= t('clclass.lecture.content') %>
 						</li>
@@ -25,22 +22,12 @@
 				</div>
 			</div>
 
-			<div class='span9'>
+			<div class='span10'>
 				<div class='white well'>
 					<div class='tab-content'>
 						<div id="item-1" class="tab-pane active">
 							<h2>Introduction to lecture</h2>
 							<hr />
-
-							<% @lectures.each do |lecture| %>
-							<tr align="middle">
-								<b><th><%= lecture.name %></th></b>&nbsp;&nbsp; <b><th><%= lecture.key_concepts%></th></b>&nbsp;&nbsp; <b><th><%= lecture.assignment%></th></b>&nbsp;&nbsp; <th><%= link_to t("show"), clclass_lecture_path(@clclass, lecture) %></th>
-								<th><%= link_to t("edit"), edit_clclass_lecture_path(@clclass, lecture) %></th>
-								<th><%= link_to t("destroy"), clclass_lecture_path(@clclass, lecture), method: :delete, data: { confirm: 'Are you sure?' } %></th>
-							</tr>
-							<hr>
-							<% end %>
-
 							<div class="icon-film"></div><th>video</th>
 							<br />
 							<p>
@@ -62,37 +49,12 @@
 								这里是每个课程之后布置的作业
 							</p>
 							<hr />
+							<%= link_to t("clclass.lecture.new_lecture"), new_clclass_lecture_path, class: "btn"%>
 						</div>
-
-						<div id="item-2" class="tab-pane ">
-							<h2>Lecture  Models</h2>
-							<hr />
-							<div class="icon-film"></div><th>video</th>
-							<br />
-							<p>
-								video
-							</p>
-							<hr />
-							<div class="icon-list-alt"></div><th>Key Concepts</th>
-							<p>
-								key concepts
-							</p>
-							<hr />
-							<div class="icon-book"></div><th>Reading</th>
-							<p>
-								reading
-							</p>
-							<hr />
-							<div class="icon-pencil"></div><th>Assignment</th>
-							<p>
-								assignment
-							</p>
-							<hr />
-						</div>
-
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+

@@ -1,44 +1,66 @@
-<div class="row-fluid">
-	<div class="span12">
-		<div class="well-large well">
-			<p>
-				<b><%= t("clclass.lecture.name")%>:</b>
-				<%= @lecture.name %>
-			</p>
-			<hr />
-			<%= t('课程视频')%>
-			<div class="well well-small">
-				<% @lecture.video.each do |v|%>
-				<p>
-					<i class="icon-film"></i> Video: <%= link_to v.name, show_video_clclass_lecture_path(@clclass, @lecture, v)  %>
-				</p>
-				<% end %>
-			</div>
-			<%= link_to t("clclass.video.new_video"),  new_video_clclass_lecture_path,class: "btn btn-inverse" %>
-			<hr />
-			<p>
-				<b><%= t("clclass.lecture.key_concepts")%>:</b>
-				<div class="well well-small">
-					<%= raw @lecture.key_concepts %>
-				</div>
-			</p>
-			<hr />
-			<p>
-				<b><%= t("clclass.lecture.assignment")%>:</b>
-				<div class="well well-small">
-					<%= raw @lecture.assignment %>
-					<% @exercises.each do |e|%>
-					<p>
-						Exercise: <%= link_to e.name, clclass_exercise_path(@clclass,e) %>
-					</p>
-					<%end%>
-				</div>
-			</p>
-			<%= link_to t("clclass.exercise.new_exercise"),  new_clclass_lecture_exercise_path(@clclass,@lecture),class: "btn btn-inverse" %>
-			<hr />
+<div class='row-fluid'>
+	<div class='span12' style="background-color: lavender;">
+		<div class='row-fluid tabbable tabs-left'>
+			<div class='span2 tab-span'>
+				<div class='well less-padding left-menu'>
+					<ul class='nav nav-list'>
 
-			<%= link_to t('edit'), edit_clclass_lecture_path(@clclass,@lecture),class: "btn btn-warning" %> |
-			<%= link_to t('back'), clclass_lectures_path,class: "btn btn-info" %>
+							<h4><%= t('clclass.lecture.content') %></h4>
+
+						<% @lectures.each do |lecture| %>
+						<ul>
+							<li class="">
+								<%= link_to lecture.name, clclass_lecture_path(@clclass, lecture) %>
+							</li>
+						</ul>
+						<% end %>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class='span10'>
+				<div class='well'>
+					<p>
+						<b><%= t("clclass.lecture.name")%>:</b>
+						<%= @lecture.name %>
+					</p>
+					<hr />
+					<b><%= t('课程视频')%>:</b>
+					<div class="well well-small">
+						<% @lecture.video.each do |v|%>
+						<p>
+							<i class="icon-film"></i> Video: <%= link_to v.name, show_video_clclass_lecture_path(@clclass, @lecture, v)  %>
+						</p>
+						<% end %>
+					</div>
+					<%= link_to t("clclass.video.new_video"),  new_video_clclass_lecture_path,class: "btn btn-inverse" %>
+					<hr />
+					<p>
+						<b><%= t("clclass.lecture.key_concepts")%>:</b>
+						<div class="well well-small">
+							<%= raw @lecture.key_concepts %>
+						</div>
+					</p>
+					<hr />
+					<p>
+						<b><%= t("clclass.lecture.assignment")%>:</b>
+						<div class="well well-small">
+							<%= raw @lecture.assignment %>
+							<% @exercises.each do |e|%>
+							<p>
+								Exercise: <%= link_to e.name, clclass_exercise_path(@clclass,e) %>
+							</p>
+							<%end%>
+						</div>
+					</p>
+					<%= link_to t("clclass.exercise.new_exercise"),  new_clclass_lecture_exercise_path(@clclass,@lecture),class: "btn btn-inverse" %>
+					<hr />
+
+					<%= link_to t('edit'), edit_clclass_lecture_path(@clclass,@lecture),class: "btn btn-warning" %> |
+					<%= link_to t('back'), clclass_lectures_path,class: "btn btn-info" %>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
