@@ -1,26 +1,37 @@
 <!--<h2><%= t("clclass.summary") %></h2>-->
 <div class="row-fluid">
 	<div class="span12">
-		<div class="white well">
+		<div class="well">
 			<div class="row-fluid">
 				<div class="span10">
-					<div class="well well-large">
+					<table>
+						<tr>
+							<td><%= image_tag(@teacher.avatar_url(:small_thumb)) if @teacher.avatar? %></td>
+						</tr>
+						<tr>
+							<td><i class="icon-user"></i><b><%= t("clclass.teacher")%>:</b><strong><%= link_to @teacher.first_name+@teacher.last_name, @teacher %>
+							<br />
+							</strong><i class="icon-th-list"></i><b><%= t('teachers.resume') %></b>:
+							<%= raw @teacher.resume %> </td>
+						</tr>
+					</table>
+					<hr />
+					<div class="well well-small">
 						<p>
-							<b><%= t("clclass.teacher")%>:</b>
-							<%= link_to @teacher.first_name, @teacher %>
-						</p>
-						<hr />
-						<dl class="dl-horizontal">
+							<i class="icon-star"></i>
 							<b><%= t("course.description") %>:</b>
 							<%= raw @clclass.class_description%>
-						</dl>
-						<hr />
+						</p>
+					</div>
+					<hr />
+					<div class="well well-small">
 						<p>
+							<i class="icon-star"></i>
 							<b><%= t("clclass.technical_requirements")%>:</b>
 							<%= raw @clclass.technical_requirements %>
 						</p>
-						<hr />
 					</div>
+					<hr />
 				</div>
 				<!--end of well left-->
 				<div class="">
@@ -44,7 +55,6 @@
 						</div>
 					</div>
 				</div>
-				<!--end of well right-->
 			</div><!--end of row-fluid-->
 		</div>
 	</div>

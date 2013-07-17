@@ -11,7 +11,7 @@
 <div class="coursesContainer">
 	<% @clclasses.each do |clclass| %>
 	<% @teacher = get_teacher_by_clclass(clclass.teacher) %>
-	<div class="courseCell row">
+	<div class="courseCell row-fluid">
 		<div class="span3">
 			<div class="imageContainer">
 				<% if @teacher.avatar? %>
