@@ -2,6 +2,6 @@
 	<%= render  'show_form'%>
 	<% if can? :modify,@teacher  %>
 	<%= link_to t('.edit'), edit_teacher_path(@teacher) %> |
-	<%= link_to t('.back'), teachers_path %>
+	<%= link_to t('teachers.back'), teachers_path %>
 	<% end %>
 </div>

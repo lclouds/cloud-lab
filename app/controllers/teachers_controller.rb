@@ -1,10 +1,11 @@
 class TeachersController < ApplicationController
   load_and_authorize_resource
-  
+  before_filter :reset_page_name
   before_filter :check_teacher_login, only: [:home]
   before_filter :signed_in_teacher, only: [:index,:edit, :update, :clclasses]
   before_filter :correct_teacher,   only: [:edit, :update] 
-  
+ 
+  include TeachersHelper 
   layout "teachers"
   # GET /teachers
   # GET /teachers.json
@@ -84,6 +85,7 @@ class TeachersController < ApplicationController
   end
   
   def home
+    set_page_name('home')
     @teacher = current_user
     @classes = Clclass.where(:teacher=>@teacher.id)
     # if @teacher.nil?
@@ -97,7 +99,8 @@ class TeachersController < ApplicationController
   end
   
   def clclasses
-    @teacher = current_user
+    set_page_name('my_classes')
+     @teacher = current_user
     @classes = Clclass.where(:teacher=>@teacher.id)
 
     respond_to do |format|
@@ -143,4 +146,7 @@ class TeachersController < ApplicationController
       redirect_to(teacher_signin_path) unless current_user?(@teacher)||is_admin?
     end
   
+  def reset_page_name
+    current_teacher_page="home"
+  end
 end

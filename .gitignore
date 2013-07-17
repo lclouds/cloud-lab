@@ -22,3 +22,5 @@ log/development.log
 log
 public/uploads
 public/ckeditor_assets
+db/schema.rb
+

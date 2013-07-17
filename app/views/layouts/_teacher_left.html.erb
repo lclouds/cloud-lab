@@ -8,13 +8,13 @@
 									<h2> <%= current_user.first_name+current_user.last_name %></h2>
 								</p>
 								<ul class='nav nav-list'>
-									<li class="active">
+									<li class="<%='active' if current_teacher_page=='home'%>">
 										<%= link_to t('profile'), teacher_root_path %>
 										
 									</li>
 
-									<li class="">
-										<%= link_to t('My Course'), teachers_clclasses_path  %>
+									<li class="<%='active' if current_teacher_page=='my_classes'%>">
+										<%= link_to t('my_classes'), teachers_clclasses_path  %>
 									</li>
 
 									<li class="">

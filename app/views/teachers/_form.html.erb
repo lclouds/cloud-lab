@@ -17,55 +17,55 @@
 		<td valign="top" width="50%">
 		<div class="field">
 	<i class='icon-user'></i>
-			<%= t('..first_name') %>
+			<%= t('teachers.first_name') %>
 			<br />
 			<%= f.text_field :first_name %>
 		</div>
 		<div class="field">
 	<i class='icon-user'></i>
-			<%= t('..last_name') %>
+			<%= t('teachers.last_name') %>
 			<br />
 			<%= f.text_field :last_name %>
 		</div>
 		<div class="field">
 	<i class='icon-user'></i>
-			<%= t('.alias_name') %>
+			<%= t('teachers.alias_name') %>
 			<br />
 			<%= f.text_field :alias_name %>
 		</div>
 		<div class="field">
 			<i class='icon-align-left'></i>
-			<%= t('.title') %>
+			<%= t('teachers.title') %>
 			<br />
 			<%= f.text_field :title %>
 		</div>
 		<div class="field">
 			<i class='icon-align-left'></i>
-			<%= t('.position') %>
+			<%= t('teachers.position') %>
 			<br />
 			<%= f.text_field :position %>
 		</div>
 		<div class="field">
 	<i class='icon-user'></i>
-			<%= t('.valid_certificate') %>
+			<%= t('teachers.valid_certificate') %>
 			<br />
 			<%= f.text_field :valid_certificate %>
 		</div>
 		<div class="field">
 	<i class='icon-user'></i>
-			<%= t('.valid_certificate_no') %>
+			<%= t('teachers.valid_certificate_no') %>
 			<br />
 			<%= f.text_field :valid_certificate_no %>
 		</div>
 		<div class="field">
 	<i class='icon-user'></i>
-			<%= t('.pwd') %>
+			<%= t('teachers.pwd') %>
 			<br />
 			<%= f.password_field :password %>
 		</div>
 		<div class="field">
 	<i class='icon-user'></i>
-			<%= f.label :password_confirmation,t('.pwd_confirmation') %>
+			<%= f.label :password_confirmation,t('teachers.pwd_confirmation') %>
 			<br />
 			<%= f.password_field :password_confirmation %>
 		</div></td>
@@ -82,7 +82,7 @@
 				<td>
 				<div class="field">
 	<i class='icon-user'></i>
-					<%= t('.image_url') %>
+					<%= t('teachers.image_url') %>
 					<br />
 					<%#= f.text_field :image_url %>
 					<%= f.file_field :avatar %>
@@ -90,31 +90,31 @@
 				</div>
 				<div class="field">
 					<i class='icon-envelope'></i>
-					<%= t('.email') %>
+					<%= t('teachers.email') %>
 					<br />
 					<%= f.text_field :email %>
 				</div>
 				<div class="field">
 					<i class='icon-home'></i>
-					<%= t('.telephone') %>
+					<%= t('teachers.telephone') %>
 					<br />
 					<%= f.text_field :telephone %>
 				</div>
 				<div class="field">
 					<i class='icon-hand-right'></i>
-					<%= t('.mobile') %>
+					<%= t('teachers.mobile') %>
 					<br />
 					<%= f.text_field :mobile %>
 				</div>
 				<div class="field">
 					<i class='icon-home'></i>
-					<%= t('.address') %>
+					<%= t('teachers.address') %>
 					<br />
 					<%= f.text_field :address %>
 				</div>
 				<div class="field">
 					<i class='icon-home'></i>
-					<%= t('.postcode') %>
+					<%= t('teachers.postcode') %>
 					<br />
 					<%= f.text_field :postcode %>
 				</div></td>
@@ -127,12 +127,12 @@
 		<td colspan=2>
 					<div class="field" id="field_resume">
 			<i class='icon-align-left'></i>
-			<%= t('.resume') %>
+			<%= t('teachers.resume') %>
 			<br />
     <%= f.cktext_area :resume, :class => "ckeditor", :ckeditor => {:language => "zh-CN"} %>
 		</div>
 		<div class="field_comment">
-			<%= t('.comment') %>
+			<%= t('teachers.comment') %>
 			<br />
 			<%= f.text_area :comment  ,:rows=>4%>
 		</div>
@@ -140,7 +140,7 @@
 	</tr>
 </table>
 <div class="actions" align="center">
-	<%= f.submit(t('.commit')) %>
+	<%= f.submit(t('teachers.commit')) %>
 </div>
 
 <% end %>
