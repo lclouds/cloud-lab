@@ -6,10 +6,12 @@
 			<div class="row-fluid">
 				<div class="span6">
 					<div class="well">
-						<%= link_to r.name, show_report_clclass_exercise_path(@clclass,@exercise,r.id) %> &nbsp;
-						<%= link_to "destroy", destroy_report_clclass_exercise_path(@clclass,@exercise,r.id),
-						method: :delete,
-						data: { confirm: 'Are you sure?' },class: "btn btn-warning" %>
+						<tr>
+							<td width="50"><%= link_to r.name, show_report_clclass_exercise_path(@clclass,@exercise,r.id) %> &nbsp;</td><hr />
+							<td><%= link_to "destroy", destroy_report_clclass_exercise_path(@clclass,@exercise,r.id),
+							method: :delete,
+							data: { confirm: 'Are you sure?' },class: "btn btn-warning" %></td>
+						</tr>
 					</div>
 				</div>
 			</div>
