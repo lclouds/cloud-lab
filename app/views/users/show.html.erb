@@ -1,174 +1,174 @@
+<div class='row-fluid'>
+	<div class='span12'>
+		<div class='row-fluid tabbable tabs-left'>
+			<div class='span3 tab-span'>
+				<div class='well less-padding left-menu'>
+					<table class="center">
+						<%= image_tag(@user.avatar_url(:thumb)) if @user.avatar? %>
+					</table>
+					<br />
+					<ul class='nav nav-list'>
+						<li class="">
+							<h2> <%= @user.first_name+@user.last_name %></h2>
+						</li>
+						<li class="active">
+							<a data-toggle='tab' href='#item-1'> <i class='icon-star'></i><%= t('users.personal_profile') %></a>
+						</li>
 
-			<div class='row-fluid'>
-				<div class='span12'>
-					<div class='row-fluid tabbable tabs-left'>
-						<div class='span3 tab-span'>
-							<div class='well less-padding left-menu'>
-								<table class="center">
-										<%= image_tag(@user.avatar_url(:thumb)) if @user.avatar? %>
-								</table>
-									<br />
-									<ul class='nav nav-list'>
-							         	<li class="">
-										     <h2> <%= @user.first_name+@user.last_name %></h2>
-									    </li>										
-										<li class="active">
-											<a data-toggle='tab' href='#item-1'> <i class='icon-star'></i><%= t('users.personal_profile') %></a>
-										</li>
+						<li class="">
+							<a data-toggle='tab' href='#item-2'> <i class='icon-list-alt'></i><%= t('users.courses') %></a>
+						</li>
 
-										<li class="">
-											<a data-toggle='tab' href='#item-2'> <i class='icon-list-alt'></i><%= t('users.courses') %></a>
-										</li>
+						<li class="">
+							<a data-toggle='tab' href='#item-3'> <i class='icon-user'></i><%= t('users.network') %></a>
+						</li>
 
-										<li class="">
-											<a data-toggle='tab' href='#item-3'> <i class='icon-user'></i><%= t('users.network') %></a>
-										</li>
-
-										<li class="">
-											<a data-toggle='tab' href='#item-4'> <i class='icon-comment'></i><%= t('users.endorsements')%> </a>
-										</li>
-									</ul>
-							</div>
-						</div>
-
-						<div class='span9'>
-							<div class='white well'>
-								<div class='tab-content'>
-									<div id="item-1" class="tab-pane active">
-										<table class="table table-bordered">
-											<hr />
-											<p>
-												<i class='icon-user'></i>
-												<b><%= t('users.username') %>:</b>
-												<%= @user.first_name+@user.last_name %>
-											</p>
-											<p>
-												<i class='icon-align-left'></i>
-												<b><%= t('users.gender') %>:</b>
-												<%= @user.gender %>
-											</p>
-											<p>
-												<i class='icon-align-left'></i>
-												<b><%= t('users.age') %>:</b>
-												<%= @user.age %>
-											</p>
-											<p>
-											<i class='icon-home'></i>
-											<b><%= t('users.city') %>:</b>
-											<%= @user.city %>
-											</p>
-											<p>
-												<i class='icon-align-left'></i>
-												<b><%= t('users.language') %>:</b>
-												<%= @user.language %>
-											</p>
-											<p>
-												<i class='icon-time'></i>
-												<b><%= t('users.reg_date') %>:</b>
-												<%= @user.created_at %>
-											</p>
-
-											<p>
-												<i class='icon-time'></i>
-												<b><%= t('users.last_date') %>:</b>
-												<%= @user.updated_at %>
-											</p>
-
-											<p>
-												<i class='icon-book'></i>
-												<b><%= t('users.education') %>:</b>
-												<%= @user.education %>
-											</p>
-											<p>
-												<i class='icon-hand-right'></i>
-												<b>QQ:</b>
-												<%= @user.qq %>
-											</p>
-											<p>
-												<i class='icon-hand-right'></i>
-												<b><%= t('users.mobile') %>:</b>
-												<%= @user.mobile %>
-											</p>
-											<p>
-												<i class='icon-envelope'></i>
-												<b><%= t('users.email') %>:</b>
-												<%= @user.email %>
-											</p>
-											<p>
-												<i class='icon-pencil'></i>
-												<b><%= t('users.bio') %>:</b>
-												<%= raw @user.bio %>
-											</p>
-										</table>
-										<hr />
-										<%  if can? :modify, @user %>
-										<li class="btn">
-											<i class='icon-dark icon-edit'><span class='hidden-accessible'> </span> </i><%= link_to t('users.edit_profile'), edit_user_path(current_user) %>
-										</li>
-										<% end %>
-									</div>
-
-									<div id="item-2" class="tab-pane ">
-										<div class="span8" >
-											<h3><%= @user.first_name + t("users._s_course") %></h3>
-											<table class="table table-condensed">
-												<thead>
-												<tr>
-													<th><%= t("course.full_name")%></th>
-													<th><%= t("clclass.teacher")%></th>
-													<th><%= t("clclass.start_date")%></th>
-													<th></th>
-													<th></th>
-													<th></th>
-													<th></th>
-													<th></th>
-													<th></th>
-												</tr>
-												</thead>
-												<br />
-												<tbody>
-												<% @class_user.each do |cu|%>
-												<tr class="info">
-													<td><%= link_to get_course_by_clclass(cu.course_id).course_name, cu %></td>
-													<td><%= cu.teacher %></td>
-													<td><%= cu.starting_date%></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<br />
-												</tr>
-												<% end %>
-												</tbody>
-											</table>
-										</div>
-									</div>
-
-									<div id="item-3" class="tab-pane ">
-										<h3><%= @user.first_name + t("users._s_network")%></h3>
-										<div class="row-fluid" >
-											<div class="span6 offset3" >
-												<h1></h1>
-											</div>
-										</div>
-									</div>
-
-									<div id="item-4" class="tab-pane ">
-										<h3><%= @user.first_name  + t("users._s_endorsements") %></h3>
-										<div class="row-fluid" >
-											<div class="span6 offset3" >
-												<h1></h1>
-											</div>
-										</div>
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
+						<li class="">
+							<a data-toggle='tab' href='#item-4'> <i class='icon-comment'></i><%= t('users.endorsements')%> </a>
+						</li>
+					</ul>
 				</div>
 			</div>
 
+			<div class='span9'>
+				<div class='white well'>
+					<div class='tab-content'>
+						<div id="item-1" class="tab-pane active">
+							<table class="table table-bordered">
+								<hr />
+								<p>
+									<i class='icon-user'></i>
+									<b><%= t('users.username') %>:</b>
+									<%= @user.first_name+@user.last_name %>
+								</p>
+								<p>
+									<i class='icon-align-left'></i>
+									<b><%= t('users.gender') %>:</b>
+									<%= @user.gender %>
+								</p>
+								<p>
+									<i class='icon-align-left'></i>
+									<b><%= t('users.age') %>:</b>
+									<%= @user.age %>
+								</p>
+								<p>
+									<i class='icon-home'></i>
+									<b><%= t('users.city') %>:</b>
+									<%= @user.city %>
+								</p>
+								<p>
+									<i class='icon-align-left'></i>
+									<b><%= t('users.language') %>:</b>
+									<%= @user.language %>
+								</p>
+								<p>
+									<i class='icon-time'></i>
+									<b><%= t('users.reg_date') %>:</b>
+									<%= @user.created_at %>
+								</p>
+
+								<p>
+									<i class='icon-time'></i>
+									<b><%= t('users.last_date') %>:</b>
+									<%= @user.updated_at %>
+								</p>
+
+								<p>
+									<i class='icon-book'></i>
+									<b><%= t('users.education') %>:</b>
+									<%= @user.education %>
+								</p>
+								<p>
+									<i class='icon-hand-right'></i>
+									<b>QQ:</b>
+									<%= @user.qq %>
+								</p>
+								<p>
+									<i class='icon-hand-right'></i>
+									<b><%= t('users.mobile') %>:</b>
+									<%= @user.mobile %>
+								</p>
+								<p>
+									<i class='icon-envelope'></i>
+									<b><%= t('users.email') %>:</b>
+									<%= @user.email %>
+								</p>
+								<p>
+									<i class='icon-pencil'></i>
+									<b><%= t('users.bio') %>:</b>
+									<%= raw @user.bio %>
+								</p>
+							</table>
+							<hr />
+							<%  if can? :modify, @user %>
+							<li class="btn">
+								<i class='icon-dark icon-edit'><span class='hidden-accessible'> </span> </i><%= link_to t('users.edit_profile'), edit_user_path(current_user) %>
+							</li>
+							<% end %>
+						</div>
+
+						<div id="item-2" class="tab-pane ">
+							<div class="span8" >
+								<h3><%= @user.first_name + t("users._s_course") %></h3>
+								<table class="table table-condensed">
+									<thead>
+										<tr>
+											<th><%= t("course.full_name")%></th>
+											<th><%= t("clclass.teacher")%></th>
+											<th><%= t("clclass.start_date")%></th>
+											<th></th>
+											<th></th>
+											<th></th>
+											<th></th>
+											<th></th>
+											<th></th>
+										</tr>
+									</thead>
+									<br />
+									<tbody>
+										<% @class_user.each do |cu|%>
+										<tr class="info">
+											<td><%= link_to get_course_by_clclass(cu.course_id).course_name, cu %></td>
+											<td><%= cu.teacher %></td>
+											<td><%= cu.starting_date%></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<br />
+										</tr>
+										<% end %>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div id="item-3" class="tab-pane ">
+							<h3><%= @user.first_name + t("users._s_network")%></h3>
+							<div class="row-fluid" >
+								<div class="span6 offset3" >
+									<% current_user.mailbox.conversations.each do |convo| %>
+									<% convo.subject %>
+									<% end %>
+								</div>
+							</div>
+						</div>
+
+						<div id="item-4" class="tab-pane ">
+							<h3><%= @user.first_name  + t("users._s_endorsements") %></h3>
+							<div class="row-fluid" >
+								<div class="span6 offset3" >
+									<h1></h1>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 

@@ -1,40 +1,51 @@
 <div class="well well-large">
-	
-  <% if signed_in? %>
-  <%= form_for @clclass, :url=>{:action=>"apply"} do |f| %>
-  <%= f.submit t("clclass.apply"), class: "btn btn-large btn-primary" %>
-  <% end %>
-  <% else %>
-  <%= button_to( t("clclass.signin_to_apply"),"../signin") %>
-  <hr />
-  <% end %>
-<p>
-	<b><%= t("course.full_name")%>:</b>
-	   <%= get_currentcourse.course_name %>
-</p>
-<hr />
-<p>
-	<b><%= t("clclass.teacher")%>:</b>
-	<%= @teacher.last_name + ' ' + @teacher.first_name%> 
-</p>
-<hr />
-<p>
-	<b><%= t("clclass.start_date")%>:</b>
-	  <%= @clclass.starting_date %>
-</p>
-<hr />
 
-<p>
-	<b><%= t("course.description")%>:</b>
-      <%= raw @clclass.class_description %>
-</p>
-<hr />
-<p>
-	<b><%= t("clclass.technical_requirements")%>:</b>
-	  <%= raw @clclass.technical_requirements %>
-</p>
-<hr />
+	<p>
+		<i class="icon-list"></i>
+		<b><%= t("course.full_name")%>:</b>
+		<%= get_currentcourse.course_name %>
+	</p>
+	<hr />
+	<i class="icon-user"></i>
+	<b><%= t("clclass.teacher")%>:</b>
+	<table>
+		<tr>
+			<td> <%= image_tag(@teacher.avatar_url(:small_thumb)) if @teacher.avatar? %> </td>
+			<td>
+			<%= @teacher.first_name+@teacher.last_name %>
+			<br />
+			<%= raw @teacher.resume %> </td>
+		</tr>
+	</table>
+	<hr />
+	<p>
+		<i class="icon-time"></i>
+		<b><%= t("clclass.start_date")%>:</b>
+		<%= @clclass.starting_date %>
+	</p>
+	<hr />
+
+	<% if signed_in? %>
+	<%= form_for @clclass, :url=>{:action=>"apply"} do |f| %>
+	<%= f.submit t("clclass.apply"), class: "btn btn-large btn-primary" %>
+	<% end %>
+	<% else %>
+	<%= button_to( t("clclass.signin_to_apply"),"../signin", class: "btn btn-large btn-primary")%>
+	<hr />
+	<% end %>
+	<p>
+		<i class="icon-star"></i>
+		<b><%= t("course.description")%>:</b>
+		<%= raw @clclass.class_description %>
+	</p>
+	<hr />
+	<p>
+		<i class="icon-star"></i>
+		<b><%= t("clclass.technical_requirements")%>:</b>
+		<%= raw @clclass.technical_requirements %>
+	</p>
+	<hr />
+	<%if can? :modify, @clclass %> <%= link_to t('edit'), edit_clclass_path(@clclass) ,class: "btn btn-warning"%> |<%end%>
+	<%= link_to t('back'), clclasses_path ,class: "btn btn-inverse"%>
 </div>
-  <%if can? :modify, @clclass %> <%= link_to t('edit'), edit_clclass_path(@clclass) %> |<%end%>
-  <%= link_to t('back'), clclasses_path %>
 

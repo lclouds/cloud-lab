@@ -19,6 +19,10 @@ gem 'mini_magick'
 #富文本编辑器
 gem "ckeditor"
 gem "paperclip"
+#Conversations
+#https://github.com/ging/mailboxer  https://github.com/RKushnir/mailboxer-app
+#gem 'simple_form'
+gem 'mailboxer'
 #gem 'sqlite3'
 group :development, :test do
   gem 'sqlite3'
