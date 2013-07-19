@@ -1,6 +1,6 @@
-<h1>Editing exercise</h1>
+<h1><%= t('clclass.exercise.edit_exercise')%></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', clclass_exercise_path(@clclass,@exercise) %> |
-<%= link_to 'Back', clclass_exercises_path %>
+<%= link_to t('show'), clclass_exercise_path(@clclass,@exercise),class: "btn btn-info" %> |
+<%= link_to t('back'), clclass_exercises_path,class: "btn btn-inverse" %>

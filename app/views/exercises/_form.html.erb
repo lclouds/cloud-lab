@@ -12,33 +12,36 @@
 	</ul>
 </div>
 <% end %>
-
-<div class="field">
-	<%= f.label t('clclass.exercise.name') %>
+<p>
+	<b><i class="icon-book"></i> <%= f.label t('clclass.exercise.name') %>:</b>
 	<%= f.text_field :name %>
-</div>
-<div class="field">
-	<%= f.label t('clclass.exercise.description') %>
-	<%= f.text_area :description ,:rows => 6 %>
-</div>
-<div class="field">
-	<%= f.label t('clclass.exercise.special_instruction') %>
-	<%= f.text_area :special_instruction,:rows => 6 %>
-</div>
-<div class="field">
-	<%= f.label t('clclass.exercise.action_items') %>
+</p>
+<p>
+	<i class="icon-pencil"></i>
+	<%= f.label t('clclass.exercise.description') %>:
+	<%= f.text_area :description ,:clos => 6, :rows => 6 %>
+</p>
+<p>
+	<i class="icon-list-alt"></i>
+	<%= f.label t('clclass.exercise.action_items') %>:
 	<%= f.text_area :action_items, :rows => 6 %>
-</div>
-<div class="field">
-	<%= f.label t('clclass.exercise.start_date') %>
+</p>
+<p>
+	<i class="icon-star"></i>
+	<%= f.label t('clclass.exercise.special_instruction') %>:
+	<%= f.text_area :special_instruction,:rows => 6 %>
+</p>
+<p>
+	<i class="icon-time"></i>
+	<%= f.label t('clclass.exercise.start_date') %>:
 	<%= f.datetime_select :start_date %>
-</div>
-<div class="field">
-	<%= f.label t('clclass.exercise.deadline') %>
+</p>
+<p>
+	<i class="icon-time"></i>
+	<%= f.label t('clclass.exercise.deadline') %>:
 	<%= f.datetime_select :deadline %>
-</div>
-
+</p>
 <div class="actions">
-	<%= f.submit %>
+	<%= f.submit t("save"),class: "btn btn-primary" %>
 </div>
 <% end %>

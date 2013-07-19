@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       flash[:success] = t("welcome")
       #redirect_back_or user
       #redirect_to :controller => 'user', :action => 'myclasses' 
-      redirect_to  myclasses_user_path(current_user)
+      redirect_to  myclasses_user_path(user)
       #render 'users/myclasses.html.erb'
     else
       flash.now[:error] = 'Invalid email/password combination' # Not quite right!

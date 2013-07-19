@@ -1,75 +1,74 @@
-<% provide(:title, "Edit user") %>
-<h2 class='hidden-accessible'><%= t('users.edit_profile')%></h2>
+<% provide(:title, "Edit user") %> <h2 class='hidden-accessible'><%= t('users.edit_profile')%></h2>
 <div class="row-fluid" >
+	<div class="span12">
+		<div class="well" style="background-color: #F0F8FF;">
+			<%= form_for(@user) do |f| %>
+			<%= render 'shared/error_messages' %>
 
-    <%= form_for(@user) do |f| %>
-    <%= render 'shared/error_messages' %>
+			<%= t("users.image_url")%>
+			<br />
+			<%= image_tag(@user.avatar_url(:thumb)) if @user.avatar? %>
+			<%= f.file_field :avatar %>
+			<%= f.hidden_field :avatar_cache %>
 
-    <%= t("users.image_url")%><br />  
-    <%= image_tag(@user.avatar_url(:thumb)) if @user.avatar? %>  
-    <%= f.file_field :avatar %> 
-    <%= f.hidden_field :avatar_cache %> 
+			<%= t("users.first_name") %>
+			<%= f.text_field :first_name %>
 
-    <%= t("users.first_name") %>
-    <%= f.text_field :first_name %>
+			<%= t("users.last_name") %>
+			<%= f.text_field :last_name %>
 
-    <%= t("users.last_name") %>	
-    <%= f.text_field :last_name %>
-      
-    <%= t("users.city") %>
-    <%= f.text_field :city %>
+			<%= t("users.city") %>
+			<%= f.text_field :city %>
 
-    <%= t("users.age") %>
-    <!--<%= f.text_field :age %>-->
-    <%= f.select :age, [["--选择--",""],['18-20', '18-20'], ['21-25', '21-25'],['26-30','26-30'],["31-35","31-35"],["36-40","36-40"],
-                        ["41-45","41-45"],["46-50","46-50"],["50-60","50-60"],["60以上","60以上"],["秘密","秘密"]] %>
-    
-    <%= t("users.gender") %>
-   <!-- <%= select_tag "gender", options_for_select([ "man", "woman"]) %>-->
-    <%= f.select :gender, [['男', '男'], ['女', '女'],['秘密','秘密']] %>
-    
+			<%= t("users.age") %>
+			<!--<%= f.text_field :age %>-->
+			<%= f.select :age, [["--选择--",""],['18-20', '18-20'], ['21-25', '21-25'],['26-30','26-30'],["31-35","31-35"],["36-40","36-40"],
+          ["41-45","41-45"],["46-50","46-50"],["50-60","50-60"],["60以上","60以上"],["秘密","秘密"]] %>
 
-    <%= t("users.language") %>
-    <%= f.select :language, [["--选择--",""],["Afrikaans","Afrikaans"],["Albanian","Albanian"],["Arabic","Arabic"],["Armenian","Armenian"],
-                             ["Azerbaijani","Azerbaijani"],["Basque","Basque"],["Bengali","Bengali"],["Bosnian","Bosnian"],["Bulgarian","Bulgarian"],
-                             ["Catalan","Catalan"],["Central Khmer","Central Khmer"],["Chinese","Chinese"],["Croatian","Croatian"],["Czech","Czech"],
-                             ["Danish","Danish"],["Dutch","Dutch"],["English","English"],["Estonian","Estonian"],
-                             ["Fijian","Fijian"],["Finnish","Finnish"],["French","French"],["Georgian","Georgian"],["German","German"],["Greek","Greek"],
-                             ["Gujarati","Gujarati"],["Hebrew","Hebrew"],["Hindi","Hindi"],["Hungarian","Hungarian"],["Icelandic","Icelandic"],
-                             ["Indonesian","Indonesian"],["Irish","Irish"],["Italian","Italian"],["Japanese","Japanese"],["Korean","Korean"],["Latin","Latin"],
-                             ["Latvian","Latvian"],["Lithuanian","Lithuanian"],["Macedonian","Macedonian"],["Malay","Malay"],["Malayalam","Malayalam"],["Maltese","Maltese"],
-                             ["Maori","Maori"],["Marathi","Marathi"],["Mongolian","Mongolian"],["Nepali","Nepali"],["Norwegian","Norwegian"],["Panjabi","Panjabi"],
-                             ["Persian","Persian"],["Polish","Polish"],["Portuguese","Portuguese"],["Quechua","Quechua"],["Romanian","Romanian"],["Russian","Russian"],["Samoan","Samoan"],
-                             ["Serbian","Serbian"],["Slovak","Slovak"],["Slovenian","Slovenian"],["Spanish","Spanish"],["Swahili","Swahili"],["Swedish","Swedish"],
-                             ["Tamil","Tamil"],["Tatar","Tatar"],["Telugu","Telugu"],["Thai","Thai"],["Tibetan","Tibetan"],
-                             ["Tonga (Tonga Islands)","Tonga (Tonga Islands)"],["Turkish","Turkish"],["Ukrainian","Ukrainian"],
-                             ["Urdu","Urdu"],["Uzbek","Uzbek"],["Vietnamese","Vietnamese"],["Welsh","Welsh"],["Xhosa","Xhosa"]] %>
+			<%= t("users.gender") %>
+			<!-- <%= select_tag "gender", options_for_select([ "man", "woman"]) %>-->
+			<%= f.select :gender, [['男', '男'], ['女', '女'],['秘密','秘密']] %>
 
-    <%= t("users.qq") %>
-    <%= f.text_field :qq %>
-    
-    <%= t("users.mobile") %>
-    <%= f.text_field :mobile %>    
+			<%= t("users.language") %>
+			<%= f.select :language, [["--选择--",""],["Afrikaans","Afrikaans"],["Albanian","Albanian"],["Arabic","Arabic"],["Armenian","Armenian"],
+          ["Azerbaijani","Azerbaijani"],["Basque","Basque"],["Bengali","Bengali"],["Bosnian","Bosnian"],["Bulgarian","Bulgarian"],
+          ["Catalan","Catalan"],["Central Khmer","Central Khmer"],["Chinese","Chinese"],["Croatian","Croatian"],["Czech","Czech"],
+          ["Danish","Danish"],["Dutch","Dutch"],["English","English"],["Estonian","Estonian"],
+          ["Fijian","Fijian"],["Finnish","Finnish"],["French","French"],["Georgian","Georgian"],["German","German"],["Greek","Greek"],
+          ["Gujarati","Gujarati"],["Hebrew","Hebrew"],["Hindi","Hindi"],["Hungarian","Hungarian"],["Icelandic","Icelandic"],
+          ["Indonesian","Indonesian"],["Irish","Irish"],["Italian","Italian"],["Japanese","Japanese"],["Korean","Korean"],["Latin","Latin"],
+          ["Latvian","Latvian"],["Lithuanian","Lithuanian"],["Macedonian","Macedonian"],["Malay","Malay"],["Malayalam","Malayalam"],["Maltese","Maltese"],
+          ["Maori","Maori"],["Marathi","Marathi"],["Mongolian","Mongolian"],["Nepali","Nepali"],["Norwegian","Norwegian"],["Panjabi","Panjabi"],
+          ["Persian","Persian"],["Polish","Polish"],["Portuguese","Portuguese"],["Quechua","Quechua"],["Romanian","Romanian"],["Russian","Russian"],["Samoan","Samoan"],
+          ["Serbian","Serbian"],["Slovak","Slovak"],["Slovenian","Slovenian"],["Spanish","Spanish"],["Swahili","Swahili"],["Swedish","Swedish"],
+          ["Tamil","Tamil"],["Tatar","Tatar"],["Telugu","Telugu"],["Thai","Thai"],["Tibetan","Tibetan"],
+          ["Tonga (Tonga Islands)","Tonga (Tonga Islands)"],["Turkish","Turkish"],["Ukrainian","Ukrainian"],
+          ["Urdu","Urdu"],["Uzbek","Uzbek"],["Vietnamese","Vietnamese"],["Welsh","Welsh"],["Xhosa","Xhosa"]] %>
 
-    <%= t("users.education") %>
-    <%= f.select :education, [['--选择--', ' '],['博士后','博士后'], ['博士', '博士'],['硕士','硕士'],['本科','本科'],['专科','专科'],['高中','高中'],['初中以上','初中以上']] %>
+			<%= t("users.qq") %>
+			<%= f.text_field :qq %>
 
-    <%= t("users.password") %><br />
-    <i><%= t('users.leave_blank')%></i><br />
-    <%= f.password_field :password %>
+			<%= t("users.mobile") %>
+			<%= f.text_field :mobile %>
 
-    <%= f.label :password_confirmation, t("users.password_confirmation") %>
-    <%= f.password_field :password_confirmation %>
+			<%= t("users.education") %>
+			<%= f.select :education, [['--选择--', ' '],['博士后','博士后'], ['博士', '博士'],['硕士','硕士'],['本科','本科'],['专科','专科'],['高中','高中'],['初中以上','初中以上']] %>
 
-    <%= t("users.bio") %>
-    <%= f.cktext_area :bio, :class => "ckeditor", :ckeditor => {:language => "zh-CN"} %>
+			<%= t("users.password") %>
+			<br />
+			<i><%= t('users.leave_blank')%></i>
+			<br />
+			<%= f.password_field :password %>
 
-    <%= f.submit t("users.save"), class: "btn btn-large btn-primary" %>
-    <% end %>
-  
+			<%= f.label :password_confirmation, t("users.password_confirmation") %>
+			<%= f.password_field :password_confirmation %>
+
+			<%= t("users.bio") %>
+			<%= f.cktext_area :bio, :class => "ckeditor", :ckeditor => {:language => "zh-CN"} %>
+
+			<%= f.submit t("users.save"), class: "btn btn-large btn-primary" %>
+			<% end %>
+		</div>
+	</div>
 </div>
-
-
-
-
 

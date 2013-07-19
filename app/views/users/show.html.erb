@@ -2,7 +2,7 @@
 	<div class='span12'>
 		<div class='row-fluid tabbable tabs-left'>
 			<div class='span3 tab-span'>
-				<div class='well less-padding left-menu'>
+				<div class='well less-padding left-menu' style="background-color: #F0F8FF;">
 					<table class="center">
 						<%= image_tag(@user.avatar_url(:thumb)) if @user.avatar? %>
 					</table>
@@ -31,7 +31,7 @@
 			</div>
 
 			<div class='span9'>
-				<div class='white well'>
+				<div class='well' style="background-color: #F0F8FF;">
 					<div class='tab-content'>
 						<div id="item-1" class="tab-pane active">
 							<table class="table table-bordered">
@@ -110,43 +110,30 @@
 						<div id="item-2" class="tab-pane ">
 							<div class="span8" >
 								<h3><%= @user.first_name + t("users._s_course") %></h3>
-								<table class="table table-condensed">
-									<thead>
+								<table class="table table-hover">
 										<tr>
+											<th><%= t('course.code') %></th>											
 											<th><%= t("course.full_name")%></th>
 											<th><%= t("clclass.teacher")%></th>
 											<th><%= t("clclass.start_date")%></th>
-											<th></th>
-											<th></th>
-											<th></th>
-											<th></th>
-											<th></th>
-											<th></th>
 										</tr>
-									</thead>
 									<br />
-									<tbody>
 										<% @class_user.each do |cu|%>
 										<tr class="info">
-											<td><%= link_to get_course_by_clclass(cu.course_id).course_name, cu %></td>
-											<td><%= cu.teacher %></td>
-											<td><%= cu.starting_date%></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
+											<th><%= link_to get_course_by_clclass(cu.course_id).course_code ,cu%></th>
+											<th><%= get_course_by_clclass(cu.course_id).course_name %></th>
+											<th><%= cu.teacher %></th>
+											<th><%= cu.starting_date%></th>
 											<br />
 										</tr>
 										<% end %>
-									</tbody>
 								</table>
 							</div>
 						</div>
 
 						<div id="item-3" class="tab-pane ">
 							<h3><%= @user.first_name + t("users._s_network")%></h3>
+							<hr />
 							<div class="row-fluid" >
 								<div class="span6 offset3" >
 									<% current_user.mailbox.conversations.each do |convo| %>

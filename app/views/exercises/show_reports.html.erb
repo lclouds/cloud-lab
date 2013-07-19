@@ -1,22 +1,42 @@
-<div class="row-fluid">
-	<div class="span12">
-		<div class="white well">
-			<h1><%= t('clclass.report.my_submissions')%></h1>
-			<% @reports.each do |r|%>
-			<div class="row-fluid">
-				<div class="span6">
-					<div class="well">
-						<tr>
-							<td width="50"><%= link_to r.name, show_report_clclass_exercise_path(@clclass,@exercise,r.id) %> &nbsp;</td><hr />
-							<td><%= link_to "destroy", destroy_report_clclass_exercise_path(@clclass,@exercise,r.id),
-							method: :delete,
-							data: { confirm: 'Are you sure?' },class: "btn btn-warning" %></td>
-						</tr>
-					</div>
+<div class='row-fluid'>
+	<div class='span12' style="background-color: lavender;">
+		<div class='row-fluid tabbable tabs-left'>
+			<div class='span2 tab-span'>
+				<div class='well less-padding left-menu'>
+					<ul class='nav nav-list'>
+						<li>
+							<%= link_to t("clclass.report.my_submissions"), show_reports_clclass_exercise_path(@clclass,@exercise,"submission"),class: "btn btn-inverse" %>
+						</li>
+						<li>
+							<%= link_to t("clclass.report.all_submissions"), show_reports_clclass_exercise_path(@clclass,@exercise,"all_submission"),class:"btn btn-inverse" %>
+						</li>
+					</ul>
 				</div>
 			</div>
-			<%end %>
-			<td><%= link_to t('back'), clclass_exercise_path, class: "btn btn-info" %></td>
+
+			<div class='span10'>
+				<div class='white well'>
+					<h2><%= t('clclass.report.my_submissions')%></h2>
+					<hr />
+					<% @reports.each do |r|%>
+					<div class="row-fluid">
+						<div class="span6">
+							<div class="well">
+								<tr>
+									<td width="50"><%= link_to r.name, show_report_clclass_exercise_path(@clclass,@exercise,r.id) %> &nbsp;</td>
+									<hr />
+									<td><%= link_to "destroy", destroy_report_clclass_exercise_path(@clclass,@exercise,r.id),
+									method: :delete,
+									data: { confirm: 'Are you sure?' },class: "btn btn-warning" %></td>
+								</tr>
+							</div>
+						</div>
+					</div>
+					<%end %>
+					<td><%= link_to t('back'), clclass_exercise_path, class: "btn btn-info" %></td>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
+
