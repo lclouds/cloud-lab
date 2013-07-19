@@ -1,32 +1,32 @@
 <h1><%= t("course.list")%></h1>
 
 <table class="table table-condensed">
-  <tr>
-    <th><%= t("course.name")%></th>
-    <th><%= t("course.full_name")%></th>
-    <th><%= t("course.code")%></th>
-    <th><%= t("course.description")%></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+	<tr>
+		<th><%= t("course.code")%></th>
+		<th><%= t("course.name")%></th>
+		<th><%= t("course.full_name")%></th>
+		<th><%= t("course.description")%></th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
 
-<% @courses.each do |course| %>
-  <tr>
-    <td><%= course.name %></td>
-    <td><%= course.course_name %></td>
-    <td><%= course.course_code %></td>
-    <td><%= raw course.description %></td>
-    <td><%= link_to t('show'), course %></td>
-    <td><%= link_to t('edit'), edit_course_path(course) %></td>
-    <td><%= link_to t('destroy'), course, method: :delete, data: { confirm: t('sure') } %></td>
-  </tr>
-<% end %>
+	<% @courses.each do |course| %>
+	<tr>
+		<th><%= link_to course.course_code,course %></th>
+		<th><%= course.name %></th>
+		<th><%= course.course_name %></th>
+		<th><%= raw course.description %></th>
+		<th><%= link_to t('show'), course,class: "btn btn-info" %></th>
+		<th><%= link_to t('edit'), edit_course_path(course),class: "btn btn-warning" %></th>
+		<th><%= link_to t('destroy'), course, method: :delete, data: { confirm: t('sure') },class: "btn btn-danger" %></th>
+	</tr>
+	<% end %>
 </table>
 
 <br />
 
 <% if can? :new,@course   %>
-<%= link_to t("course.new_course"), new_course_path %>
+<%= link_to t("course.new_course"), new_course_path,class: "btn btn-inverse" %>
 <% end %>
 

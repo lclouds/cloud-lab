@@ -16,16 +16,16 @@
 </tr>
   <% @users.each do |user| %>
     <tr>
-      <td><%= image_tag(user.avatar_url(:small_thumb)) if user.avatar? %></td>	
-      <td><%= link_to (user.first_name+user.last_name), user %></td>
-      <td><%= user.gender %></td>
-      <td><%= user.city %></td>
-      <td><%= user.age %></td>
-      <td><%= user.education%></td>
-      <td><%= user.email %></td>
-      <td><%= link_to t("show"), user %></td>
-      <td><%= link_to t("edit"), edit_user_path(current_user) %></td>      
-      <td><%= link_to t('destroy'), user, method: :delete, data: { confirm: t('sure') } %></td>
+      <th><%= image_tag(user.avatar_url(:small_thumb)) if user.avatar? %></th>	
+      <th><%= link_to (user.first_name+user.last_name), user %></th>
+      <th><%= user.gender %></th>
+      <th><%= user.city %></th>
+      <th><%= user.age %></th>
+      <th><%= user.education%></th>
+      <th><%= user.email %></th>
+      <th><%= link_to t("show"), user,class: "btn btn-info" %></th>
+      <th><%= link_to t("edit"), edit_user_path(current_user),class: "btn btn-warning" %></th>      
+      <th><%= link_to t('destroy'), user, method: :delete, data: { confirm: t('sure') },class: "btn btn-danger" %></th>
     </tr>
   <% end %>
 </table>
