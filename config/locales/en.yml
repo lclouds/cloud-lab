@@ -2,6 +2,7 @@ en:
   clclass:
     apply: "Apply This Class"
     list: "Course List"
+    list_all: "List All Course"
     start_date: "Starting Date"
     home: "Clclass Home"
     assignment: "Assignment"
@@ -58,6 +59,7 @@ en:
       create_time: "Create Time"
       update_time: "Update Time"
       submit_report: "Submit Report"
+      submissions: "Submissions"
       my_submissions: "My Submissions"
       all_submissions: "All Submissions"
             
@@ -106,7 +108,14 @@ en:
     _s_network: "'s Network"
     _s_endorsements: "'s Endorsements"
     leave_blank: "(leave blank if you don't want to change it)"
-
+    students: "Students"
+    search_student: "Search Student"
+    search_by_username: "Search By Username:"
+    search_by_gender: "Search By Gender"
+    search_by_city: "Search By City"
+    search_by_education: "Search By Education"   
+    search_by_email: "Search By Email"     
+    
   teachers:
     clclass: "My Classes"
     noclass: "No Classes"
@@ -195,3 +204,5 @@ en:
   edit: "Edit"
   destroy: "Destroy"
   back: "Back"
+  search: "Search"
+  reset: "Reset"

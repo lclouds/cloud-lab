@@ -2,6 +2,7 @@ zh_CN:
   clclass:
     apply: "申请班级"
     list: "课程列表"
+    list_all: "查看所有课程"
     start_date: "开课日期"
     home: "课程首页"
     assignment: "作业任务"
@@ -61,6 +62,7 @@ zh_CN:
       create_time: "建立时间"
       update_time: "修改时间"      
       submit_report: "填写报告" 
+      submissions: "作业报告"
       my_submissions: "我的报告"
       all_submissions: "所有报告"      
       
@@ -112,6 +114,13 @@ zh_CN:
     _s_network: " 的好友"
     _s_endorsements: " 的学习证明"
     leave_blank: "(如果不想更改请留空白 )"
+    students: "学生信息"
+    search_student: "查找学生"
+    search_by_username: "通过姓名查找"
+    search_by_gender: "通过性别查找"
+    search_by_city: "通过城市查找"
+    search_by_education: "通过学历查找"
+    search_by_email: "通过邮箱查找"    
     
   teacher_sessions:
     new:
@@ -202,3 +211,5 @@ zh_CN:
   edit: "编辑"
   destroy: "删除"
   back: "返回"
+  search: "查找"
+  reset: "重置"

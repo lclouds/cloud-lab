@@ -1,19 +1,22 @@
 <% provide(:title, t(".sign_in") )%>
-<h1><%=t("sign_in_teacher")%></h1>
 
 <div class="row">
-  <div class="span6 offset3">
-    <%= form_for(:teacher_session, url: teacher_sessions_path) do |f| %>
+	<div class="span6 offset3">
+		<div class="well">
+			<h1><%= t("sign_in_teacher")%></h1>
+			<hr />
+			<%= form_for(:teacher_session, url: teacher_sessions_path) do |f| %>
 
-      <%= t('teachers.email') %>
-      <%= f.text_field :email %>
+			<%= t('teachers.email') %>
+			<%= f.text_field :email, :type => "email" ,:required => true%>
 
-      <%= t('teachers.pwd') %>
-      <%= f.password_field :password %>
+			<%= t('teachers.pwd') %>
+			<%= f.password_field :password %>
 
-      <%= f.submit t("sign_in") , class: "btn btn-large btn-primary" %>
-    <% end %>
+			<%= f.submit t("sign_in") , class: "btn btn-large btn-primary" %>
+			<% end %>
 
-    <!-- <p><%= t(".new_teacher")%>? <%= link_to t(".sign_up"), teacher_signup_path %></p> -->
-  </div>
+			<!-- <p><%= t(".new_teacher")%>? <%= link_to t(".sign_up"), teacher_signup_path %></p> -->
+		</div>
+	</div>
 </div>

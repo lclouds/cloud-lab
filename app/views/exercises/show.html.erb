@@ -67,7 +67,9 @@
 		</p>
 
 		<hr />
+		<%  if can? :modify, Exercise %>
 		<%= link_to t('edit'), edit_clclass_exercise_path(@clclass,@exercise) , class: "btn btn-primary"%> |
+		<% end %>
 		<%= link_to t('back'), clclass_exercises_path , class: "btn btn-info"%>
 					</div>
 				</div>

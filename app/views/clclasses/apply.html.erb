@@ -1,10 +1,9 @@
-<h3>
-<%= t('Congratulations')%> !
-</h3>
+<div class="well">
+	<h3> <%= t('Congratulations')%> ! </h3>
 
-<h3>
-<%= t('clclass.you_applied') %> <b><%= get_currentcourse.course_name%></b> <%= t('clclass.this_course') %>!
-</h3>
-<p>
-<span class="btn btn-large btn-primary"><%= link_to t('clclass.go_to_class'), @clclass %></span>
-</p>
+	<h3> <%= t('clclass.you_applied') %> <b><%= get_currentcourse.course_name%></b> <%= t('clclass.this_course') %>! </h3>
+	<hr />
+	<p>
+		<span class="btn btn-large btn-primary"><%= link_to t('clclass.go_to_class'), @clclass %></span>
+	</p>
+</div>

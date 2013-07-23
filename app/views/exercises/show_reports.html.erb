@@ -16,23 +16,23 @@
 
 			<div class='span10'>
 				<div class='white well'>
-					<h2><%= t('clclass.report.my_submissions')%></h2>
+					<h2><%= t("clclass.report.submissions")%></h2>
 					<hr />
 					<% @reports.each do |r|%>
-					<div class="row-fluid">
-						<div class="span6">
+					<ul class="inline inline-block">
+						<li>
 							<div class="well">
 								<tr>
-									<td width="50"><%= link_to r.name, show_report_clclass_exercise_path(@clclass,@exercise,r.id) %> &nbsp;</td>
-									<hr />
+									<td><%= link_to r.name, show_report_clclass_exercise_path(@clclass,@exercise,r.id) %> &nbsp;</td>
 									<td><%= link_to "destroy", destroy_report_clclass_exercise_path(@clclass,@exercise,r.id),
 									method: :delete,
 									data: { confirm: 'Are you sure?' },class: "btn btn-warning" %></td>
 								</tr>
 							</div>
-						</div>
-					</div>
+						</li>
+					</ul>
 					<%end %>
+					<hr />
 					<td><%= link_to t('back'), clclass_exercise_path, class: "btn btn-info" %></td>
 				</div>
 			</div>

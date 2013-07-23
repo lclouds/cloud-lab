@@ -15,7 +15,9 @@
 		<%= raw @video.transcript%>
 	</p>
 	<hr />
+	<% if can? :modify, @lecture %>
 	<%= link_to t("clclass.video.edit_video"), edit_video_clclass_lecture_path(@clclass,@lecture,@video),class: "btn btn-primary"%>
 	<%= link_to t("clclass.video.dertory_video"), destroy_video_clclass_lecture_path(@clclass,@lecture,@video), method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger" %>
+	<% end %>
 	<%= link_to t('back'), clclass_lectures_path ,class: "btn btn-info"%>
 </div>

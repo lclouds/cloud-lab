@@ -2,7 +2,7 @@
 	<div class='span12' style="background-color: lavender;">
 		<div class='row-fluid tabbable tabs-left'>
 			<div class='span2 tab-span'>
-				<div class='well less-padding left-menu'>
+				<div class='well less-padding left-menu' style="background-color: lavender;">
 					<ul class='nav nav-list'>
 						<li class="active">
 							<%= link_to t("clclass.lecture.introduction"), clclass_lectures_path(@clclass)%>
@@ -23,10 +23,10 @@
 			</div>
 
 			<div class='span10'>
-				<div class='white well'>
+				<div class='well' style="background-color: lavender;">
 					<div class='tab-content'>
 						<div id="item-1" class="tab-pane active">
-							<h2>Introduction to lecture</h2>
+							<h2><%= t('clclass.lecture.introduction')%></h2>
 							<hr />
 							<div class="icon-film"></div><th>video</th>
 							<br />
@@ -49,7 +49,9 @@
 								这里是每个课程之后布置的作业
 							</p>
 							<hr />
-							<%= link_to t("clclass.lecture.new_lecture"), new_clclass_lecture_path, class: "btn"%>
+							<%  if can? :modify, Exercise %>
+							<%= link_to t("clclass.lecture.new_lecture"), new_clclass_lecture_path, class: "btn btn-inverse"%>
+							<% end %>
 						</div>
 					</div>
 				</div>

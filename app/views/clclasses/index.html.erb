@@ -1,4 +1,4 @@
-<h1><%= t("clclass.list")%></h1>
+<h2><%= t("clclass.list")%></h2>
 
 <table class="table table-condensed">
 	<tr>
@@ -22,7 +22,7 @@
 	</tr>
 	<% end %>
 </table>
-
+<%= will_paginate(@clclasses, :previous_label=>t('previous_label'), :next_label=>t('next_label'), :separator=>" | ") %>
 <br />
 
 <% if can? :new,@clclasses   %>

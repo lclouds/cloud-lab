@@ -6,7 +6,11 @@
 				<div class="span10">
 					<table>
 						<tr>
-							<td><%= image_tag(@teacher.avatar_url(:small_thumb)) if @teacher.avatar? %></td>
+							<% if @teacher.avatar? %>
+							  <td><%= image_tag(@teacher.avatar_url(:small_thumb)) %></td>
+							<% else %>
+							  <td><%= image_tag("small_default.png") %></td>
+							<% end %>
 						</tr>
 						<tr>
 							<td><i class="icon-user"></i><b><%= t("clclass.teacher")%>:</b><strong><%= link_to @teacher.first_name+@teacher.last_name, @teacher %>
@@ -43,9 +47,15 @@
 								</b>
 								<%@users.each do |u|%>
 								<table>
+									<% if u.avatar? %>
 									<tr>
-										<td><%= image_tag(u.avatar_url(:small_thumb)) if u.avatar? %></td>
+										<td><%= image_tag(u.avatar_url(:small_thumb)) %></td>
 									</tr>
+									<% else %>
+									<tr>
+										<td><%= image_tag("small_default.png") %></td>
+									</tr>
+									<% end %>	
 									<tr>
 										<td><%= link_to (u.first_name+u.last_name),u %></td>
 									</tr>
@@ -56,6 +66,8 @@
 					</div>
 				</div>
 			</div><!--end of row-fluid-->
+			<hr />
+			<h2><%= link_to t('clclass.list_all'), :clclasses, class: "btn btn-inverse" %></div></h2>
 		</div>
 	</div>
 </div>

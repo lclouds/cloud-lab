@@ -4,7 +4,11 @@
 			<div class='span3 tab-span'>
 				<div class='well less-padding left-menu' style="background-color: #F0F8FF;">
 					<table class="center">
-						<%= image_tag(@user.avatar_url(:thumb)) if @user.avatar? %>
+						<% if @user.avatar? %>
+						  <%= image_tag(@user.avatar_url(:thumb)) %>
+						<% else %>
+						  <%= image_tag("default.png")%>  
+						<% end %>
 					</table>
 					<br />
 					<ul class='nav nav-list'>
@@ -14,7 +18,7 @@
 						<li class="active">
 							<a data-toggle='tab' href='#item-1'> <i class='icon-star'></i><%= t('users.personal_profile') %></a>
 						</li>
-
+						<%  if can? :modify, @user %>
 						<li class="">
 							<a data-toggle='tab' href='#item-2'> <i class='icon-list-alt'></i><%= t('users.courses') %></a>
 						</li>
@@ -26,6 +30,7 @@
 						<li class="">
 							<a data-toggle='tab' href='#item-4'> <i class='icon-comment'></i><%= t('users.endorsements')%> </a>
 						</li>
+						<% end %>
 					</ul>
 				</div>
 			</div>
@@ -136,9 +141,6 @@
 							<hr />
 							<div class="row-fluid" >
 								<div class="span6 offset3" >
-									<% current_user.mailbox.conversations.each do |convo| %>
-									<% convo.subject %>
-									<% end %>
 								</div>
 							</div>
 						</div>

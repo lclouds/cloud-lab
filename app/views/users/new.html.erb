@@ -1,27 +1,30 @@
 <% provide(:title, 'Sign up') %>
-<h1><%= t 'sign_up'%></h1>
-
 <div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
-      
-      <%= t('users.first_name') %>
-      <%= f.text_field :first_name %>
+	<div class="span6 offset3">
+		<div class="well">
+			<h1><%= t 'sign_up'%></h1>
+			<%= form_for(@user) do |f| %>
+			<%= render 'shared/error_messages' %>
 
-      <%= t('users.last_name') %>
-      <%= f.text_field :last_name %>
-      
-      <%= t('users.email') %>
-      <%= f.text_field :email %>
+			<%= t('users.first_name') %>
+			<%= f.text_field :first_name %>
 
-      <%= t('password') %>
-      <%= f.password_field :password %>
+			<%= t('users.last_name') %>
+			<%= f.text_field :last_name %>
 
-      <%= f.label :password_confirmation, t("confirmation") %>
-      <%= f.password_field :password_confirmation %>
+			<%= t('users.email') %>
+			<br />
+			<%= f.text_field :email , :type => "email", :required => true %>
+			<br />
 
-      <%= f.submit t("create_my_account"), class: "btn btn-large btn-primary" %>
-    <% end %>
-  </div>
+			<%= t('password') %>
+			<%= f.password_field :password,:required => true %>
+
+			<%= f.label :password_confirmation, t("confirmation") %>
+			<%= f.password_field :password_confirmation, :required => true %>
+
+			<%= f.submit t("create_my_account"), class: "btn btn-large btn-primary" %>
+			<% end %>
+		</div>
+	</div>
 </div>

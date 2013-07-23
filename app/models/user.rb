@@ -48,15 +48,30 @@ class User < ActiveRecord::Base
   end
 
   def name
-    return "#{first_name} #{last_name}"
+        return "#{first_name} #{last_name}"
+#    email
   end
 
-  def mailboxer_email(object)
-    #Check if an email should be sent for that object
-    #if true
-    return "define_email@on_your.model"
+   def mailboxer_email(object)
+  #Check if an email should be sent for that object
+  #if true
+     return email
   #if false
   #return nil
+  end
+
+
+  def self.search(params)
+
+    arel = order('created_at DESC') # note: default is all, just sorted
+    arel = arel.where('first_name LIKE ? OR last_name LIKE ?', 
+                     "%#{params[:search]}%", "%#{params[:search]}%").order('created_at DESC') if params[:search].present?
+    arel = arel.where('city LIKE ?', "%#{params[:city]}%").order('created_at DESC') if params[:city].present?
+    arel = arel.where('gender LIKE ?', "%#{params[:gender]}%").order('created_at DESC') if params[:gender].present?
+    arel = arel.where('education LIKE ?', "%#{params[:education]}%").order('created_at DESC') if params[:education].present?
+    arel = arel.where('email LIKE ?', "%#{params[:email]}%").order('created_at DESC') if params[:email].present?  
+    arel
+  
   end
 
   protected

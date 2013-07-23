@@ -3,6 +3,7 @@ CloudLab::Application.routes.draw do
   resources :users do
     member do
       get :myclasses
+      get :search_user
     end
   end
   resources :courses
@@ -34,6 +35,14 @@ CloudLab::Application.routes.draw do
     end
   end
 
+  resources :conversations, only: [:index, :show, :new, :create] do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :teacher_sessions, only: [:new, :create, :destroy]
   devise_for :administrators
@@ -41,8 +50,6 @@ CloudLab::Application.routes.draw do
   # scope '(:locale)' do
   resources :teachers
   # end
-  resources :messages
-  resources :conversations
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

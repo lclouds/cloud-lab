@@ -25,6 +25,10 @@ class UsersController < ApplicationController
   def myclasse
   end
 
+  def search_user
+     @users = User.search(params)
+  end
+
   def edit
   end
 
@@ -35,7 +39,7 @@ class UsersController < ApplicationController
       sign_in @user
       redirect_to @user
     else
-      render 'edit'
+      render 'edit' 
     end
   end
 

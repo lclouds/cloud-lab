@@ -1,19 +1,23 @@
 <% provide(:title, "Sign in") %>
-<h1><%= t('users.sign_in_user')%></h1>
 
 <div class="row">
-  <div class="span6 offset3">
-    <%= form_for(:session, url: sessions_path) do |f| %>
+	<div class="span6 offset3">
+		<div class="well">
+			 <h1><%= t('users.sign_in_user')%></h1><hr />
+			<%= form_for(:session, url: sessions_path) do |f| %>
 
-      <%= t('users.email') %>
-      <%= f.text_field :email %>
+			<%= t('users.email') %>
+			<%= f.text_field :email, :type => "email", :required => true %>
 
-      <%= t('password') %>
-      <%= f.password_field :password %>
+			<%= t('password') %>
+			<%= f.password_field :password, :type => "password", :required => true %>
 
-      <%= f.submit t("sign_in"), class: "btn btn-large btn-primary" %>
-    <% end %>
+			<%= f.submit t("sign_in"), class: "btn btn-large btn-primary" %>
+			<% end %>
 
-    <p><%= t('new_user') %> <%= link_to t("sign_up"), signup_path %></p>
-  </div>
+			<p>
+				<%= t('new_user') %> <%= link_to t("sign_up"), signup_path %>
+			</p>
+		</div>
+	</div>
 </div>

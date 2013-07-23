@@ -2,11 +2,14 @@
 	<div class='span12' style="background-color: lavender;">
 		<div class='row-fluid tabbable tabs-left'>
 			<div class='span2 tab-span'>
-				<div class='well less-padding left-menu'>
+				<div class='well less-padding left-menu' style="background-color: lavender;">
 					<ul class='nav nav-list'>
-
-							<h4><%= t('clclass.lecture.content') %></h4>
-
+						<li class="nav-header">
+							<%= link_to t("clclass.lecture.introduction"), clclass_lectures_path(@clclass), class: "btn"%>
+						</li>
+						<li class="active">
+							<a><%= t('clclass.lecture.content') %></a>
+						</li>
 						<% @lectures.each do |lecture| %>
 						<ul>
 							<li class="">
@@ -20,7 +23,7 @@
 			</div>
 
 			<div class='span10'>
-				<div class='well'>
+				<div class='well' style="background-color: lavender;">
 					<p>
 						<b><%= t("clclass.lecture.name")%>:</b>
 						<%= @lecture.name %>
@@ -34,7 +37,9 @@
 						</p>
 						<% end %>
 					</div>
+					<% if can? :modify, @lecture %>
 					<%= link_to t("clclass.video.new_video"),  new_video_clclass_lecture_path,class: "btn btn-inverse" %>
+					<% end %>
 					<hr />
 					<p>
 						<b><%= t("clclass.lecture.key_concepts")%>:</b>
@@ -54,10 +59,13 @@
 							<%end%>
 						</div>
 					</p>
+					<% if can? :modify, @lecture %>
 					<%= link_to t("clclass.exercise.new_exercise"),  new_clclass_lecture_exercise_path(@clclass,@lecture),class: "btn btn-inverse" %>
+					<% end %>
 					<hr />
-
+					<% if can? :modify, @lecture %>
 					<%= link_to t('edit'), edit_clclass_lecture_path(@clclass,@lecture),class: "btn btn-warning" %> |
+					<% end %>
 					<%= link_to t('back'), clclass_lectures_path,class: "btn btn-info" %>
 				</div>
 			</div>

@@ -1,0 +1,15 @@
+<div class="well">
+	<%= form_for :conversation, url: :conversations do |f| %>
+	<%= f.label :recipients %>
+	<%= f.text_field :recipients %>
+	
+	<%= f.label :subject %>
+	<%= f.text_field :subject %>
+	
+	<%= f.label :body %>
+	<%= f.text_field :body %>
+
+	<%= f.button :submit, class: 'btn-primary' %>
+	<%= submit_tag 'Cancel', type: :reset, class: 'btn btn-danger' %>
+	<% end %>
+</div>

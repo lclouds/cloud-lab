@@ -20,6 +20,12 @@ class SessionsController < ApplicationController
     end
   end
 
+  def save_last_time
+    user = User.find_by_email(params[:session][:email].downcase)
+    user.last_time=Time.now
+    user.save
+  end
+
   def destroy
     sign_out
     redirect_to root_path
