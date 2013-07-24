@@ -2,7 +2,7 @@
 	<div class='span12' style="background-color: lavender;">
 		<div class='row-fluid tabbable tabs-left'>
 			<div class='span2 tab-span'>
-				<div class='well less-padding left-menu'>
+				<div class='well less-padding left-menu' style="background-color: lavender;">
 					<ul class='nav nav-list'>
 						<li>
 							<%= link_to t("clclass.report.my_submissions"), show_reports_clclass_exercise_path(@clclass,@exercise,"submission"),class: "btn btn-inverse" %>
@@ -15,7 +15,7 @@
 			</div>
 
 			<div class='span10'>
-				<div class='white well'>
+				<div class='well' style="background-color: lavender;">
 					<h2><%= t("clclass.report.submissions")%></h2>
 					<hr />
 					<% @reports.each do |r|%>

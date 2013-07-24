@@ -1,7 +1,9 @@
-<% provide(:title, "Edit user") %> <h2 class='hidden-accessible'><%= t('users.edit_profile')%></h2>
-<div class="row-fluid" >
+<% provide(:title, "Edit user") %> 
+<div class="row-fluid">
 	<div class="span12">
 		<div class="well" style="background-color: #F0F8FF;">
+			<h2 class='hidden-accessible'><%= t('users.edit_profile')%></h2>
+			<hr />
 			<%= form_for(@user) do |f| %>
 			<%= render 'shared/error_messages' %>
 

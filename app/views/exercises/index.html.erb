@@ -20,14 +20,14 @@
 			
 				<% @exercises.each do |exercise| %>
 				
-					<tr class="<%= cycle('list_line_odd','list_line_even')%>">
-						<th><%= link_to exercise.name, clclass_exercise_path(@clclass,exercise), class: "btn btn-inverse"%></th>
-						<th><%= truncate(strip_tags(exercise.description),:length =>20) %></th>
-						<th><%= exercise.start_date %></td>
-						<th><%= exercise.deadline %></td>
-						<th><%= link_to t('show'), clclass_exercise_path(@clclass,exercise) ,class: "btn btn-info"%></th>
-						<th><%= link_to t('edit'), edit_clclass_exercise_path(@clclass,exercise) ,class: "btn btn-warning"%></th>
-						<th><%= link_to t('destroy'), clclass_exercise_path(@clclass,exercise), method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-danger"%></th>
+					<tr>
+						<td width="10%"><%= link_to exercise.name, clclass_exercise_path(@clclass,exercise) %></td>
+						<td><%= truncate(strip_tags(exercise.description),:length =>20) %></td>
+						<td><%= exercise.start_date %></td>
+						<td><%= exercise.deadline %></td>
+						<td><%= link_to t('show'), clclass_exercise_path(@clclass,exercise) ,class: "btn btn-info"%></td>
+						<td><%= link_to t('edit'), edit_clclass_exercise_path(@clclass,exercise) ,class: "btn btn-warning"%></td>
+						<td><%= link_to t('destroy'), clclass_exercise_path(@clclass,exercise), method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-danger"%></td>
 					</tr>
 				</tbody>
 				<% end %>

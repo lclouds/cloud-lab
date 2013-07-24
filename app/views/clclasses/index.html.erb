@@ -1,30 +1,32 @@
-<h2><%= t("clclass.list")%></h2>
+<div class="well" style="background-color: #C0C0C0;">
+	<h2><%= t("clclass.list")%></h2>
 
-<table class="table table-condensed">
-	<tr>
-		<th><i class="icon-list"></i><%= t("course.full_name")%></th>
-		<th><i class="icon-user"></i><%= t("clclass.teacher")%></th>
-		<th><i class="icon-time"></i><%= t("clclass.start_date")%></th>
-		<th></th>
-		<th></th>
-		<th></th>
-	</tr>
+	<table class="table table-condensed">
+		<tr>
+			<th><i class="icon-list"></i><%= t("course.full_name")%></th>
+			<th><i class="icon-user"></i><%= t("clclass.teacher")%></th>
+			<th><i class="icon-time"></i><%= t("clclass.start_date")%></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
 
-	<% @clclasses.each do |clclass| %>
-	<% @teacher = get_teacher_by_clclass(clclass.teacher)%>
-	<tr>
-		<th width="20%"><%= link_to get_course_by_clclass(clclass.course_id).course_name, clclass ,class: "btn btn-info" %></th>
-		<th width="20%"><%= link_to @teacher.first_name+@teacher.last_name,  @teacher, class: "btn btn-inverse"%></th>
-		<th><%= clclass.starting_date %></th>
-		<th><%= link_to t("show"), clclass , class: "btn btn-inverse"%></th>
-		<th><%= if can? :modify, clclass; link_to t("edit"), edit_clclass_path(clclass),class: "btn btn-warning" end %></th>
-		<th><%= if can? :modify, clclass; link_to t("destroy"), clclass, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-danger" end %></th>
-	</tr>
+		<% @clclasses.each do |clclass| %>
+		<% @teacher = get_teacher_by_clclass(clclass.teacher)%>
+		<tr>
+			<td width="20%"><%= link_to get_course_by_clclass(clclass.course_id).course_name, clclass ,class: "btn btn-info" %></td>
+			<td width="20%"><%= link_to @teacher.first_name+@teacher.last_name,  @teacher, class: "btn btn-inverse"%></td>
+			<td><%= clclass.starting_date %></td>
+			<td><%= link_to t("show"), clclass , class: "btn btn-inverse"%></td>
+			<td><%= if can? :modify, clclass; link_to t("edit"), edit_clclass_path(clclass),class: "btn btn-warning" end %></td>
+			<td><%= if can? :modify, clclass; link_to t("destroy"), clclass, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-danger" end %></td>
+		</tr>
+		<% end %>
+	</table>
+	<%= will_paginate(@clclasses, :previous_label=>t('previous_label'), :next_label=>t('next_label'), :separator=>" | ") %>
+	<br />
+
+	<% if can? :new,@clclasses   %>
+	<%= link_to t("clclass.new_clclass"), new_clclass_path ,class: "btn btn-info"%>
 	<% end %>
-</table>
-<%= will_paginate(@clclasses, :previous_label=>t('previous_label'), :next_label=>t('next_label'), :separator=>" | ") %>
-<br />
-
-<% if can? :new,@clclasses   %>
-<%= link_to t("clclass.new_clclass"), new_clclass_path ,class: "btn btn-info"%>
-<% end %>
+</div>

@@ -125,10 +125,10 @@
 									<br />
 										<% @class_user.each do |cu|%>
 										<tr class="info">
-											<th><%= link_to get_course_by_clclass(cu.course_id).course_code ,cu%></th>
-											<th><%= get_course_by_clclass(cu.course_id).course_name %></th>
-											<th><%= cu.teacher %></th>
-											<th><%= cu.starting_date%></th>
+											<td><%= link_to get_course_by_clclass(cu.course_id).course_code ,cu%></td>
+											<td><%= get_course_by_clclass(cu.course_id).course_name %></td>
+											<td><%= cu.teacher %></td>
+											<td><%= cu.starting_date%></td>
 											<br />
 										</tr>
 										<% end %>
