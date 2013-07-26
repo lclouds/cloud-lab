@@ -1,0 +1,40 @@
+<div class="well" style="background-color: lavender;">
+	<h1>my teams</h1>
+	<table class="table table-hover">
+	<% @myteam.each do |tr| %>
+	   <div class="well-small">
+		<tr>
+			<td width="20%">
+		<% if tr.avatar? %>
+		<%= image_tag(tr.avatar_url(:thumb)) %>
+		<% else %>
+		<%= image_tag("default.png")%>
+		<% end %>
+		</td>
+		<td>
+		<i class="icon-list-alt"></i>	
+		<b>name</b>:
+		<%= tr.name %>
+		<br />	
+		<i class="icon-user"></i>		
+		<%= get_user_by_team(tr.id).count %>
+		<b>members</b>
+		<br />		
+		<i class="icon-time"></i>
+	    <b>create at:</b>
+		<%= tr.created_at%>
+		<br />
+		<i class="icon-list"></i>
+		<b>description</b>:
+		<%= tr.description %>
+		<br />
+		<%= link_to "leave team",leave_team_path(tr.id),method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger"%>
+		<br />
+		</td>
+		</tr>
+	  </div>
+	<% end %>
+	</table>
+	<hr />
+	<%= link_to 'Back', teams_path,class: "btn btn-inverse" %>
+</div>

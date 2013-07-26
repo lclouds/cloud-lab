@@ -1,0 +1,30 @@
+<div class="well-small" style="background-color: lavender;">
+	<%= form_for(@team) do |f| %>
+	<% if @team.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+		<ul>
+			<% @team.errors.full_messages.each do |msg| %>
+			<li>
+				<%= msg %>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+	<div class="row">
+      <div class="span12">
+		<%= image_tag(@team.avatar_url(:thumb)) if @team.avatar? %>
+      </div>
+    </div>
+  		<%= f.file_field :avatar ,class: "span2"%>
+		<%= f.hidden_field :avatar_cache %>
+		<%= f.label :name %>
+		<%= f.text_field :name ,class: "span2"%>
+		<%= f.label :description %>
+		<%= f.text_area :description ,:rows => 6,class: "span8"%><br />
+		<%= f.submit t("save"),class: "btn btn-large btn-primary" %>|
+		<%= link_to 'Back', teams_path,class: "btn btn-large btn-inverse" %>
+	<% end %>
+</div>

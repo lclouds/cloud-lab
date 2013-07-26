@@ -1,4 +1,5 @@
 CloudLab::Application.routes.draw do
+
   root to: 'static_pages#home'
   resources :users do
     member do
@@ -40,6 +41,15 @@ CloudLab::Application.routes.draw do
       post :reply
       post :trash
       post :untrash
+    end
+  end
+
+  resources :teams do
+    member do
+      put :join
+#      delete '/teams/:team_id', to: 'teams#leave', as: 'leave'
+      delete :leave
+      get :show_team
     end
   end
 

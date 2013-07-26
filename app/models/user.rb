@@ -16,10 +16,14 @@ class User < ActiveRecord::Base
                   :avatar,
                   :city,
                   :avatar_cache,
-                  :remove_avatar
+                  :remove_avatar,
+                  :team_id
 
   has_many :clclassuseres, dependent: :destroy
   has_many :clclass, :through=>:clclassuseres
+
+  has_many :team_relationships, dependent: :destroy
+  has_many :teams, through: :team_relationships
 
   mount_uploader :avatar, AvatarUploader
   acts_as_messageable

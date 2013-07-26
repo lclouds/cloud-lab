@@ -1,36 +1,38 @@
-<h2><%= t('clclass.current_courses')%></h2>
-<table class="table table-bordered">
-	<tr>
-		<th><i class="icon-list"></i><%= t("course.full_name") %></th>
-		<th><i class="icon-user"></i><%= t("clclass.teacher") %></th>
-		<th><i class="icon-th"></i><%= t("course.description") %></th>
-		<th><i class="icon-arrow-right"></i><%= t('course.progress') %> </th>
-		<th><i class="icon-time"></i><%= t("clclass.start_date")%></th>
-	</tr>
-	<% @class_user.each do |clclass| %>
-	<% @teacher = get_teacher_by_clclass(clclass.teacher)%>
-	<tr>
-		<th><%= link_to get_course_by_clclass(clclass.course_id).course_name, clclass ,class: "btn btn-info" %></th>
-		<th><%= link_to @teacher.first_name+@teacher.last_name, @teacher ,class: "btn btn-inverse" %></th>
-		<th width="50%"><%= truncate(strip_tags(raw clclass.class_description),:length => 40) %></th>
-		<th><%= %></th>
-		<th><%= clclass.starting_date %></th>
-	</tr>
-	<% end %>
-</table>
+<div class="well" style="background-color: #C0C0C0;">
+	<h2><%= t('clclass.current_courses')%></h2>
+	<table class="table table-hover">
+		<tr>
+			<th><i class="icon-list"></i><%= t("course.full_name") %></th>
+			<th><i class="icon-user"></i><%= t("clclass.teacher") %></th>
+			<th><i class="icon-th"></i><%= t("course.description") %></th>
+			<th><i class="icon-arrow-right"></i><%= t('course.progress') %> </th>
+			<th><i class="icon-time"></i><%= t("clclass.start_date")%></th>
+		</tr>
+		<% @class_user.each do |clclass| %>
+		<% @teacher = get_teacher_by_clclass(clclass.teacher)%>
+		<tr>
+			<td><%= link_to get_course_by_clclass(clclass.course_id).course_name, clclass ,class: "btn btn-info" %></td>
+			<td><%= link_to @teacher.first_name+@teacher.last_name, @teacher ,class: "btn btn-inverse" %></td>
+			<td widtd="50%"><%= truncate(strip_tags(raw clclass.class_description),:length => 40) %></td>
+			<td><%= %></td>
+			<td><%= clclass.starting_date %></td>
+		</tr>
+		<% end %>
+	</table>
 
-<h2><%= t('clclass.past_courses')%></h2>
-<table class="table table-condensed">
-	<tr>
-		<th><%= t("course.full_name") %></th>
-		<th><%= t("clclass.teacher") %></th>
-		<th width="60%"><%= t("course.description") %></th>
-		<th><%= t('course.progress') %> </th>
-		<th><%= t("clclass.start_date")%></th>
-	</tr>
-	<% @clclasses.each do |clclass| %>
-	<tr>
+	<h2><%= t('clclass.past_courses')%></h2>
+	<table class="table table-condensed">
+		<tr>
+			<th><%= t("course.full_name") %></th>
+			<th><%= t("clclass.teacher") %></th>
+			<th width="60%"><%= t("course.description") %></th>
+			<th><%= t('course.progress') %> </th>
+			<th><%= t("clclass.start_date")%></th>
+		</tr>
+		<% @clclasses.each do |clclass| %>
+		<tr>
 
-	</tr>
-	<% end %>
-</table>
+		</tr>
+		<% end %>
+	</table>
+</div>

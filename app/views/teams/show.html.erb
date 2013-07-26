@@ -1,0 +1,61 @@
+<div class="well-small" style="background-color: lavender;">
+	<table>
+		<hr />
+		<tr>
+			<% if @team.avatar? %>
+			<%= image_tag(@team.avatar_url(:thumb)) %>
+			<% else %>
+			<%= image_tag("default.png")%>
+			<% end %>
+		</tr>
+		<tr>
+			<i class="icon-list-alt"></i>
+			<b>Name:</b>
+			<%= @team.name %>
+			<br />
+		</tr>	
+		<tr>
+			<i class="icon-user"></i>
+			<%= @users.count %>
+			<b>members</b>
+		</tr>			
+		<br />
+		<tr>
+			<i class="icon-time"></i>
+			<b>create at:</b>
+			<%= @team.created_at%>
+		</tr>
+		<br />
+		<tr>
+			<i class="icon-list"></i>
+			<b>Description:</b>
+			<%= @team.description %>
+		</tr>
+	 <% if join_team? %>
+	   <%= render 'leave_team'%>
+	 <% else %>
+	   <%= render 'join_team'%>
+	 <% end %>
+	</table>
+    <div class="well" style="background-color: lavender;">
+      <h2>users list</h2>
+       <%@users.each do |user|%>
+								<table>
+									<% if user.avatar? %>
+									<tr>
+										<td><%= link_to image_tag(user.avatar_url(:small_thumb)),user %></td>
+									</tr>
+									<% else %>
+									<tr>
+										<td><%= link_to image_tag("small_default.png"),user %></td>
+									</tr>
+									<% end %>	
+									<tr>
+										<td><%= link_to (user.first_name+user.last_name),user %></td>
+									</tr>
+								</table>
+      <% end%>
+    </div>
+	<%= link_to 'Edit', edit_team_path(@team),class: "btn btn-warning" %> |
+	<%= link_to 'Back', teams_path,class: "btn btn-inverse" %>
+</div>

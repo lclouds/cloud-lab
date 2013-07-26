@@ -7,10 +7,10 @@
 			<%= render 'shared/error_messages' %>
 
 			<%= t('users.first_name') %>
-			<%= f.text_field :first_name %>
+			<%= f.text_field :first_name, :required => true %>
 
 			<%= t('users.last_name') %>
-			<%= f.text_field :last_name %>
+			<%= f.text_field :last_name, :required => true %>
 
 			<%= t('users.email') %>
 			<br />

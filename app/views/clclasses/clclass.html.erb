@@ -7,7 +7,7 @@
 					<table>
 						<tr>
 							<% if @teacher.avatar? %>
-							  <td><%= image_tag(@teacher.avatar_url(:small_thumb)) %></td>
+							  <td><%= link_to image_tag(@teacher.avatar_url(:small_thumb)), @teacher  %></td>
 							<% else %>
 							  <td><%= image_tag("small_default.png") %></td>
 							<% end %>
@@ -49,11 +49,11 @@
 								<table>
 									<% if u.avatar? %>
 									<tr>
-										<td><%= image_tag(u.avatar_url(:small_thumb)) %></td>
+										<td><%= link_to image_tag(u.avatar_url(:small_thumb)),u %></td>
 									</tr>
 									<% else %>
 									<tr>
-										<td><%= image_tag("small_default.png") %></td>
+										<td><%= link_to image_tag("small_default.png"),u %></td>
 									</tr>
 									<% end %>	
 									<tr>

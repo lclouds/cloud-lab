@@ -4,12 +4,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   include SessionsHelper
   check_authorization
-
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to '/error_auth', :alert => exception.message
+    flash[:success] = "CanCan::AccessDenied"
   end
   rescue_from ActiveRecord::RecordNotFound  do |exception|
     redirect_to '/error_auth', :alert => exception.message
+    flash[:success] = "ActiveRecord::RecordNotFound"
   end
 
   # rescue_from ActionController::RoutingError, :with => :render_404

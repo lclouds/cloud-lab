@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource
-  
+#  load_and_authorize_resource
+  skip_authorization_check
   before_filter :find_user,      only: [:show, :myclasse, :edit, :update, :destroy, :correct_user]
   before_filter :signed_in_user, only: [:index,:edit, :update]
   before_filter :correct_user,   only: [:edit, :update]
