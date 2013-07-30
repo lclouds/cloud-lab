@@ -18,8 +18,8 @@
 			<td width="20%"><%= link_to @teacher.first_name+@teacher.last_name,  @teacher, class: "btn btn-inverse"%></td>
 			<td><%= clclass.starting_date %></td>
 			<td><%= link_to t("show"), clclass , class: "btn btn-inverse"%></td>
-			<td><%= if can? :modify, clclass; link_to t("edit"), edit_clclass_path(clclass),class: "btn btn-warning" end %></td>
-			<td><%= if can? :modify, clclass; link_to t("destroy"), clclass, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-danger" end %></td>
+			<td><%= link_to t("edit"), edit_clclass_path(clclass),class: "btn btn-warning" %></td>
+			<td><%= clclass; link_to t("destroy"), clclass, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-danger"  %></td>
 		</tr>
 		<% end %>
 	</table>

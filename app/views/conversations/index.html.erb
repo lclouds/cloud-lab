@@ -1,7 +1,14 @@
 <div class="well">
 	<h1>Conversations</h1>
 	<h2>Inbox</h2>
-    <%= render mailbox.inbox %>
+	
+	<% if !@conversation.nil? %>
+	  <% @conversations.each do |c|%>
+	     <%= c.subject %>
+	  <% end %>
+	<% end %>
+	
+	
 	<%= link_to 'Start Conversation', :new_conversation %>
 </div>
  

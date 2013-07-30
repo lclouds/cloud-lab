@@ -1,5 +1,5 @@
 <div class="well" style="background-color: lavender;">
-	<h1>my teams</h1>
+	<h1><%= t('teams.my_teams')%></h1>
 	<table class="table table-hover">
 	<% @myteam.each do |tr| %>
 	   <div class="well-small">
@@ -13,22 +13,23 @@
 		</td>
 		<td>
 		<i class="icon-list-alt"></i>	
-		<b>name</b>:
-		<%= tr.name %>
+		<b><%= t('teams.team_name')%></b>:
+		<%= link_to tr.name,tr %>
 		<br />	
 		<i class="icon-user"></i>		
+		<b><%= t('teams.members')%></b>
 		<%= get_user_by_team(tr.id).count %>
-		<b>members</b>
 		<br />		
 		<i class="icon-time"></i>
+		<%= t('teams.create_at')%>
 	    <b>create at:</b>
 		<%= tr.created_at%>
 		<br />
 		<i class="icon-list"></i>
-		<b>description</b>:
+		<b><%= t('teams.description') %></b>:
 		<%= tr.description %>
 		<br />
-		<%= link_to "leave team",leave_team_path(tr.id),method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger"%>
+		<%= link_to t("teams.leave_team"),leave_team_path(tr),:method => :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger"%>
 		<br />
 		</td>
 		</tr>
@@ -36,5 +37,5 @@
 	<% end %>
 	</table>
 	<hr />
-	<%= link_to 'Back', teams_path,class: "btn btn-inverse" %>
+	<%= link_to t('back'), teams_path,class: "btn btn-inverse" %>
 </div>

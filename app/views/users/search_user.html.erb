@@ -62,6 +62,7 @@
 								</tr>
 								<% end %>
 							</table>
+							<%= will_paginate(@users, :previous_label=>t('previous_label'), :next_label=>t('next_label'), :separator=>" | ") %>
 							<hr>
 						</div>
 					</div>

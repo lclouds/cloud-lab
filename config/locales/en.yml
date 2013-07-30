@@ -115,6 +115,20 @@ en:
     search_by_city: "Search By City"
     search_by_education: "Search By Education"   
     search_by_email: "Search By Email"     
+  
+  teams:
+    team_list: "Team List"
+    user_list: "team members"
+    team_name: "name"
+    members: "members"
+    description: "description"
+    find_team: "find team"
+    find_team_by_name: "find team by name keywords"
+    find_team_by_description: "find team by desctiprion keywords"
+    create_at: "create at"
+    jion_team: "join team"
+    leave_team: "leave team"
+    my_teams: "my teams"
     
   teachers:
     clclass: "My Classes"

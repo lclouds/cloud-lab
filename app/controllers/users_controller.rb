@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-#  load_and_authorize_resource
-  skip_authorization_check
+  load_and_authorize_resource
+#  skip_authorization_check
   before_filter :find_user,      only: [:show, :myclasse, :edit, :update, :destroy, :correct_user]
   before_filter :signed_in_user, only: [:index,:edit, :update]
   before_filter :correct_user,   only: [:edit, :update]
@@ -22,11 +22,16 @@ class UsersController < ApplicationController
   def find_user
     @user = User.find(params[:id])
   end
+  
   def myclasse
   end
 
   def search_user
      @users = User.search(params)
+  end
+
+  def send_message(to_user)
+    current_user.send_message(to_user,"body","subject")
   end
 
   def edit

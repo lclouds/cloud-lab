@@ -52,28 +52,28 @@ class User < ActiveRecord::Base
   end
 
   def name
-        return "#{first_name} #{last_name}"
-#    email
+#        return "#{first_name} #{last_name}"
+    email
   end
 
    def mailboxer_email(object)
   #Check if an email should be sent for that object
   #if true
-     return email
+     return "#{email}"
   #if false
   #return nil
   end
-
+  
 
   def self.search(params)
 
-    arel = order('created_at DESC') # note: default is all, just sorted
+    arel = order('created_at DESC').page(params[:page]).per_page(5) # note: default is all, just sorted,.paginate(:page => params[:page], :per_page => 5)
     arel = arel.where('first_name LIKE ? OR last_name LIKE ?', 
-                     "%#{params[:search]}%", "%#{params[:search]}%").order('created_at DESC') if params[:search].present?
-    arel = arel.where('city LIKE ?', "%#{params[:city]}%").order('created_at DESC') if params[:city].present?
-    arel = arel.where('gender LIKE ?', "%#{params[:gender]}%").order('created_at DESC') if params[:gender].present?
-    arel = arel.where('education LIKE ?', "%#{params[:education]}%").order('created_at DESC') if params[:education].present?
-    arel = arel.where('email LIKE ?', "%#{params[:email]}%").order('created_at DESC') if params[:email].present?  
+                     "%#{params[:search]}%", "%#{params[:search]}%").order('created_at DESC').page(params[:page]).per_page(5) if params[:search].present?
+    arel = arel.where('city LIKE ?', "%#{params[:city]}%").order('created_at DESC').page(params[:page]).per_page(5) if params[:city].present?
+    arel = arel.where('gender LIKE ?', "%#{params[:gender]}%").order('created_at DESC').page(params[:page]).per_page(5) if params[:gender].present?
+    arel = arel.where('education LIKE ?', "%#{params[:education]}%").order('created_at DESC').page(params[:page]).per_page(5) if params[:education].present?
+    arel = arel.where('email LIKE ?', "%#{params[:email]}%").order('created_at DESC').page(params[:page]).per_page(5) if params[:email].present?  
     arel
   
   end

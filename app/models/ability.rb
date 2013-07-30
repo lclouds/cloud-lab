@@ -18,7 +18,7 @@ class Ability
       can [:index, :show], Clclass
       can :manage, Lecture
       can :manage, Exercise
-
+      can :manage, Team
     else
       user ||= User.new # guest user (not logged in)
       if user.admin?
@@ -38,6 +38,7 @@ class Ability
       can [:new, :create, :myclasses,:search_user,:join!], User
       can :manage, User,  :id => user.id
       can [:index, :show, :apply], Clclass
+      can :manage, Team
     end
 
   #

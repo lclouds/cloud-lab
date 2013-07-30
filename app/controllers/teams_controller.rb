@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
   skip_authorization_check
   include TeamsHelper
-  #  load_and_authorize_resource
+#  load_and_authorize_resource
   # GET /teams
   # GET /teams.json
   def index

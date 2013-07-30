@@ -10,25 +10,25 @@
 		</tr>
 		<tr>
 			<i class="icon-list-alt"></i>
-			<b>Name:</b>
+			<b><%= t('teams.team_name')%></b>
 			<%= @team.name %>
 			<br />
 		</tr>	
 		<tr>
 			<i class="icon-user"></i>
-			<%= @users.count %>
-			<b>members</b>
+			<b><%= t('teams.members')%>
+			<%= @users.count %></b>
 		</tr>			
 		<br />
 		<tr>
 			<i class="icon-time"></i>
-			<b>create at:</b>
+			<b><%= t('teams.create_at')%></b>
 			<%= @team.created_at%>
 		</tr>
 		<br />
 		<tr>
 			<i class="icon-list"></i>
-			<b>Description:</b>
+			<b><%= t('teams.description')%></b>
 			<%= @team.description %>
 		</tr>
 	 <% if join_team? %>
@@ -38,7 +38,7 @@
 	 <% end %>
 	</table>
     <div class="well" style="background-color: lavender;">
-      <h2>users list</h2>
+      <h2><%= t('teams.user_list')%></h2>
        <%@users.each do |user|%>
 								<table>
 									<% if user.avatar? %>
@@ -56,6 +56,6 @@
 								</table>
       <% end%>
     </div>
-	<%= link_to 'Edit', edit_team_path(@team),class: "btn btn-warning" %> |
-	<%= link_to 'Back', teams_path,class: "btn btn-inverse" %>
+	<%= link_to t('edit'), edit_team_path(@team),class: "btn btn-warning" %> |
+	<%= link_to t('back'), teams_path,class: "btn btn-inverse" %>
 </div>

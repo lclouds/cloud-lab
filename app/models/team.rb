@@ -10,13 +10,10 @@ class Team < ActiveRecord::Base
         length: { maximum: 140 },
         uniqueness: { case_sensitive: false }
 
-  default_scope order: 'teams.created_at DESC'
-
   def self.search(params)
-
-    arel = order('created_at DESC') # note: default is all, just sorted
-    arel = arel.where('name LIKE ?', "%#{params[:name]}%").order('created_at DESC') if params[:name].present?
-    arel = arel.where('description LIKE ?', "%#{params[:description]}%").order('created_at DESC') if params[:description].present?
+    arel = order('created_at DESC').page(params[:page]).per_page(5) # note: default is all, just sorted
+    arel = arel.where('name LIKE ?', "%#{params[:name]}%").order('created_at DESC').page(params[:page]).per_page(5) if params[:name].present?
+    arel = arel.where('description LIKE ?', "%#{params[:description]}%").order('created_at DESC').page(params[:page]).per_page(5) if params[:description].present?
     arel
   end
 
