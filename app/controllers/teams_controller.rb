@@ -1,7 +1,9 @@
 class TeamsController < ApplicationController
+#  skip_authorization_check :only => [:new, :create, :destroy]
+#  load_and_authorize_resource
   skip_authorization_check
   include TeamsHelper
-#  load_and_authorize_resource
+  
   # GET /teams
   # GET /teams.json
   def index
@@ -87,23 +89,23 @@ class TeamsController < ApplicationController
     if !join_team?
       @teamR = TeamRelationship.new(:user_id=>current_user.id, :team_id=>params[:id].to_i)
       @teamR.save
-      redirect_to :action => 'show_team'
+      redirect_to :action => 'show'
       flash[:success] = "Welcome you to join us!"
     else
-      redirect_to :action => 'show_team'
+      redirect_to :action => 'show'
       flash[:success] = "You have been join this team!"
     end
   end
 
   def leave
     if join_team?
-      @teamR = TeamRelationship.find(params[:team_id])
-      @teamR.destroy
+      @teamR = TeamRelationship.where(:user_id=>current_user.id, :team_id=>params[:id].to_i)
+      @teamR.destroy_all
       redirect_to :action => 'show_team'
-      flash[:success] = "team destroy!"
+      flash[:success] = "You have exited team successfully!"
     else
       redirect_to :action => 'show_team'
-      flash[:success] = "team destroy has beed destroy!"
+      flash[:success] = "Out of team failure!"
     end
 
   end

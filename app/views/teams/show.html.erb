@@ -1,5 +1,5 @@
 <div class="well-small" style="background-color: lavender;">
-	<table>
+	<table class="table">
 		<hr />
 		<tr>
 			<% if @team.avatar? %>
@@ -32,7 +32,8 @@
 			<%= @team.description %>
 		</tr>
 	 <% if join_team? %>
-	   <%= render 'leave_team'%>
+	 <br />
+	   <%= link_to t("teams.leave_team"),leave_team_path(@team),:method => :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger"%>
 	 <% else %>
 	   <%= render 'join_team'%>
 	 <% end %>
@@ -56,6 +57,7 @@
 								</table>
       <% end%>
     </div>
+    <%= link_to t('teams.my_teams'),show_team_team_path(current_user), class: "btn btn-primary"%>|
 	<%= link_to t('edit'), edit_team_path(@team),class: "btn btn-warning" %> |
 	<%= link_to t('back'), teams_path,class: "btn btn-inverse" %>
 </div>

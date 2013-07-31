@@ -7,8 +7,6 @@
 						<hr />
 						<h2><%= t('teams.find_team')%></h2>
 						<%= form_tag teams_path, :method => 'get' do %>
-						<br />
-						<br />
 						<p>
 							<b><%= t('teams.find_team_by_name')%>:</b>
 							<%= search_field_tag :name, params[:name], size: 10, placeholder: 'teamname'%>
@@ -18,7 +16,6 @@
 
 							<%= submit_tag t("search") , class: "btn btn-inverse"%>
 							<%= submit_tag t('reset'), type: :reset, class: 'btn btn-danger' %>
-
 						</p>
 						<% end %>
 					</div>
@@ -37,7 +34,7 @@
 									<% else %>
 									<%= image_tag("default.png") %>
 									<% end %> </td>
-									<td><i class="icon-list-alt"></i><b><%= t('teams.team_name') %>:</b> <%= team.name %>
+									<td><i class="icon-list-alt"></i><b><%= t('teams.team_name') %>:</b> <%= link_to team.name,team %>
 									<br />
 									<i class="icon-user"></i><b><%= t('teams.members') %></b><%= get_user_by_team(team.id).count %>
 									<br />
@@ -52,6 +49,7 @@
 								</tr>
 								<% end %>
 							</table>
+							<%= will_paginate(@teams, :previous_label=>t('previous_label'), :next_label=>t('next_label'), :separator=>" | ") %>
 						</div>
 					</div>
 				</div>
