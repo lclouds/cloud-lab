@@ -2,9 +2,9 @@ module TeamsHelper
   def join_team?
     team_id = params[:team_id]?params[:team_id]:params[:id]
     if TeamRelationship.where(:user_id=>current_user.id, :team_id=>team_id).count > 0
-       return true
+    return true
     else
-       return false
+    return false
     end
   end
 
@@ -16,4 +16,13 @@ module TeamsHelper
     end
   end
 
+  def show_my_team
+    @teamR = TeamRelationship.where(:user_id=>current_user.id)
+    @myteam = Array.new
+    if !@teamR.nil?
+      @teamR.each do |tr|
+        @myteam.push(Team.find(tr.team_id))
+      end
+    end
+  end
 end

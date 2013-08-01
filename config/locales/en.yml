@@ -200,6 +200,13 @@ en:
   password: "Password"
   password_confirmation: "Password_configmation" 
   confirmation: "Confirmation"
+  reset_password: "Reset Password"
+  send_email: "send email to reset your password"
+  send: "send email"
+  send_successfully: "Password reset email sent successfully. please login to your email to change the password follow the instruction"
+  send_expired: "Password reset has expired.Please send E-mail again"
+  login_again: "Password has been reset.Please login again!"
+  forgotten_password: "forgotten password?"
   create_my_account: "Create my account"
   sign_in_teacher: "Teachers Sign In"
   sysadmin:

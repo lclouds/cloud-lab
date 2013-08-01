@@ -209,6 +209,13 @@ zh_CN:
   password: "密码"
   password_confirmation: "确认密码" 
   confirmation: "确认密码"
+  reset_password: "重置密码"
+  send_email: "发送注册邮箱重新设置密码"
+  send: "发送"
+  send_successfully: "重置密码邮箱发送成功，请登陆你的邮箱按照说明修改密码"
+  send_expired: "密码重置已经过期，请再次发送电子邮件"
+  login_again: "密码已经重置成功，请重新登录!"
+  forgotten_password: "忘记密码?"
   create_my_account: "创建一个"
   sign_in_teacher: "教师登录"
   sysadmin:

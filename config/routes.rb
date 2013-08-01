@@ -1,5 +1,7 @@
 CloudLab::Application.routes.draw do
 
+  get "password_resets/new"
+
   root to: 'static_pages#home'
   resources :users do
     member do
@@ -47,7 +49,6 @@ CloudLab::Application.routes.draw do
   resources :teams do
     member do
       put :join
-#      delete '/teams/:team_id', to: 'teams#leave', as: 'leave'
       delete :leave
       get :show_team
     end
@@ -56,6 +57,7 @@ CloudLab::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :teacher_sessions, only: [:new, :create, :destroy]
   devise_for :administrators
+  resources :password_resets
 
   # scope '(:locale)' do
   resources :teachers

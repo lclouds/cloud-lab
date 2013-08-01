@@ -111,13 +111,7 @@ class TeamsController < ApplicationController
   end
 
   def show_team
-    @teamR = TeamRelationship.where(:user_id=>current_user.id)
-    @myteam = Array.new
-    if !@teamR.nil?
-      @teamR.each do |tr|
-        @myteam.push(Team.find(tr.team_id))
-      end
-    end
+    show_my_team
   end
 
 end
