@@ -1,5 +1,7 @@
-<h1><%= t('clclass.lecture.new_lecture')%></New></h1>
+<div class="well">
+	<h1><%= t('clclass.lecture.new_lecture')%></New></h1>
 
-<%= render 'form' %>
+	<%= render 'form' %>
 
-<%= link_to t('back'), clclass_lectures_path %>
+	<%= link_to t('back'), clclass_lectures_path,class: "btn btn-inverse" %>
+</div>

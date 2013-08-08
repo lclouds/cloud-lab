@@ -31,6 +31,7 @@ class Ability
       end
       can [:index,:show,:join,:leave,:show_team],Team
       can :read, Course
+      can :manage,Course
       can [:read,:show_video], Lecture
 #      can :manage, Lecture
       can [:reports,:new_report,:show_report,:show_reports,:destroy_report], Exercise
@@ -38,6 +39,7 @@ class Ability
       can [:new, :create, :myclasses,:search_user], User
       can :manage, User,  :id => user.id
       can [:index, :show, :apply], Clclass
+#      can :manage,Clclass
     end
 
   #

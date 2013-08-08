@@ -1,6 +1,8 @@
-<h1><%= t('course.edit_course')%></h1>
+<div class="well">
+	<h1><%= t('course.edit_course')%></h1>
 
-<%= render 'form' %>
+	<%= render 'form' %>
 
-<%= link_to t('show'), @course %> |
-<%= link_to t('back'), courses_path %>
+	<%= link_to t('show'), @course ,class: "btn btn-info"%> |
+	<%= link_to t('back'), courses_path,class: "btn btn-inverse" %>
+</div>

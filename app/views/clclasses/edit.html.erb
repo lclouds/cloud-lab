@@ -1,6 +1,8 @@
-<h1><%= t('clclass.edit_clclass')%></h1>
+<div class="well">
+	<h1><%= t('clclass.edit_clclass')%></h1>
 
-<%= render 'form' %>
+	<%= render 'form' %>
 
-<%= link_to t('show'), @clclass %> |
-<%= link_to t('back'), clclasses_path %>
+	<%= link_to t('show'), @clclass,class: "btn-info" %> |
+	<%= link_to t('back'), clclasses_path,class: "btn-inverse" %>
+</div>

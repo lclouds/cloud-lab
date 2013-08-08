@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20130801012953) do
     t.text     "team_projects"
     t.text     "evaluation"
     t.text     "statement_accomplishment"
+    t.integer  "user_id"
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
     t.integer  "course_id"
