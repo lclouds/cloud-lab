@@ -1,0 +1,34 @@
+<div class="well">
+	<p>
+		<i class="icon-book"></i>
+		<b><%= t('course.name')%>:</b>
+		<div class="well">
+			<%= @course.name %>
+		</div>
+	</p>
+
+	<p>
+		<i class="icon-star"></i>
+		<b><%= t('course.code')%>:</b>
+		<div class="well">
+			<%= @course.course_code %>
+		</div>
+	</p>
+
+	<p>
+		<i class="icon-list-alt"></i>
+		<b><%= t('course.full_name')%>:</b>
+		<div class="well">
+			<%= @course.course_name %>
+		</div>
+	</p>
+
+	<p>
+		<i class="icon-list"></i>
+		<b><%= t('course.description')%>:</b>
+		<div class="well">
+			<%= raw @course.description %>
+		</div>
+	</p>
+
+</div>

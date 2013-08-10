@@ -100,7 +100,7 @@ class TeachersController < ApplicationController
   
   def clclasses
     set_page_name('my_classes')
-     @teacher = current_user
+    @teacher = current_user
     @classes = Clclass.where(:teacher=>@teacher.id)
 
     respond_to do |format|
@@ -108,6 +108,19 @@ class TeachersController < ApplicationController
       format.json { render json: @classes }
     end
   end
+  
+  def courses
+    set_page_name('my_courses')
+    @teacher = current_user
+    @courses = Course.all #where(:name=>'1') # all #
+
+    respond_to do |format|
+      #format.html # new.html.erb
+      format.html { redirect_to courses_path  }
+      format.json { render json: @courses }
+    end
+  end
+
   
 
   # DELETE /teachers/1

@@ -13,17 +13,14 @@
 										
 									</li>
 
+									<li class="<%='active' if current_teacher_page=='my_courses'%>">
+										<%= link_to t('my_courses'), teachers_courses_path  %>
+									</li>
+
 									<li class="<%='active' if current_teacher_page=='my_classes'%>">
 										<%= link_to t('my_classes'), teachers_clclasses_path  %>
 									</li>
 
-									<li class="">
-										<a data-toggle='tab' href='#item-3'> <i class='icon-user'></i> Network </a>
-									</li>
-
-									<li class="">
-										<a data-toggle='tab' href='#item-4'> <i class='icon-comment'></i> Endorsements </a>
-									</li>
 								</ul>
 
 							</div>

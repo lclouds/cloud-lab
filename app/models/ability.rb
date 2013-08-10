@@ -14,8 +14,8 @@ class Ability
       can :manage, Teacher, :id => user.id
       can :read, :all
       can :read, Teacher
-      can :read, Course
-      can [:index, :show], Clclass
+      can :manage, Course
+      can [:new, :create,:index, :show], Clclass
       can :manage, Lecture
       can :manage, Exercise
       can :manage, Team

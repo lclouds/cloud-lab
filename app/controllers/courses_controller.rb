@@ -1,6 +1,9 @@
 class CoursesController < ApplicationController
   load_and_authorize_resource
   
+
+  layout :products_layout 
+
   # GET /courses
   # GET /courses.json
   def index
@@ -82,4 +85,10 @@ class CoursesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private 
+    def products_layout 
+      is_teacher? ? "teachers" : "application" 
+    end 
+
 end
