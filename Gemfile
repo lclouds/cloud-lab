@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'http://ruby.taobao.org/'
 
 gem 'rails', '3.2.13'
 gem 'bootstrap-sass', '2.0.4'
@@ -13,7 +13,7 @@ gem 'bootstrap-will_paginate', '0.0.6'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 #file-image-upload
 gem 'carrierwave'  
-gem 'mini_magick'
+gem 'mini_magick', '3.5.0'
 
 #tools-date
 # gem 'calendar_date_select', :git => 'http://github.com/paneq/calendar_date_select.git'
@@ -64,5 +64,5 @@ end
 
 gem 'execjs'
 gem 'devise'
-gem 'therubyracer'
+gem 'therubyracer', '~> 0.11.4', platforms: :ruby
 
